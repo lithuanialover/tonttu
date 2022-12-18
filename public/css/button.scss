@@ -1,0 +1,71 @@
+// 会員登録
+.register{
+    margin: 0 30px;
+
+    a{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+        padding: 1em 2em;
+        width: 120px;
+        color: #333;
+        font-size: 18px;
+        font-weight: 700;
+        background-color: #FE9FBF;
+        box-shadow: 0 5px 0 #643d4a;
+        transition: 0.3s;
+        border-radius: 15px;
+    }
+
+    a::after {
+        content: '';
+        width: 5px;
+        height: 5px;
+        border-top: 3px solid #333333;
+        border-right: 3px solid #333333;
+        transform: rotate(45deg);
+    }
+
+    a:hover {
+        transform: translateY(3px);
+        text-decoration: none;
+        box-shadow: 0 2px 0 #aaaaaa;
+    }
+}
+
+// ログイン
+.login{
+    margin: 0 30px;
+
+    a{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+        padding: 1em 2em;
+        width: 120px;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 700;
+        background-color: #2D79D6;
+        box-shadow: 0 5px 0 #203855;
+        transition: 0.3s;
+        border-radius: 15px;
+    }
+
+    a::after {
+        content: '';
+        width: 5px;
+        height: 5px;
+        border-top: 3px solid #333333;
+        border-right: 3px solid #333333;
+        transform: rotate(45deg);
+    }
+
+    a:hover {
+        transform: translateY(3px);
+        text-decoration: none;
+        box-shadow: 0 2px 0 #aaaaaa;
+    }
+}

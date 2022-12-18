@@ -1,0 +1,143 @@
+@charset "UTF-8";
+.demo {
+  height: 800px;
+}
+
+/**
+*
+*LPの共通CSS
+*lp-ttl:見出し
+*cnt-mg-top: headerhのeight 70pxに合わせた各cntのmargin-top
+*cnt-top: 各要素のmargin-top
+*/
+a {
+  text-decoration: none;
+}
+
+.flex {
+  display: flex;
+}
+
+.cnt-position {
+  display: flex;
+  justify-content: center;
+}
+
+.cnt-width {
+  width: 900px;
+}
+
+.cnt-mg-top {
+  margin-top: 70px;
+}
+
+.cnt-top {
+  margin-top: 70px;
+}
+
+.cnt-btm {
+  margin-bottom: 70px;
+}
+
+.lp-ttl {
+  color: #800000;
+  font-size: 40px;
+}
+
+.lp-btn-position {
+  justify-content: center;
+}
+
+.header {
+  position: absolute;
+  justify-content: space-between;
+  position: fixed; /* ヘッダーを固定する */
+  align-items: center;
+  z-index: 9999;
+  height: 60px;
+  padding: 5px 0;
+}
+.header .logo {
+  align-items: center;
+}
+.header .logo .logo-img {
+  height: 50px;
+  padding-right: 10px;
+}
+.header .logo .logo-p {
+  color: #800000;
+  font-weight: bold;
+  font-size: 25px;
+}
+.header nav ul {
+  text-align: center;
+}
+.header nav ul li {
+  padding-right: 10px;
+}
+.header nav ul li:last-child {
+  padding-right: 0;
+}
+.header nav ul li a {
+  padding: 5px;
+  border-radius: 5px;
+  color: #800000;
+  font-weight: bold;
+}
+.header nav ul li a:hover {
+  color: #4d5156;
+}
+
+header.change-color {
+  background-color: rgba(255, 204, 159, 0.4509803922);
+  transition: 0.3s;
+  width: 100%;
+  height: 70px;
+  position: fixed;
+}
+
+footer {
+  background-color: rgba(154, 124, 98, 0.7843137255);
+  text-align: center;
+  color: #fff;
+  padding: 10px 0;
+}
+
+.firstview {
+  background-image: url(/img/lp/bg.jpg);
+  background-size: cover;
+  min-height: 700px;
+  width: 100%;
+  opacity: 70%;
+}
+.firstview p {
+  text-align: center;
+  padding-top: 200px;
+  font-size: 40px;
+  color: #800000;
+}
+.firstview p span {
+  font-weight: bold;
+}
+
+#message .message-img {
+  width: 250px;
+}
+#message .message-txt {
+  padding: 30px;
+  width: 100%;
+}
+#message .message-txt .logo {
+  color: #800000;
+  font-size: 45px;
+  font-weight: bold;
+}
+#message .message-txt p {
+  font-size: 20px;
+  color: #4d5156;
+  line-height: 2em;
+}
+
+#parent {
+  background-color: rgba(170, 142, 238, 0.2588235294);
+}/*# sourceMappingURL=app.css.map */

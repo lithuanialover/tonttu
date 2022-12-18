@@ -1,0 +1,170 @@
+.demo{
+    height: 800px;
+}
+// Common
+/**
+*
+*LPの共通CSS
+*lp-ttl:見出し
+*cnt-mg-top: headerhのeight 70pxに合わせた各cntのmargin-top
+*cnt-top: 各要素のmargin-top
+*/
+body{
+    // line-height: 0.5em
+}
+a{
+    text-decoration: none;
+}
+
+.flex{
+    display: flex;
+}
+
+.cnt-position{//【配置の共通化】一番上のdivにつける
+    display: flex;
+    justify-content: center;
+}
+
+.cnt-width{//【配置の共通化】.cnt-positionのdivの下に作ったdivにこのcssを書く
+    width: 900px;
+}
+
+.cnt-mg-top{
+    margin-top: 70px;
+}
+
+.cnt-top{
+    margin-top: 70px;
+}
+.cnt-btm{
+    margin-bottom: 70px;
+}
+
+.lp-ttl{
+    color: #800000;
+    font-size: 40px;
+}
+
+.lp-btn-position{
+    justify-content: center;
+}
+
+// Header
+.header{
+    position: absolute;
+    justify-content: space-between;
+    position: fixed; /* ヘッダーを固定する */
+    align-items: center;
+    z-index: 9999;
+    height: 60px;
+    padding: 5px 0;
+
+    .logo{
+        align-items: center;
+
+        .logo-img{
+            height: 50px;
+            padding-right: 10px;
+        }
+
+        .logo-p{
+            color: #800000;
+            font-weight: bold;
+            font-size: 25px;
+        }
+    }
+
+    nav{
+        ul{
+            text-align: center;
+
+            li{
+                padding-right: 10px;
+            }
+
+            li:last-child{
+                padding-right: 0;
+            }
+
+            li a{
+                padding: 5px;
+                border-radius: 5px;
+                color: #800000;
+                font-weight: bold;
+            }
+
+            li a:hover{
+                color: #4d5156;
+            }
+        }
+    }
+}
+
+// Header スクールして背景色変更
+header.change-color {
+    background-color: #ffcc9f73;
+    transition: 0.3s;
+    width: 100%;
+    height: 70px;
+    position: fixed;
+}
+
+// Footer
+footer{
+    background-color: #9a7c62c8;
+    text-align: center;
+    color: #fff;
+    padding: 10px 0;
+}
+
+// First View
+.firstview{
+    background-image: url(/img/lp/bg.jpg);
+    background-size: cover;
+    min-height: 700px;
+    width: 100%;
+    opacity: 70%;
+
+    p{
+        text-align: center;
+        padding-top: 200px;
+        font-size: 40px;
+        color: #800000;
+
+        span{
+            font-weight: bold;
+        }
+    }
+}
+
+// Message
+#message{
+
+    .message-img{
+        width: 250px;
+    }
+
+    .message-txt{
+        padding: 30px;
+        width: 100%;
+
+        .logo{
+            color: #800000;
+            font-size: 45px;
+            font-weight: bold;
+        }
+
+        p{
+            font-size: 20px;
+            color: #4d5156;
+            line-height: 2em;
+        }
+    }
+}
+
+// Parent
+#parent{
+    background-color: #aa8eee42;
+}
+
+
