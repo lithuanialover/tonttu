@@ -26,10 +26,10 @@
         </div>
         <div class="flex lp-btn-position">
             <div class="register">
-                <a href="">会員登録</a>
+                <a href="{{ route('register') }}">会員登録</a>
             </div>
             <div class="login">
-                <a href="">ログイン</a>
+                <a href="{{ route('login') }}">ログイン</a>
             </div>
         </div>
     </div>
@@ -42,10 +42,10 @@
         </div>
         <div class="flex lp-btn-position">
             <div class="register">
-                <a href="">会員登録</a>
+                <a href="{{ route('admin.register') }}">会員登録</a>
             </div>
             <div class="login">
-                <a href="">ログイン</a>
+                <a href="{{ route('admin.login') }}">ログイン</a>
             </div>
         </div>
     </div>

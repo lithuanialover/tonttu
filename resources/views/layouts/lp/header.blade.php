@@ -8,8 +8,8 @@
         </div>
         <nav>
             <ul class="flex">
-                <li><a href="">会員登録</a></li>
-                <li><a href="">ログイン</a></li>
+                <li><a href="{{ route('register') }}">会員登録</a></li>
+                <li><a href="{{ route('login') }}">ログイン</a></li>
             </ul>
         </nav>
     </div>
