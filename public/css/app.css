@@ -48,6 +48,18 @@ a {
   justify-content: center;
 }
 
+.user-header {
+  background-color: #FBF0F6;
+  width: 100%;
+  height: 70px;
+}
+
+.admin-header {
+  background-color: rgba(45, 121, 214, 0.37);
+  width: 100%;
+  height: 70px;
+}
+
 .header {
   position: absolute;
   justify-content: space-between;

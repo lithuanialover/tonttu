@@ -7,7 +7,7 @@
 </head>
 
 <body class="container">
-    @component('layouts.admin.header')
+    @component('layouts.user.header')
     @endcomponent
     <main class="main">
         @yield('main')

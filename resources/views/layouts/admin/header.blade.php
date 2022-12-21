@@ -1,4 +1,4 @@
-<header class="cnt-position user-header">
+<header class="cnt-position admin-header">
     <div class="header cnt-width flex">
         <div>
             <a href="" class="flex logo">
@@ -8,8 +8,8 @@
         </div>
         <nav>
             <ul class="flex">
-                <li><a href="{{ route('register') }}">会員登録</a></li>
-                <li><a href="{{ route('login') }}">ログイン</a></li>
+                <li><a href="{{ route('admin.register') }}">会員登録</a></li>
+                <li><a href="{{ route('admin.login') }}">ログイン</a></li>
             </ul>
         </nav>
     </div>

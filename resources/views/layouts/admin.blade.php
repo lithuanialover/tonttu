@@ -1,4 +1,23 @@
 <!DOCTYPE html>
+    <html lang="ja">
+
+    <head>
+        @component('layouts.head')
+        @endcomponent
+    </head>
+
+    <body class="container">
+        <div>
+            @include('layouts.admin_navigation')
+            <main class="main">
+                @yield('main')
+            </main>
+        </div>
+    </body>
+</html>
+
+
+{{-- <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -32,4 +51,4 @@
             </main>
         </div>
     </body>
-</html>
+</html> --}}
