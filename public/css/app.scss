@@ -1,14 +1,19 @@
-.demo{
-    height: 800px;
-}
+$pc:  "only screen and (min-width: 1200px)";
+$tablet:  "only screen and (min-width:479px) and (max-width:768px)"; //iPad Mini
+$smartphone:  "only screen and (max-width:479px)";
+
 // Common
 /**
 *
 *LPの共通CSS
 *lp-ttl:見出し
-*cnt-mg-top: headerhのeight 70pxに合わせた各cntのmargin-top
+*cnt-mg-top: headerのeight 70pxに合わせた各cntのmargin-top
 *cnt-top: 各要素のmargin-top
 */
+
+body{
+    font-family: "UD デジタル 教科書体 N-R";
+}
 a{
     text-decoration: none;
 }
@@ -22,41 +27,22 @@ a{
     justify-content: center;
 }
 
-.cnt-width{//【配置の共通化】.cnt-positionのdivの下に作ったdivにこのcssを書く
-    width: 900px;
-}
-
-.cnt-mg-top{
-    margin-top: 70px;
-}
-
-.cnt-top{
-    margin-top: 70px;
-}
-.cnt-btm{
-    margin-bottom: 70px;
-}
-
 .lp-ttl{
     color: #800000;
-    font-size: 40px;
 }
 
-.lp-btn-position{
-    justify-content: center;
+.attention-color{
+    color: #C25338;
 }
-
 // Header
 .user-header{
     background-color: #FBF0F6;
     width: 100%;
-    height: 70px;
 }
 
 .admin-header{
     background-color: rgb(45 121 214 / 37%);
     width: 100%;
-    height: 70px;
 }
 
 .header{
@@ -65,8 +51,6 @@ a{
     position: fixed; /* ヘッダーを固定する */
     align-items: center;
     z-index: 9999;
-    height: 60px;
-    padding: 5px 0;
 
     .logo{
         align-items: center;
@@ -109,71 +93,479 @@ a{
     }
 }
 
-// Header スクールして背景色変更
-header.change-color {
-    background-color: #ffcc9f73;
-    transition: 0.3s;
-    width: 100%;
-    height: 70px;
-    position: fixed;
-}
-
 // Footer
-footer{
+.footer{
+    position:absolute;
+    bottom: 0;
+    width: 100%;
     background-color: #9a7c62c8;
     text-align: center;
     color: #fff;
     padding: 10px 0;
 }
 
-// First View
-.firstview{
-    background-image: url(/img/lp/bg.jpg);
-    background-size: cover;
-    min-height: 700px;
+.lp-footer{
+    position:absolute;
     width: 100%;
-    opacity: 70%;
-
-    p{
-        text-align: center;
-        padding-top: 200px;
-        font-size: 40px;
-        color: #800000;
-
-        span{
-            font-weight: bold;
-        }
-    }
+    background-color: #9a7c62c8;
+    text-align: center;
+    color: #fff;
+    padding: 10px 0;
 }
 
-// Message
-#message{
-
-    .message-img{
-        width: 250px;
-    }
-
-    .message-txt{
-        padding: 30px;
-        width: 100%;
-
-        .logo{
-            color: #800000;
-            font-size: 45px;
-            font-weight: bold;
-        }
-
-        p{
-            font-size: 20px;
-            color: #4d5156;
-            line-height: 2em;
-        }
-    }
-}
-
+/* LP */
 // Parent
 #parent{
     background-color: #aa8eee42;
 }
 
+// Live Clock
+.clock{
+    margin-bottom: 30px;
 
+    #Date{
+        text-align: center;
+        font-size: 40px;
+        margin-bottom: 30px;
+    }
+
+    ul{
+        justify-content: center;
+        align-items: center;
+
+        li{
+            list-style-type: none;
+        }
+    }
+
+    #hours,
+    #min{
+        font-size: 120px;
+    }
+
+    #point{
+        font-size: 60px;
+    }
+}
+
+//auth-form
+.auth-flame{
+    margin-top: 100px;
+
+    p{
+        font-size: 24px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .auth-form{
+        margin: 0 auto;
+        width: 400px;
+
+        form{
+            width: 100%;
+        }
+    }
+
+    .auth-input{
+        flex-direction: column
+    }
+
+    .auth-submit{
+        flex-direction: column;
+
+        .pw-reset{
+            display: block;
+            text-align: center;
+        }
+    }
+
+    .remember-me{
+        margin-bottom: 20px;
+    }
+
+    .input-css{
+        margin: 10px 0;
+        padding:10px;
+        border:0;
+        border-radius:10px;
+        border: 2px solid rgb(206, 205, 205);
+        box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    }
+}
+
+//table
+.table{
+    margin-bottom: 40px;
+
+    table{
+        width: 100%;
+    }
+
+    tr{
+        border: 2px solid #80000074;
+    }
+
+    th,
+    td{
+        border: 1.5px solid #8000003f;
+    }
+
+    th{
+        text-align: center;
+    }
+
+    td{
+        text-align:left;
+    }
+
+    li{
+        list-style: none;
+        text-align: center;
+    }
+
+    .td-status,
+    .td-time{
+        width: 45%;
+    }
+
+    .td-checkbox{
+        width: 10%;
+        transform: scale(2);
+        margin-right: 11px;
+    }
+}
+
+.table-attention-txt{
+    margin-bottom: 30px;
+}
+
+// 会員　リスト
+.table-student{
+    width: 50%;
+}
+
+.table-qr{
+    width: 30%;
+}
+
+.table-btn{
+    width: 20%;
+}
+
+.table-btn-position{
+    justify-content: center
+}
+
+.lists-btn-position{
+    justify-content: center;
+}
+
+.lists-img{
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    margin-right: 20px;
+}
+
+@media #{$pc} {
+    .cnt-width{//【配置の共通化】.cnt-positionのdivの下に作ったdivにこのcssを書く
+        width: 900px;
+    }
+
+    .cnt-mg-top{
+        margin-top: 70px;
+    }
+
+    .cnt-top{
+        margin-top: 70px;
+    }
+    .cnt-btm{
+        margin-bottom: 70px;
+    }
+
+    .lp-ttl{
+        font-size: 40px;
+    }
+
+    .lp-btn-position{
+        justify-content: center;
+    }
+
+    // Header
+    .user-header{
+        height: 70px;
+    }
+
+    .admin-header{
+        height: 70px;
+    }
+
+    .header{
+        height: 60px;
+        padding: 5px 0;
+    }
+
+    // Header スクールして背景色変更
+    header.change-color {
+        background-color: #ffcc9f73;
+        transition: 0.3s;
+        width: 100%;
+        height: 70px;
+        position: fixed;
+    }
+
+    // First View
+    .firstview{
+        background-image: url(/img/lp/bg.jpg);
+        background-size: cover;
+        min-height: 700px;
+        width: 100%;
+        opacity: 70%;
+
+        p{
+            text-align: center;
+            padding-top: 200px;
+            font-size: 40px;
+            color: #800000;
+
+            span{
+                font-weight: bold;
+            }
+        }
+    }
+
+    // Message
+    #message{
+
+        .message-img{
+            width: 250px;
+        }
+
+        .message-txt{
+            padding: 30px;
+            width: 100%;
+
+            .logo{
+                color: #800000;
+                font-size: 45px;
+                font-weight: bold;
+            }
+
+            p{
+                font-size: 20px;
+                color: #4d5156;
+                line-height: 2em;
+            }
+        }
+    }
+
+    // live clock
+
+    /*table*/
+    .table{
+
+        table{
+
+            th,
+            td{
+                font-size: 20px;
+                padding: 10px 5px;
+            }
+        }
+    }
+
+    .table-btn-position{
+        justify-content: flex-end;
+
+        .login{
+            margin: 0;
+        }
+    }
+}
+
+@media #{$tablet} {//縦画面
+
+    .cnt-width{//【配置の共通化】.cnt-positionのdivの下に作ったdivにこのcssを書く
+        width: 80%;
+    }
+
+    .cnt-mg-top{
+        margin-top: 50px;
+    }
+
+    .cnt-top{
+        margin-top: 50px;
+    }
+    .cnt-btm{
+        margin-bottom: 50px;
+    }
+
+    .lp-ttl{
+        font-size: 30px;
+    }
+
+    .lp-btn-position{
+        justify-content: center;
+    }
+
+    .footer{
+        position:absolute;
+        bottom: 0;
+    }
+
+    // Header
+    .user-header{
+        height: 60px;
+    }
+
+    .admin-header{
+        height: 60px;
+    }
+
+    .header{
+        height: 60px;
+        padding: 5px 0;
+    }
+
+    // Header スクールして背景色変更
+    header.change-color {
+        background-color: #ffcc9f73;
+        transition: 0.3s;
+        width: 100%;
+        height: 60px;
+        position: fixed;
+    }
+
+    // First View
+    .firstview{
+        background-image: url(/img/lp/bg.jpg);
+        background-size: cover;
+        min-height: 700px;
+        width: 100%;
+        opacity: 70%;
+
+        p{
+            text-align: center;
+            padding-top: 200px;
+            font-size: 30px;
+            color: #800000;
+
+            span{
+                font-weight: bold;
+            }
+        }
+    }
+
+    // Message
+    #message{
+
+        .message-img{
+            width: 80px;
+        }
+
+        .message-txt{
+            padding: 30px;
+            width: 100%;
+
+            .logo{
+                color: #800000;
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            p{
+                font-size: 20px;
+                color: #4d5156;
+                line-height: 2em;
+            }
+        }
+    }
+
+    // Table
+    .table{
+
+        table{
+
+            th,
+            td{
+                font-size: 18px;
+                padding: 5px 0;
+            }
+        }
+    }
+}
+
+
+@media #{$smartphone} {//縦画面
+    .cnt-width{//【配置の共通化】.cnt-positionのdivの下に作ったdivにこのcssを書く
+        width: 80%;
+    }
+
+    .cnt-mg-top{
+        margin-top: 70px;
+    }
+
+    .cnt-top{
+        margin-top: 70px;
+    }
+    .cnt-btm{
+        margin-bottom: 70px;
+    }
+
+    .lp-ttl{
+        font-size: 40px;
+    }
+
+    .lp-btn-position{
+        justify-content: center;
+    }
+
+    .footer{
+        position:absolute;
+        bottom: 0;
+    }
+
+    // Header
+    .user-header{
+        height: 60px;
+    }
+
+    .admin-header{
+        height: 60px;
+    }
+
+    .header{
+        height: 60px;
+        padding: 5px 0;
+    }
+
+    // Header スクールして背景色変更
+    header.change-color {
+        background-color: #ffcc9f73;
+        transition: 0.3s;
+        width: 100%;
+        height: 60px;
+        position: fixed;
+    }
+
+    // First View
+    .firstview{
+        background-image: url(/img/lp/bg.jpg);
+        background-size: cover;
+        min-height: 700px;
+        width: 100%;
+        opacity: 70%;
+
+        p{
+            text-align: center;
+            padding-top: 200px;
+            font-size: 40px;
+            color: #800000;
+
+            span{
+                font-weight: bold;
+            }
+        }
+    }
+}

@@ -1,15 +1,15 @@
 @charset "UTF-8";
-.demo {
-  height: 800px;
-}
-
 /**
 *
 *LPの共通CSS
 *lp-ttl:見出し
-*cnt-mg-top: headerhのeight 70pxに合わせた各cntのmargin-top
+*cnt-mg-top: headerのeight 70pxに合わせた各cntのmargin-top
 *cnt-top: 各要素のmargin-top
 */
+body {
+  font-family: "UD デジタル 教科書体 N-R";
+}
+
 a {
   text-decoration: none;
 }
@@ -23,41 +23,22 @@ a {
   justify-content: center;
 }
 
-.cnt-width {
-  width: 900px;
-}
-
-.cnt-mg-top {
-  margin-top: 70px;
-}
-
-.cnt-top {
-  margin-top: 70px;
-}
-
-.cnt-btm {
-  margin-bottom: 70px;
-}
-
 .lp-ttl {
   color: #800000;
-  font-size: 40px;
 }
 
-.lp-btn-position {
-  justify-content: center;
+.attention-color {
+  color: #C25338;
 }
 
 .user-header {
   background-color: #FBF0F6;
   width: 100%;
-  height: 70px;
 }
 
 .admin-header {
   background-color: rgba(45, 121, 214, 0.37);
   width: 100%;
-  height: 70px;
 }
 
 .header {
@@ -66,8 +47,6 @@ a {
   position: fixed; /* ヘッダーを固定する */
   align-items: center;
   z-index: 9999;
-  height: 60px;
-  padding: 5px 0;
 }
 .header .logo {
   align-items: center;
@@ -100,56 +79,369 @@ a {
   color: #4d5156;
 }
 
-header.change-color {
-  background-color: rgba(255, 204, 159, 0.4509803922);
-  transition: 0.3s;
+.footer {
+  position: absolute;
+  bottom: 0;
   width: 100%;
-  height: 70px;
-  position: fixed;
-}
-
-footer {
   background-color: rgba(154, 124, 98, 0.7843137255);
   text-align: center;
   color: #fff;
   padding: 10px 0;
 }
 
-.firstview {
-  background-image: url(/img/lp/bg.jpg);
-  background-size: cover;
-  min-height: 700px;
+.lp-footer {
+  position: absolute;
   width: 100%;
-  opacity: 70%;
-}
-.firstview p {
+  background-color: rgba(154, 124, 98, 0.7843137255);
   text-align: center;
-  padding-top: 200px;
-  font-size: 40px;
-  color: #800000;
-}
-.firstview p span {
-  font-weight: bold;
+  color: #fff;
+  padding: 10px 0;
 }
 
-#message .message-img {
-  width: 250px;
-}
-#message .message-txt {
-  padding: 30px;
-  width: 100%;
-}
-#message .message-txt .logo {
-  color: #800000;
-  font-size: 45px;
-  font-weight: bold;
-}
-#message .message-txt p {
-  font-size: 20px;
-  color: #4d5156;
-  line-height: 2em;
-}
-
+/* LP */
 #parent {
   background-color: rgba(170, 142, 238, 0.2588235294);
+}
+
+.clock {
+  margin-bottom: 30px;
+}
+.clock #Date {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+.clock ul {
+  justify-content: center;
+  align-items: center;
+}
+.clock ul li {
+  list-style-type: none;
+}
+.clock #hours,
+.clock #min {
+  font-size: 120px;
+}
+.clock #point {
+  font-size: 60px;
+}
+
+.auth-flame {
+  margin-top: 100px;
+}
+.auth-flame p {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.auth-flame .auth-form {
+  margin: 0 auto;
+  width: 400px;
+}
+.auth-flame .auth-form form {
+  width: 100%;
+}
+.auth-flame .auth-input {
+  flex-direction: column;
+}
+.auth-flame .auth-submit {
+  flex-direction: column;
+}
+.auth-flame .auth-submit .pw-reset {
+  display: block;
+  text-align: center;
+}
+.auth-flame .remember-me {
+  margin-bottom: 20px;
+}
+.auth-flame .input-css {
+  margin: 10px 0;
+  padding: 10px;
+  border: 0;
+  border-radius: 10px;
+  border: 2px solid rgb(206, 205, 205);
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+}
+
+.table {
+  margin-bottom: 40px;
+}
+.table table {
+  width: 100%;
+}
+.table tr {
+  border: 2px solid rgba(128, 0, 0, 0.4549019608);
+}
+.table th,
+.table td {
+  border: 1.5px solid rgba(128, 0, 0, 0.2470588235);
+}
+.table th {
+  text-align: center;
+}
+.table td {
+  text-align: left;
+}
+.table li {
+  list-style: none;
+  text-align: center;
+}
+.table .td-status,
+.table .td-time {
+  width: 45%;
+}
+.table .td-checkbox {
+  width: 10%;
+  transform: scale(2);
+  margin-right: 11px;
+}
+
+.table-attention-txt {
+  margin-bottom: 30px;
+}
+
+.table-student {
+  width: 50%;
+}
+
+.table-qr {
+  width: 30%;
+}
+
+.table-btn {
+  width: 20%;
+}
+
+.table-btn-position {
+  justify-content: center;
+}
+
+.lists-btn-position {
+  justify-content: center;
+}
+
+.lists-img {
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  margin-right: 20px;
+}
+
+@media only screen and (min-width: 1200px) {
+  .cnt-width {
+    width: 900px;
+  }
+  .cnt-mg-top {
+    margin-top: 70px;
+  }
+  .cnt-top {
+    margin-top: 70px;
+  }
+  .cnt-btm {
+    margin-bottom: 70px;
+  }
+  .lp-ttl {
+    font-size: 40px;
+  }
+  .lp-btn-position {
+    justify-content: center;
+  }
+  .user-header {
+    height: 70px;
+  }
+  .admin-header {
+    height: 70px;
+  }
+  .header {
+    height: 60px;
+    padding: 5px 0;
+  }
+  header.change-color {
+    background-color: rgba(255, 204, 159, 0.4509803922);
+    transition: 0.3s;
+    width: 100%;
+    height: 70px;
+    position: fixed;
+  }
+  .firstview {
+    background-image: url(/img/lp/bg.jpg);
+    background-size: cover;
+    min-height: 700px;
+    width: 100%;
+    opacity: 70%;
+  }
+  .firstview p {
+    text-align: center;
+    padding-top: 200px;
+    font-size: 40px;
+    color: #800000;
+  }
+  .firstview p span {
+    font-weight: bold;
+  }
+  #message .message-img {
+    width: 250px;
+  }
+  #message .message-txt {
+    padding: 30px;
+    width: 100%;
+  }
+  #message .message-txt .logo {
+    color: #800000;
+    font-size: 45px;
+    font-weight: bold;
+  }
+  #message .message-txt p {
+    font-size: 20px;
+    color: #4d5156;
+    line-height: 2em;
+  }
+  /*table*/
+  .table table th,
+.table table td {
+    font-size: 20px;
+    padding: 10px 5px;
+  }
+  .table-btn-position {
+    justify-content: flex-end;
+  }
+  .table-btn-position .login {
+    margin: 0;
+  }
+}
+@media only screen and (min-width:479px) and (max-width:768px) {
+  .cnt-width {
+    width: 80%;
+  }
+  .cnt-mg-top {
+    margin-top: 50px;
+  }
+  .cnt-top {
+    margin-top: 50px;
+  }
+  .cnt-btm {
+    margin-bottom: 50px;
+  }
+  .lp-ttl {
+    font-size: 30px;
+  }
+  .lp-btn-position {
+    justify-content: center;
+  }
+  .footer {
+    position: absolute;
+    bottom: 0;
+  }
+  .user-header {
+    height: 60px;
+  }
+  .admin-header {
+    height: 60px;
+  }
+  .header {
+    height: 60px;
+    padding: 5px 0;
+  }
+  header.change-color {
+    background-color: rgba(255, 204, 159, 0.4509803922);
+    transition: 0.3s;
+    width: 100%;
+    height: 60px;
+    position: fixed;
+  }
+  .firstview {
+    background-image: url(/img/lp/bg.jpg);
+    background-size: cover;
+    min-height: 700px;
+    width: 100%;
+    opacity: 70%;
+  }
+  .firstview p {
+    text-align: center;
+    padding-top: 200px;
+    font-size: 30px;
+    color: #800000;
+  }
+  .firstview p span {
+    font-weight: bold;
+  }
+  #message .message-img {
+    width: 80px;
+  }
+  #message .message-txt {
+    padding: 30px;
+    width: 100%;
+  }
+  #message .message-txt .logo {
+    color: #800000;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  #message .message-txt p {
+    font-size: 20px;
+    color: #4d5156;
+    line-height: 2em;
+  }
+  .table table th,
+.table table td {
+    font-size: 18px;
+    padding: 5px 0;
+  }
+}
+@media only screen and (max-width:479px) {
+  .cnt-width {
+    width: 80%;
+  }
+  .cnt-mg-top {
+    margin-top: 70px;
+  }
+  .cnt-top {
+    margin-top: 70px;
+  }
+  .cnt-btm {
+    margin-bottom: 70px;
+  }
+  .lp-ttl {
+    font-size: 40px;
+  }
+  .lp-btn-position {
+    justify-content: center;
+  }
+  .footer {
+    position: absolute;
+    bottom: 0;
+  }
+  .user-header {
+    height: 60px;
+  }
+  .admin-header {
+    height: 60px;
+  }
+  .header {
+    height: 60px;
+    padding: 5px 0;
+  }
+  header.change-color {
+    background-color: rgba(255, 204, 159, 0.4509803922);
+    transition: 0.3s;
+    width: 100%;
+    height: 60px;
+    position: fixed;
+  }
+  .firstview {
+    background-image: url(/img/lp/bg.jpg);
+    background-size: cover;
+    min-height: 700px;
+    width: 100%;
+    opacity: 70%;
+  }
+  .firstview p {
+    text-align: center;
+    padding-top: 200px;
+    font-size: 40px;
+    color: #800000;
+  }
+  .firstview p span {
+    font-weight: bold;
+  }
 }/*# sourceMappingURL=app.css.map */

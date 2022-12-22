@@ -12,7 +12,7 @@
     <main class="main">
         @yield('main')
     </main>
-    @component('layouts.lp.footer')
+    @component('layouts.footer')
     @endcomponent
 </body>
 

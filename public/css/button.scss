@@ -1,4 +1,8 @@
-// 会員登録
+button{
+    cursor: pointer;
+    cursor: hand;
+}
+// 【LP】会員登録
 .register{
     margin: 0 30px;
 
@@ -34,7 +38,7 @@
     }
 }
 
-// ログイン
+// 【LP】ログイン
 .login{
     margin: 0 30px;
 
@@ -67,5 +71,127 @@
         transform: translateY(3px);
         text-decoration: none;
         box-shadow: 0 2px 0 #aaaaaa;
+    }
+}
+
+// Auth【会員登録】
+.auth-register{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 10px 30px;
+    height: 48px;
+    width: 100%;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    background-color: #FE9FBF;
+    box-shadow: 0 5px 0 #643d4a;
+    transition: 0.3s;
+    border-radius: 15px;
+    border: none;
+}
+
+.auth-register::after {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-top: 3px solid #fff;
+    border-right: 3px solid #fff;
+    transform: rotate(45deg);
+}
+
+.auth-register:hover {
+    transform: translateY(3px);
+    text-decoration: none;
+    box-shadow: 0 2px 0 #aaaaaa;
+}
+
+// Auth【ログイン】
+.auth-btn{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.auth-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 10px 30px;
+    height: 48px;
+    width: 100%;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    background-color: #2D79D6;
+    box-shadow: 0 5px 0 #203855;
+    transition: 0.3s;
+    border-radius: 15px;
+    border: none;
+}
+
+.auth-login::after {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-top: 3px solid #fff;
+    border-right: 3px solid #fff;
+    transform: rotate(45deg);
+}
+
+.auth-login:hover {
+    transform: translateY(3px);
+    text-decoration: none;
+    box-shadow: 0 2px 0 #aaaaaa;
+}
+
+// 編集
+.edit{
+    border: 2px solid #336600;
+    border-radius: 5px;
+    box-shadow: 0 3px 0 #d3d2d276;
+    padding: 5px;
+    margin: 0 5px;
+
+    a{
+        color: #336600;
+    }
+}
+
+.edit:hover{
+    background-color: #336600;
+    border-radius: 5px;
+    box-shadow: 0 3px 0 #d3d2d276;
+    padding: 5px;
+    margin: 0 5px;
+
+    a{
+        color: #fff;
+    }
+}
+
+// 削除
+.delete{
+    border: 2px solid #CC3300;
+    border-radius: 5px;
+    box-shadow: 0 3px 0 #d3d2d276;
+    padding: 5px;
+    margin: 0 5px;
+
+    a{
+        color: #CC3300;
+    }
+}
+
+.delete:hover{
+    background-color: #CC3300;
+    border-radius: 5px;
+    box-shadow: 0 3px 0 #d3d2d276;
+    padding: 5px;
+    margin: 0 5px;
+
+    a{
+        color: #fff;
     }
 }

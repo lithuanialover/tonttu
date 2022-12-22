@@ -1,3 +1,3 @@
-<footer class="lp-footer">
+<footer class="footer">
     <small>© 2022 tonttu inc.</small>
 </footer>

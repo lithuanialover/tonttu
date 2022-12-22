@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+// LP
 Route::prefix('tonttu')->group(function () {
 
     Route::get('', function () {
@@ -11,10 +12,7 @@ Route::prefix('tonttu')->group(function () {
 
 });
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+// 会員
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -25,8 +23,20 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::prefix('student')->name('user.student.')->group(function(){
+
+    // お子さまの一覧
+    Route::get('/lists', function () {
+        return view('auth.student.lists');
+    })->middleware(['auth', 'verified'])->name('lists');
+
+
+});
+
 require __DIR__.'/auth.php';//会員
 
+
+// 管理者
 Route::prefix('admin')->name('admin.')->group(function(){
 
     Route::get('/dashboard', function () {
@@ -35,3 +45,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
     require __DIR__.'/admin.php';
 });
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });

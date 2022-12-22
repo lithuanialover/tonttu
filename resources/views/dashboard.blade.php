@@ -1,17 +1,60 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layouts.app')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                </div>
+@section('main')
+<div class="cnt-position">
+    <div class="cnt-width cnt-mg-top">
+        <div class="clock">
+            <div id="Date">
+            </div>
+            <ul class="flex">
+                <li id="hours"></li>
+                <li id="point">:</li>
+                <li id="min"></li>
+            </ul>
+        </div>
+        <div class="table">
+            <table>
+                <tr class="table-bloke">
+                    <th>お子さま</th>
+                    <th>登園</th>
+                    <th>降園</th>
+                </tr>
+                <tr class="table-bloke">
+                    <td>
+                        <p>name</p>
+                    </td>
+                    <td>
+                        <div>
+                            <ul class="flex">
+                                <li class="td-status">status</li>
+                                <li class="td-time">time</li>
+                                <li class="td-checkbox"><input type="checkbox" class="checkbox"></li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <ul class="flex">
+                                <li class="td-status">status</li>
+                                <li class="td-time">time</li>
+                                <li class="td-checkbox"><input type="checkbox"></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="table-attention-txt">
+            <p class="attention-color">＊先生がお子さまの登園・降園を確認したときに、チェックボックスを付けます。</p>
+        </div>
+        <div class="flex table-btn-position">
+            <div class="register">
+                <a href="{{ route('user.student.lists') }}">お子様の情報</a>
+            </div>
+            <div class="login">
+                <a href="{{ route('login') }}">新規登録</a>
             </div>
         </div>
     </div>
-</x-app-layout>
+</div>
+@endsection
