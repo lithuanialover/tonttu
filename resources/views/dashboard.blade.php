@@ -49,10 +49,10 @@
         </div>
         <div class="flex table-btn-position">
             <div class="register">
-                <a href="{{ route('user.student.lists') }}">お子様の情報</a>
+                <a href="{{ route('user.students.index') }}">お子様の情報</a>
             </div>
             <div class="login">
-                <a href="{{ route('login') }}">新規登録</a>
+                <a href="{{ route('user.students.create') }}">新規登録</a>
             </div>
         </div>
     </div>

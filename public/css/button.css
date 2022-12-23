@@ -180,4 +180,43 @@ button {
 }
 .delete:hover a {
   color: #fff;
+}
+
+.details {
+  border: 2px solid #4d33d1;
+  border-radius: 5px;
+  box-shadow: 0 3px 0 rgba(211, 210, 210, 0.462745098);
+  padding: 5px;
+  margin: 0 5px;
+}
+.details a {
+  color: #4d33d1;
+}
+
+.details:hover {
+  background-color: #4d33d1;
+  border-radius: 5px;
+  box-shadow: 0 3px 0 rgba(211, 210, 210, 0.462745098);
+  padding: 5px;
+  margin: 0 5px;
+}
+.details:hover a {
+  color: #fff;
+}
+
+.paging {
+  display: flex;
+  justify-content: center;
+}
+.paging .pagination {
+  display: flex;
+}
+.paging .pagination li {
+  font-size: 20px;
+  padding: 10px;
+  border: 1px solid #800000;
+}
+.paging .pagination .active {
+  background-color: #800000;
+  color: #fff;
 }/*# sourceMappingURL=button.css.map */

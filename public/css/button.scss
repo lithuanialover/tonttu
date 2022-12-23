@@ -195,3 +195,50 @@ button{
         color: #fff;
     }
 }
+
+// 詳細
+.details{
+    border: 2px solid #4d33d1;
+    border-radius: 5px;
+    box-shadow: 0 3px 0 #d3d2d276;
+    padding: 5px;
+    margin: 0 5px;
+
+    a{
+        color: #4d33d1;
+    }
+}
+
+.details:hover{
+    background-color: #4d33d1;
+    border-radius: 5px;
+    box-shadow: 0 3px 0 #d3d2d276;
+    padding: 5px;
+    margin: 0 5px;
+
+    a{
+        color: #fff;
+    }
+}
+
+//Pagination
+.paging{
+
+    display: flex;
+    justify-content: center;
+
+    .pagination{
+        display: flex;
+
+        li{
+            font-size: 20px;
+            padding: 10px;
+            border: 1px solid #800000;
+        }
+
+        .active{
+            background-color: #800000;
+            color: #fff;
+        }
+    }
+}

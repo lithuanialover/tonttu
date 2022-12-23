@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 // LP
@@ -23,13 +24,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::prefix('student')->name('user.student.')->group(function(){
+# as = name()と同じ役割。ルート名に関係する。
+Route::group(['prefix' => 'student', 'as' => 'user.', 'middleware' => 'auth'], function(){
 
-    // お子さまの一覧
-    Route::get('/lists', function () {
-        return view('auth.student.lists');
-    })->middleware(['auth', 'verified'])->name('lists');
-
+    Route::resource('students', StudentController::class); //resource(); students CRUDに関するすべてのルート処理を完結 //これで表示できた🌟
+    // Route::get('/lists', [StudentController::class, 'index'])->name('lists');
 
 });
 
@@ -46,6 +45,18 @@ Route::prefix('admin')->name('admin.')->group(function(){
     require __DIR__.'/admin.php';
 });
 
+
+
+
+
 // Route::get('/', function () {
 //     return view('welcome');
+// });
+
+#正しく表示できたが、middlewareを共通化するために削除
+// Route::prefix('student')->name('user.student.')->group(function(){
+//     // お子さまの一覧
+//     Route::get('/lists', function () {
+//         return view('auth.student.lists');
+//     })->middleware(['auth', 'verified'])->name('lists');
 // });
