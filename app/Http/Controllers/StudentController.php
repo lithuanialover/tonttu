@@ -51,10 +51,12 @@ class StudentController extends Controller
 
         request()->student_image->move(public_path('images'), $file_name);
 
-        $student = new Student;
+        $student = new Student;//インスタンスの生成
 
+        $student->user_id = User::id();//投稿する際に、ログインしている人のIDが保存されるようにします。
         $student->student_name = $request->student_name;
         $student->student_kana = $request->student_kana;
+        $student->student_gender = $request->student_gender;
         $student->student_image = $file_name;
 
         $student->save();

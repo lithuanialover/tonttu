@@ -45,8 +45,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    // 1対多の関係でリレーションを設定 User→Student(Userが1)(Studentが多)
-    public function Students()
+    // 1対多の関係でリレーションを設定 User→Student(Userが1)(studentが多)
+    public function students()
     {
         return $this->hasMany(Student::class);
     }
