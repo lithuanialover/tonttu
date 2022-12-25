@@ -12,12 +12,12 @@ class Student extends Model
 
     protected $table = 'students';
 
-        /**
-     * テーブルに関連付ける主キー
-     *
-     * @var string
-     */
-    protected $primaryKey = 'user_id';
+    // /**
+    //  * テーブルに関連付ける主キー
+    //  *
+    //  * @var string
+    //  */
+    // protected $primaryKey = 'user_id';
 
     protected $fillable =[
         'student_name',

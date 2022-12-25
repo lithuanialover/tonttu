@@ -58,7 +58,7 @@ class StudentController extends Controller
             // トランザクションの開始
             DB::beginTransaction();
 
-            $file_name = time() . '.' . request()->student_image->getClientOriginalExtention();
+            $file_name = time() . '.' . request()->student_image->getClientOriginalExtension();
 
             request()->student_image->move(public_path('images'), $file_name);
 
