@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Student;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 
 class StudentController extends Controller
 {
@@ -40,6 +43,9 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
+        // バリデーションエラーはキャッチ不要
+        $this->validate($request, $this->validationRuleForCreate);
+
         $request->validate([
             'student_name' => 'required',
             'student_kana'=> 'required',
@@ -47,21 +53,41 @@ class StudentController extends Controller
             'student_image'=> 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000',
         ]);
 
-        $file_name = time() . '.' . request()->student_image->getClientOriginalExtention();
+        try{
 
-        request()->student_image->move(public_path('images'), $file_name);
+            // トランザクションの開始
+            DB::beginTransaction();
 
-        $student = new Student;//インスタンスの生成
+            $file_name = time() . '.' . request()->student_image->getClientOriginalExtention();
 
-        $student->user_id = User::id();//投稿する際に、ログインしている人のIDが保存されるようにします。
-        $student->student_name = $request->student_name;
-        $student->student_kana = $request->student_kana;
-        $student->student_gender = $request->student_gender;
-        $student->student_image = $file_name;
+            request()->student_image->move(public_path('images'), $file_name);
 
-        $student->save();
+            $student = new Student();//インスタンスの生成 #()をStudentのあとに追記 pm1 12:25
 
-        return redirect()->route('user.students.index')->with('success', 'お子様を登録できました。');
+            $student->user_id = Auth::id();//投稿する際に、ログインしている人のIDが保存されるようにします。
+            $student->student_name = $request->student_name;
+            $student->student_kana = $request->student_kana;
+            $student->student_gender = $request->student_gender;
+            $student->student_image = $file_name;
+
+            // 作成したデータをDBに保存 失敗したら例外を返す
+            $student->saveOrFail();
+
+            // 全ての保存処理が成功したので処理を確定する
+            DB::commit();
+
+            return redirect()->route('user.students.index')->with('success', 'お子様を登録できました。');
+        }catch(\Throwable $e){
+
+            // 例外が起きたらロールバックを行う
+            DB::rollback();
+
+            // 失敗した原因をログに残す
+            Log::error($e);
+
+            // フロントにエラーを通知
+            throw $e;
+        }
     }
 
     /**
