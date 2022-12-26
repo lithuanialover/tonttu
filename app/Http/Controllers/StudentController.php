@@ -62,7 +62,7 @@ class StudentController extends Controller
 
             request()->student_image->move(public_path('images'), $file_name);
 
-            $student = new Student();//インスタンスの生成 #()をStudentのあとに追記 pm1 12:25
+            $student = new Student;//インスタンスの生成
 
             $student->user_id = Auth::id();//投稿する際に、ログインしている人のIDが保存されるようにします。
             $student->student_name = $request->student_name;
@@ -71,12 +71,17 @@ class StudentController extends Controller
             $student->student_image = $file_name;
 
             // 作成したデータをDBに保存 失敗したら例外を返す
-            $student->saveOrFail();
+            // $student->saveOrFail();
+            $result = $student->save();
 
             // 全ての保存処理が成功したので処理を確定する
             DB::commit();
 
+            //error確認→表示されない
+            dd($request, $file_name, $student, $result);
+
             return redirect()->route('user.students.index')->with('success', 'お子様を登録できました。');
+
         }catch(\Throwable $e){
 
             // 例外が起きたらロールバックを行う
@@ -98,7 +103,7 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        //
+        return view('auth.student.show', compact('student'));
     }
 
     /**
@@ -109,7 +114,7 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        //
+        return view('auth.student.edit', compact('student'));
     }
 
     /**
@@ -121,7 +126,32 @@ class StudentController extends Controller
      */
     public function update(Request $request, Student $student)
     {
-        //
+        $request->validate([
+            'student_name' => 'required',
+            'student_kana'=> 'required',
+            'student_gender'=> 'required',
+            'student_image'=> 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000',
+        ]);
+
+        $student_image = $request->hidden_student_image;
+
+        if($request->student_image != ''){
+
+            $student_image =time() . '.' . request()->student_image->getClientOriginalExtension();
+
+            request()->student_image->move(public_path('images'), $student_image);
+        }
+
+        $student = Student::find($request->hidden_id);
+
+        $student->student_name = $request->student_name;
+        $student->student_kana = $request->student_kana;
+        $student->student_gender = $request->student_gender;
+        $student->student_image = $student_image;
+
+        $student->save();
+
+        return redirect()->route('user.students.index')->with('success', '編集が完了しました。');
     }
 
     /**
@@ -132,6 +162,8 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
-        //
+        $student->delete();
+
+        return redirect()->route('user.students.index')->with('success', '削除が完了しました。');
     }
 }

@@ -29,14 +29,19 @@
                         <td class="table-btn">
                             <div class="flex lists-btn-position">
                                 <div class="details">
-                                    <a href="{{ route('register') }}">詳細</a>
+                                    <a href="{{ route('user.students.show', $row->id) }}">詳細</a>
                                 </div>
                                 <div class="edit">
-                                    <a href="{{ route('register') }}">編集</a>
+                                    <a href="{{ route('user.students.edit', $row->id) }}">編集</a>
                                 </div>
-                                <div class="delete">
-                                    <a href="{{ route('login') }}">削除</a>
-                                </div>
+                                <form action="{{ route('user.students.destroy', $row->id) }}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <input type="submit" value="削除">
+                                </form>
+                                {{-- <div class="delete">
+                                    <a href="{{ route('user.students.destroy', $row->id) }}">編集</a>
+                                </div> --}}
                             </div>
                         </td>
                     </tr>

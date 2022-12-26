@@ -28,7 +28,6 @@ Route::middleware('auth')->group(function () {
 Route::group(['prefix' => 'student', 'as' => 'user.', 'middleware' => 'auth'], function(){
 
     Route::resource('students', StudentController::class); //resource(); students CRUDに関するすべてのルート処理を完結 //これで表示できた🌟
-    // Route::get('/lists', [StudentController::class, 'index'])->name('lists');
 
 });
 
