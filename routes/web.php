@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 // LP
@@ -12,6 +12,8 @@ Route::prefix('tonttu')->group(function () {
     });
 
 });
+
+#---------------------------------------------------------------------------------
 
 // 会員
 Route::get('/dashboard', function () {
@@ -24,15 +26,14 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-# as = name()と同じ役割。ルート名に関係する。
-Route::group(['prefix' => 'student', 'as' => 'user.', 'middleware' => 'auth'], function(){
-
-    Route::resource('students', StudentController::class); //resource(); students CRUDに関するすべてのルート処理を完結 //これで表示できた🌟
-
+// 園児情報のCRUD
+Route::middleware('auth')->group(function () {
+    Route::resource('students', StudentController::class);
 });
 
 require __DIR__.'/auth.php';//会員
 
+#---------------------------------------------------------------------------------
 
 // 管理者
 Route::prefix('admin')->name('admin.')->group(function(){
@@ -46,6 +47,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
 
 
+#---------------------------------------------------------------------------------
 
 
 // Route::get('/', function () {
@@ -59,3 +61,8 @@ Route::prefix('admin')->name('admin.')->group(function(){
 //         return view('auth.student.lists');
 //     })->middleware(['auth', 'verified'])->name('lists');
 // });
+
+
+#CRUDのチュートリアル
+// use App\Http\Controllers\ProductController;
+// Route::resource('products', ProductController::class);

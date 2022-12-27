@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Student;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
-class StudentController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = Student::oldest()->get();
-
-        return view('auth.student.index',compact('students'));
+        $products = Product::oldest()->get();
+      
+        return view('products.index',compact('products'));
     }
 
     /**
@@ -26,7 +26,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('auth.student.create');
+        return view('products.create');
     }
 
     /**
@@ -38,69 +38,69 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'student_name' => 'required',
-            'student_kana' => 'required',
+            'name' => 'required',
+            'detail' => 'required',
         ]);
-
-        Student::create($request->all());
-
-        return redirect()->route('students.index')
+      
+        Product::create($request->all());
+       
+        return redirect()->route('products.index')
                         ->with('success','新規作成しました。');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Student  $student
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Student $student)
+    public function show(Product $product)
     {
-        return view('auth.student.show',compact('student'));
+        return view('products.show',compact('product'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Student  $student
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Student $student)
+    public function edit(Product $product)
     {
-        return view('auth.student.edit',compact('student'));
+        return view('products.edit',compact('product'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Student  $student
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Student $student)
+    public function update(Request $request, Product $product)
     {
         $request->validate([
-            'student_name' => 'required',
-            'student_kana' => 'required',
+            'name' => 'required',
+            'detail' => 'required',
         ]);
-
-        $student->update($request->all());
-
-        return redirect()->route('students.index')
+      
+        $product->update($request->all());
+      
+        return redirect()->route('products.index')
                         ->with('success','更新しました。');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Student  $student
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Student $student)
+    public function destroy(Product $product)
     {
-        $student->delete();
-
-        return redirect()->route('students.index')
+        $product->delete();
+       
+        return redirect()->route('products.index')
                         ->with('success','削除しました。');
     }
 }

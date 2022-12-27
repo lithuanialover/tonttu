@@ -74,6 +74,40 @@ button{
     }
 }
 
+.login-btn{
+    // margin: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 1em 2em;
+    width: 120px;
+    color: #fff;
+    font-family: "UD デジタル 教科書体 N-R";
+    font-size: 18px;
+    font-weight: 700;
+    background-color: #2D79D6;
+    box-shadow: 0 5px 0 #203855;
+    border: none;
+    transition: 0.3s;
+    border-radius: 15px;
+}
+
+.login-btn::after {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-top: 3px solid #333333;
+    border-right: 3px solid #333333;
+    transform: rotate(45deg);
+}
+
+.login-btn:hover{
+    transform: translateY(3px);
+    text-decoration: none;
+    box-shadow: 0 2px 0 #aaaaaa;
+}
+
 // Auth【会員登録】
 .auth-register{
     display: flex;
@@ -194,6 +228,30 @@ button{
     a{
         color: #fff;
     }
+}
+
+.delete-btn{
+    background-color: #fff;
+    border: 2px solid #CC3300;
+    border-radius: 5px;
+    box-shadow: 0 3px 0 #d3d2d276;
+    padding: 5px;
+    margin: 0 5px;
+    font-size: 20px;
+    font-family: "UD デジタル 教科書体 N-R";
+    color: #CC3300;
+}
+
+.delete-btn:hover{
+    background-color: #CC3300;
+    border: 2px solid #CC3300;
+    border-radius: 5px;
+    box-shadow: 0 3px 0 #d3d2d276;
+    padding: 5px;
+    margin: 0 5px;
+    font-size: 20px;
+    font-family: "UD デジタル 教科書体 N-R";
+    color: #fff;
 }
 
 // 詳細

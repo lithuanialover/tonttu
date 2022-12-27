@@ -14,7 +14,7 @@
             </div>
         @endif
         <div class="flex auth-form">
-            <form action="post" action="{{ route('user.students.update, $student->id') }}" enctype="multipart/form-data">
+            <form method="post" action="{{ route('students.update', $student->id) }}" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <!-- 園児：名前 -->
@@ -27,7 +27,7 @@
                     <label for="student_kana" value="student_kana">ふりがな(平仮名で入力)</label>
                     <input id="student_kana"  class="input-css" type="text" name="student_kana" value="{{ $student->student_kana }}" required autofocus placeholder="ふりがな">
                 </div>
-                <!-- 園児：性別 -->
+                {{-- <!-- 園児：性別 -->
                 <div class="auth-input flex">
                     <label for="student_gender" value="student_gender">性別</label>
                     <select name="student_gender" id="student_gender" class="input-css" value="{{ $student->student_gender }}" required>
@@ -41,7 +41,7 @@
                     <input type="file" id="student_image" class="input-img" name="student_image">
                     <img src="{{ asset('images/' . $student->student_image) }}" alt="画像" with="100">
                     <input type="hideen" name="hidden_student_image" value="{{ $student->student_image }}" required autofocus>
-                </div>
+                </div> --}}
                 {{-- <div class="flex table-btn-position">
                     <div class="register">
                         <a href="{{ route('user.students.index') }}">もどる</a>
@@ -50,15 +50,19 @@
                         <a href="{{ route('user.students.store') }}">登録</a>
                     </div>
                 </div> --}}
-                <div class="tutrialの書き方">
-                    <input type="hidden" name="hidden_id" value="{{ $student->id }}">
-                    <input type="submit" value="Add">
+                <div class="flex table-btn-position">
+                    <div class="register">
+                        <a href="{{ route('students.index') }}">もどる</a>
+                    </div>
+                    <button type="submit" class="login-btn">
+                        登録
+                    </button>
                 </div>
             </form>
         </div>
     </div>
 </div>
 <script>
-    dcument.getElementsByName('student_gender')[0].value = "{{ $student -> student_gender }}"
+    // dcument.getElementsByName('student_gender')[0].value = "{{ $student -> student_gender }}"
 </script>
 @endsection

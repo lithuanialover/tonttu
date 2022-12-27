@@ -238,6 +238,18 @@ a {
   margin-right: 20px;
 }
 
+.alert-success {
+  margin-bottom: 15px;
+  background-color: #DDFFDD;
+  font-size: 24px;
+  padding: 10px;
+  text-align: center;
+}
+
+.show-form {
+  flex-direction: column;
+}
+
 @media only screen and (min-width: 1200px) {
   .cnt-width {
     width: 900px;

@@ -279,6 +279,18 @@ a{
     margin-right: 20px;
 }
 
+.alert-success{
+    margin-bottom: 15px;
+    background-color: #DDFFDD;
+    font-size: 24px;
+    padding: 10px;
+    text-align: center;
+}
+
+.show-form{
+    flex-direction: column
+}
+
 @media #{$pc} {
     .cnt-width{//【配置の共通化】.cnt-positionのdivの下に作ったdivにこのcssを書く
         width: 900px;

@@ -15,56 +15,44 @@
                     <th class="table-qr">QRコード印刷</th>
                     <th class="table-btn"></th>
                 </tr>
-                @if(count($data) > 0)
-                    @foreach($data as $row)
+                    @foreach($students as $student)
                     <tr class="table-bloke">
                         <td class="table-student">
                             <ul class="flex">
-                                <li class="lists-img"><img src="{{ asset('images/'.'$row->student_image') }}" alt="img" with="50"></li>
-                                <li>{{ $row-> student_kana }}</li>
+                                {{-- <li class="lists-img"><img src="{{ asset('images/'.'$row->student_image') }}" alt="img" with="50"></li> --}}
+                                <li>{{ $student->student_kana }}</li>
                             </ul>
                         </td>
                         <td class="table-qr">
                         </td>
                         <td class="table-btn">
-                            <div class="flex lists-btn-position">
-                                <div class="details">
-                                    <a href="{{ route('user.students.show', $row->id) }}">詳細</a>
-                                </div>
-                                <div class="edit">
-                                    <a href="{{ route('user.students.edit', $row->id) }}">編集</a>
-                                </div>
-                                <form action="{{ route('user.students.destroy', $row->id) }}">
+                            <form action="{{ route('students.destroy',$student->id) }}" method="POST">
+                                <div class="flex lists-btn-position">
+                                    <div class="details">
+                                        <a href="{{ route('students.show',$student->id) }}">詳細</a>
+                                    </div>
+                                    <div class="edit">
+                                        <a href="{{ route('students.edit',$student->id) }}">編集</a>
+                                    </div>
                                     @csrf
                                     @method('DELETE')
-                                    <input type="submit" value="削除">
-                                </form>
-                                {{-- <div class="delete">
-                                    <a href="{{ route('user.students.destroy', $row->id) }}">編集</a>
-                                </div> --}}
-                            </div>
+                                    <button type="submit" class="delete-btn">削除</button>
+                                </div>
+                            </form>
                         </td>
                     </tr>
                     @endforeach
-                @else
-                    <tr class="table-bloke">
-                        <td>
-                            <p>登録済の園児情報はありません。</p>
-                        </td>
-                    </tr>
-                @endif
             </table>
         </div>
         <div class="paging">
-            {{-- {{!! $data->links() !!}} --}}
-            {{ $data->links() }}
+            {{-- {{ $data->links() }} --}}
         </div>
         <div class="flex table-btn-position">
             <div class="register">
                 <a href="{{ route('dashboard') }}">もどる</a>
             </div>
             <div class="login">
-                <a href="{{ route('user.students.create') }}">新規登録</a>
+                <a href="{{ route('students.create') }}">新規登録</a>
             </div>
         </div>
     </div>
