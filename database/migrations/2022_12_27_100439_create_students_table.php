@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('student_name');
             $table->string('student_kana');
+            $table->enum('student_gender', ['男の子', '女の子']);
+            $table->string('student_image');
             $table->timestamps();
         });
     }

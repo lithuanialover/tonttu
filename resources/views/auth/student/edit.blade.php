@@ -27,12 +27,12 @@
                     <label for="student_kana" value="student_kana">ふりがな(平仮名で入力)</label>
                     <input id="student_kana"  class="input-css" type="text" name="student_kana" value="{{ $student->student_kana }}" required autofocus placeholder="ふりがな">
                 </div>
-                {{-- <!-- 園児：性別 -->
+                <!-- 園児：性別 -->
                 <div class="auth-input flex">
                     <label for="student_gender" value="student_gender">性別</label>
                     <select name="student_gender" id="student_gender" class="input-css" value="{{ $student->student_gender }}" required>
-                        <option value="Male">男の子</option>
-                        <option value="Female">女の子</option>
+                        <option value="男の子">男の子</option>
+                        <option value="女の子">女の子</option>
                     </select>
                 </div>
                 <!-- 園児：写真 -->
@@ -41,15 +41,7 @@
                     <input type="file" id="student_image" class="input-img" name="student_image">
                     <img src="{{ asset('images/' . $student->student_image) }}" alt="画像" with="100">
                     <input type="hideen" name="hidden_student_image" value="{{ $student->student_image }}" required autofocus>
-                </div> --}}
-                {{-- <div class="flex table-btn-position">
-                    <div class="register">
-                        <a href="{{ route('user.students.index') }}">もどる</a>
-                    </div>
-                    <div class="login">
-                        <a href="{{ route('user.students.store') }}">登録</a>
-                    </div>
-                </div> --}}
+                </div>
                 <div class="flex table-btn-position">
                     <div class="register">
                         <a href="{{ route('students.index') }}">もどる</a>

@@ -18,8 +18,9 @@
                     @foreach($students as $student)
                     <tr class="table-bloke">
                         <td class="table-student">
-                            <ul class="flex">
-                                {{-- <li class="lists-img"><img src="{{ asset('images/'.'$row->student_image') }}" alt="img" with="50"></li> --}}
+                            <ul class="flex" style="align-items: center;">
+                                <li class="lists-img"><img src="{{ asset('images/'.'1672111672.jpg') }}" alt="img" with="50"></li>
+                                {{-- <li class="lists-img"><img src="{{ asset('images/'.$student->student_image) }}" alt="img" with="50"></li> --}}
                                 <li>{{ $student->student_kana }}</li>
                             </ul>
                         </td>

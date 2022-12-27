@@ -40,7 +40,13 @@ class StudentController extends Controller
         $request->validate([
             'student_name' => 'required',
             'student_kana' => 'required',
+            'student_gender' => 'required',
+            'student_image'=> 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000',
         ]);
+
+        $file_name = time() . '.' . request()->student_image->getClientOriginalExtension();
+
+        request()->student_image->move(public_path('images'), $file_name);
 
         Student::create($request->all());
 
@@ -82,7 +88,13 @@ class StudentController extends Controller
         $request->validate([
             'student_name' => 'required',
             'student_kana' => 'required',
+            'student_gender' => 'required',
+            'student_image'=> 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000',
         ]);
+
+        $file_name = time() . '.' . request()->student_image->getClientOriginalExtension();
+
+        request()->student_image->move(public_path('images'), $file_name);
 
         $student->update($request->all());
 

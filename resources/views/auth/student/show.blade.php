@@ -15,15 +15,12 @@
                     <label for="student_kana" value="student_kana">ふりがな(平仮名で入力)</label>
                     <p class="input-css show-input">{{ $student->student_kana }}</p>
                 </div>
-                {{-- <!-- 園児：性別 -->
+                <!-- 園児：性別 -->
                 <div class="auth-input flex">
                     <label for="student_gender" value="student_gender">性別</label>
-                    <select name="student_gender" id="student_gender" class="input-css" value="{{ old('student_gender') }}" required>
-                        <option value="Male">男の子</option>
-                        <option value="Female">女の子</option>
-                    </select>
+                    <p class="input-css show-input">{{ $student->student_gender }}</p>
                 </div>
-                <!-- 園児：写真 -->
+                {{-- <!-- 園児：写真 -->
                 <div class="auth-input flex">
                     <label for="student_image" value="student_image">写真</label>
                     <input type="file" id="student_image" class="input-img" name="student_image" value="{{ old('student_image') }}" required autofocus>
