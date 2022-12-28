@@ -19,12 +19,12 @@
                     <tr class="table-bloke">
                         <td class="table-student">
                             <ul class="flex" style="align-items: center;">
-                                <li class="lists-img"><img src="{{ asset('images/'.'1672111672.jpg') }}" alt="img" with="50"></li>
-                                {{-- <li class="lists-img"><img src="{{ asset('images/'.$student->student_image) }}" alt="img" with="50"></li> --}}
+                                <img class="rounded-circle" src="{{asset('storage/' . $student->student_image)}}">
                                 <li>{{ $student->student_kana }}</li>
                             </ul>
                         </td>
                         <td class="table-qr">
+                            <button>印刷</button>
                         </td>
                         <td class="table-btn">
                             <form action="{{ route('students.destroy',$student->id) }}" method="POST">
@@ -45,9 +45,9 @@
                     @endforeach
             </table>
         </div>
-        <div class="paging">
-            {{-- {{ $data->links() }} --}}
-        </div>
+        {{-- <div class="paging">
+            {{ $data->links() }}
+        </div> --}}
         <div class="flex table-btn-position">
             <div class="register">
                 <a href="{{ route('dashboard') }}">もどる</a>

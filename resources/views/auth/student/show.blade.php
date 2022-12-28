@@ -20,11 +20,11 @@
                     <label for="student_gender" value="student_gender">性別</label>
                     <p class="input-css show-input">{{ $student->student_gender }}</p>
                 </div>
-                {{-- <!-- 園児：写真 -->
+                <!-- 園児：写真 -->
                 <div class="auth-input flex">
                     <label for="student_image" value="student_image">写真</label>
-                    <input type="file" id="student_image" class="input-img" name="student_image" value="{{ old('student_image') }}" required autofocus>
-                </div> --}}
+                    <img class="rounded-circle" src="{{asset('storage/' . $student->student_image)}}">
+                </div>
                 <div class="flex table-btn-position">
                     <div class="register">
                         <a href="{{ route('students.index') }}">もどる</a>

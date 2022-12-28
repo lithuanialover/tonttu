@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule; #外部キー: user_idのバリデーション
+use App\Http\Requests\StudentRequest; #Validation for the students table
 
 class StudentController extends Controller
 {
@@ -14,7 +17,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = Student::oldest()->get();
+        // 「\Auth::user()->students」ログインユーザーのデータのみ取得
+        $students = \Auth::user()->students; #Ignore an error「Undefined type 'Auth'」 because it does not effect the functions of CRUD.
 
         return view('auth.student.index',compact('students'));
     }
@@ -35,20 +39,22 @@ class StudentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StudentRequest $request)
     {
-        $request->validate([
-            'student_name' => 'required',
-            'student_kana' => 'required',
-            'student_gender' => 'required',
-            'student_image'=> 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000',
+        // アップロードされたファイルの取得
+        $image = $request->file('student_image');
+
+        // ファイルの保存とパスの取得
+        $path = isset($image) ? $image->store('students', 'public') : '';
+
+        // 商品をデータベースに登録
+        Student::create([
+            'student_name' => $request->student_name,
+            'student_kana' => $request->student_kana,
+            'student_gender' => $request->student_gender,
+            'student_image'=> $path,
+            'user_id' => $request->user_id,
         ]);
-
-        $file_name = time() . '.' . request()->student_image->getClientOriginalExtension();
-
-        request()->student_image->move(public_path('images'), $file_name);
-
-        Student::create($request->all());
 
         return redirect()->route('students.index')
                         ->with('success','新規作成しました。');
@@ -83,20 +89,32 @@ class StudentController extends Controller
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Student $student)
+    public function update(StudentRequest $request, Student $student)
     {
-        $request->validate([
-            'student_name' => 'required',
-            'student_kana' => 'required',
-            'student_gender' => 'required',
-            'student_image'=> 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000',
+
+        // 画像ファイルインスタンス取得
+        $image = $request->file('student_image');
+
+        // 現在の画像へのパスをセット
+        $path = $student->image;
+        if (isset($image)) {
+
+            #104をコメントアウトしたら更新できた【ERROR】:League\Flysystem\Filesystem::delete(): Argument #1 ($location) must be of type string, null given, called in
+            // 現在の画像ファイルの削除
+            // \Storage::disk('public')->delete($path);
+
+            // 選択された画像ファイルを保存してパスをセット
+            $path = $image->store('students', 'public');
+        }
+
+        // 商品をデータベースに登録
+        $student->update([
+            'student_name' => $request->student_name,
+            'student_kana' => $request->student_kana,
+            'student_gender' => $request->student_gender,
+            'student_image'=> $path,
+            'user_id' => $request->user_id,
         ]);
-
-        $file_name = time() . '.' . request()->student_image->getClientOriginalExtension();
-
-        request()->student_image->move(public_path('images'), $file_name);
-
-        $student->update($request->all());
 
         return redirect()->route('students.index')
                         ->with('success','更新しました。');

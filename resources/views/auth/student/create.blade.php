@@ -43,8 +43,11 @@
                 <!-- 園児：写真 -->
                 <div class="auth-input flex">
                     <label for="student_image" value="student_image">写真</label>
-                    <input type="file" id="student_image" class="input-img" name="student_image" required autofocus>
+                    <input type="file" id="student_image" class="input-img" name="student_image" required>
                 </div>
+                <!-- 外部キー user_id -->
+                <input type="hidden" value="{{ auth()->id() }}" name="user_id">
+
                 <div class="flex table-btn-position">
                     <div class="register">
                         <a href="{{ route('students.index') }}">もどる</a>

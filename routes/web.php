@@ -49,19 +49,9 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
 #---------------------------------------------------------------------------------
 
-
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-
-#正しく表示できたが、middlewareを共通化するために削除
-// Route::prefix('student')->name('user.student.')->group(function(){
-//     // お子さまの一覧
-//     Route::get('/lists', function () {
-//         return view('auth.student.lists');
-//     })->middleware(['auth', 'verified'])->name('lists');
-// });
-
 
 #CRUDのチュートリアル
 // use App\Http\Controllers\ProductController;

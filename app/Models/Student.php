@@ -14,5 +14,10 @@ class Student extends Model
         'student_kana',
         'student_gender',
         'student_image',
+        'user_id',
     ];
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }

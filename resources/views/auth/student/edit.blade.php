@@ -38,10 +38,12 @@
                 <!-- 園児：写真 -->
                 <div class="auth-input flex">
                     <label for="student_image" value="student_image">写真</label>
+                    <img class="rounded-circle" src="{{asset('storage/' . $student->student_image)}}">
                     <input type="file" id="student_image" class="input-img" name="student_image">
-                    <img src="{{ asset('images/' . $student->student_image) }}" alt="画像" with="100">
-                    <input type="hideen" name="hidden_student_image" value="{{ $student->student_image }}" required autofocus>
                 </div>
+                <!-- 外部キー user_id -->
+                <input type="hidden" value="{{ auth()->id() }}" name="user_id">
+
                 <div class="flex table-btn-position">
                     <div class="register">
                         <a href="{{ route('students.index') }}">もどる</a>
