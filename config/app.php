@@ -196,6 +196,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class, //Laravel デバッグバー
+        // SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,//QR code called Simple Software
 
     ],
 
@@ -213,6 +214,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,//
+        // 'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class//QR code called Simple Software
     ])->toArray(),
 
 ];

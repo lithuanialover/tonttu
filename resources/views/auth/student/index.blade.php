@@ -12,18 +12,19 @@
             <table>
                 <tr class="table-bloke">
                     <th class="table-student">お子さま</th>
-                    <th class="table-qr">QRコード印刷</th>
+                    <th class="table-qr">QRコード</th>
                     <th class="table-btn"></th>
                 </tr>
                     @foreach($students as $student)
-                    <tr class="table-bloke">
+                    <tr class="table-bloke" style="height: 100px">
                         <td class="table-student">
                             <ul class="flex" style="align-items: center;">
-                                <img class="rounded-circle" src="{{asset('storage/' . $student->student_image)}}">
+                                <li class="index-img"><img class="rounded-circle" src="{{asset('storage/' . $student->student_image)}}"></li>
                                 <li>{{ $student->student_kana }}</li>
                             </ul>
                         </td>
                         <td class="table-qr">
+                            <a href="{{ route('generate',$student->id) }}" class="btn btn-primary">表示</a>
                             <button>印刷</button>
                         </td>
                         <td class="table-btn">

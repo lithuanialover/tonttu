@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function () {
 // 園児情報のCRUD
 Route::middleware('auth')->group(function () {
     Route::resource('students', StudentController::class);
+    Route::get('qrcode/{id}', [StudentController::class, 'generate'])->name('generate');
 });
 
 require __DIR__.'/auth.php';//会員
@@ -49,9 +50,9 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
 #---------------------------------------------------------------------------------
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 #CRUDのチュートリアル
 // use App\Http\Controllers\ProductController;

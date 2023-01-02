@@ -21,12 +21,12 @@
                     <p class="input-css show-input">{{ $student->student_gender }}</p>
                 </div>
                 <!-- 園児：写真 -->
-                <div class="auth-input flex">
+                <div class="auth-input flex" style="margin-bottom: 30px;">
                     <label for="student_image" value="student_image">写真</label>
-                    <img class="rounded-circle" src="{{asset('storage/' . $student->student_image)}}">
+                    <img class="rounded-circle" src="{{asset('storage/' . $student->student_image)}}" style="margin: 10px 0">
                 </div>
                 <div class="flex table-btn-position">
-                    <div class="register">
+                    <div class="register show-btn">
                         <a href="{{ route('students.index') }}">もどる</a>
                     </div>
                 </div>

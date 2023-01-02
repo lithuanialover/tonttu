@@ -20,4 +20,11 @@ class Student extends Model
     public function user() {
         return $this->belongsTo(User::class);
     }
+
+    // 1対多の関係でリレーションを設定 Student→Attendance(Userが1)(Attendanceが多)
+    public function attendances()
+    {
+        return $this->hasMany(Attendance::class);
+        //return $this->hasMany('App\Comment', 'foreign_key', 'local_key');
+    }
 }

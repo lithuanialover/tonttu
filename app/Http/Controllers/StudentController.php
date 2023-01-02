@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule; #外部キー: user_idのバリデーション
 use App\Http\Requests\StudentRequest; #Validation for the students table
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class StudentController extends Controller
 {
@@ -132,5 +133,13 @@ class StudentController extends Controller
 
         return redirect()->route('students.index')
                         ->with('success','削除しました。');
+    }
+
+    public function generate ($id)
+    {
+        $student = Student::findOrFail($id);
+        $qrcode = QrCode::size(400)->generate($student->id);//student IDでQR作成 #ideal: insert multiple data
+
+        return view('auth.student.qrcode',['student' => $student],compact('qrcode'));
     }
 }
