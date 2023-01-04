@@ -306,3 +306,157 @@ button{
     width: 100%;
     margin: 0;
 }
+
+// 会員「カメラのボタン」
+.camera-btn-position{
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.attendance{
+    margin: 0 30px;
+
+    a{
+        background-color: #FE9FBF;
+        border-radius: 15px;
+        width: 100px;
+        padding: 10px;
+        font-size: 26px;
+        color: #fff;
+    }
+
+    a::after {
+        content: '';
+        background-image: url(../img/camera.png);
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        vertical-align: middle;
+        margin-left: 10px;
+    }
+
+    a:hover {
+        text-decoration: none;
+        border: 2px solid #FE9FBF;
+        background-color: #fff;
+        color: #FE9FBF;
+        font-weight: bold;
+        font-family: "UD デジタル 教科書体 N-R";
+    }
+
+    a:hover::after {
+        background-image: url(../img/cameraPink.png);
+    }
+}
+
+.leave{
+    margin: 0 30px;
+
+    a{
+        background-color: #2D79D6;
+        border-radius: 15px;
+        width: 100px;
+        padding: 10px;
+        font-size: 26px;
+        color: #fff;
+    }
+
+    a::after {
+        content: '';
+        background-image: url(../img/camera.png);
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        vertical-align: middle;
+        margin-left: 10px;
+    }
+
+    a:hover {
+        text-decoration: none;
+        border: 2px solid #2D79D6;
+        background-color: #fff;
+        color: #2D79D6;
+        font-weight: bold;
+        font-family: "UD デジタル 教科書体 N-R";
+    }
+
+    a:hover::after {
+        background-image: url(../img/cameraBlue.png);
+    }
+}
+
+.attendance-btn{
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.yes{
+    margin: 0 20px;
+    margin-bottom: 40px;
+
+    a{
+        background-color: #FE9FBF;
+        border-radius: 15px;
+        width: 100px;
+        padding: 10px;
+        font-size: 36px;
+        color: #fff;
+    }
+
+    a:hover {
+        text-decoration: none;
+        border: 2px solid #FE9FBF;
+        background-color: #fff;
+        color: #FE9FBF;
+        font-weight: bold;
+        font-family: "UD デジタル 教科書体 N-R";
+    }
+}
+
+.no{
+    margin: 0 20px;
+    margin-bottom: 40px;
+
+    a{
+        background-color: #2D79D6;
+        border-radius: 15px;
+        width: 100px;
+        padding: 10px;
+        font-size: 36px;
+        color: #fff;
+    }
+
+    a:hover {
+        text-decoration: none;
+        border: 2px solid #2D79D6;
+        background-color: #fff;
+        color: #2D79D6;
+        font-weight: bold;
+        font-family: "UD デジタル 教科書体 N-R";
+    }
+}
+
+.back{
+
+    a{
+        border-radius: 15px;
+        width: 100px;
+        padding: 10px;
+        font-size: 26px;
+        border: 2px solid #2D79D6;
+        background-color: #fff;
+        color: #2D79D6;
+    }
+
+    a:hover {
+        text-decoration: none;
+        background-color: #2D79D6;
+        color: #fff;
+        font-weight: bold;
+        font-family: "UD デジタル 教科書体 N-R";
+    }
+}

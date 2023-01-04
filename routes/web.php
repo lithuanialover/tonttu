@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -45,6 +46,15 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
     require __DIR__.'/admin.php';
 });
+
+Route::middleware('auth:admin')->group(function () {
+    Route::get('/attendance', [AttendanceController::class, 'attendance'])->name('attendance');
+    Route::get('/leave', [AttendanceController::class, 'leave'])->name('leave');
+
+});
+
+require __DIR__.'/admin.php';
+
 
 
 

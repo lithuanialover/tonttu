@@ -12,5 +12,6 @@
     <link rel="shortcut icon" href="{{ asset('/img/tonttu/tonttu.png') }}">
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script> <!--jQuery-->
+	<script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script><!--QR Reader-->
     <script src="{{ asset('js/app.js') }}" defer></script>
 </head>

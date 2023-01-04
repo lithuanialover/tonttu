@@ -12,6 +12,7 @@ body {
 
 a {
   text-decoration: none;
+  font-family: "UD デジタル 教科書体 N-R";
 }
 
 .flex {
@@ -270,6 +271,66 @@ a {
   height: 70px;
   -o-object-fit: cover;
      object-fit: cover;
+  border-radius: 100%;
+}
+
+/*QR読み取り画面*/
+.attendance-bgcolor {
+  background-color: rgba(190, 232, 220, 0.6549019608);
+  height: 100%;
+}
+
+.attendance-ttl {
+  font-size: 60px;
+  color: #4d5156;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.attendance-width {
+  width: 90%;
+}
+
+.attendance-card {
+  background-color: #fff;
+  border-radius: 20px;
+  width: 90%;
+  margin-bottom: 40px;
+}
+
+#attendance-cnt {
+  width: 50%;
+}
+
+.attendance-img {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 20px;
+}
+.attendance-img img {
+  width: 350px;
+}
+.attendance-img p {
+  margin-top: 15px;
+  font-family: "UD デジタル 教科書体 N-R";
+  font-size: 60px;
+}
+.attendance-img .small-p {
+  font-size: 26px;
+}
+
+#qrreader {
+  width: 50%;
+  position: relative;
+}
+#qrreader .flog {
+  width: 100%;
+}
+#qrreader #preview {
+  position: absolute;
+  top: 27%;
+  left: 9.5%;
+  width: 565px;
   border-radius: 100%;
 }
 
