@@ -25,7 +25,7 @@
                         </td>
                         <td class="table-qr">
                             <a href="{{ route('generate',$student->id) }}" class="btn btn-primary">表示</a>
-                            <button>印刷</button>
+                            <a href="{{ route('pdf',$student->id) }}" class="btn btn-primary">PDF</a>
                         </td>
                         <td class="table-btn">
                             <form action="{{ route('students.destroy',$student->id) }}" method="POST">

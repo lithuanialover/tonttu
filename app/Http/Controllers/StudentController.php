@@ -7,7 +7,7 @@ use App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule; #外部キー: user_idのバリデーション
 use App\Http\Requests\StudentRequest; #Validation for the students table
-use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use SimpleSoftwareIO\QrCode\Facades\QrCode; //QRコード用
 
 class StudentController extends Controller
 {
@@ -141,5 +141,15 @@ class StudentController extends Controller
         $qrcode = QrCode::size(400)->generate($student->id);//student IDでQR作成 #ideal: insert multiple data
 
         return view('auth.student.qrcode',['student' => $student],compact('qrcode'));
+    }
+
+    public function pdf ($id)
+    {
+        $student = Student::findOrFail($id);
+
+        $pdf = \PDF::loadView('auth.student.pdf', ['student' => $student]); # PDF前の「\」は必要
+
+        $pdf->setPaper('A4');
+        return $pdf->stream();
     }
 }
