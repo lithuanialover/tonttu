@@ -31,6 +31,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::resource('students', StudentController::class);
     Route::get('qrcode/{id}', [StudentController::class, 'generate'])->name('generate');
+    Route::get('/pdf/{id}', [StudentController::class, 'pdf'])->name('pdf');
 });
 
 require __DIR__.'/auth.php';//会員
@@ -51,19 +52,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('/attendance', [AttendanceController::class, 'attendance'])->name('attendance');
     Route::get('/leave', [AttendanceController::class, 'leave'])->name('leave');
 
+    // require __DIR__.'/admin.php';//これをいれるとtoo many directsエラーでる
 });
 
-require __DIR__.'/admin.php';
-
-
-
-
-#---------------------------------------------------------------------------------
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-#CRUDのチュートリアル
-// use App\Http\Controllers\ProductController;
-// Route::resource('products', ProductController::class);
+// require __DIR__.'/admin.php'; #こいつが原因で「保護者用login/registerに飛べなかった」ここに書いたらダメ

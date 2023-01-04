@@ -53,4 +53,3 @@ class AuthenticatedSessionController extends Controller
         // return redirect()->route('admin.login'); 別の書き方
     }
 }
-

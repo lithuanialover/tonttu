@@ -76,7 +76,7 @@
                             </div>
                         </div>
 
-                        <video id="preview"></video>
+                        {{-- <video id="preview"></video> --}}
 
                         <div class="p-6 border-t border-gray-200 dark:border-gray-700">
                             <div class="flex items-center">
