@@ -43,6 +43,7 @@
     </head>
     <body>
         <h2 class="pdfTtl" style="font-weight:bold">お子様のQRコード</h2>
+        {{-- <img src="data:image/png;base64,$image"> --}}
         <table class="studentTable">
             <tr>
                 <th>名前</th>
@@ -56,7 +57,11 @@
             </tr>
         </table>
         <p>-------------きりとり線-------------</p>
-        {{ QrCode::size(400)->generate($student->id) }}
-        {{-- <img class="rounded-circle" src="{{asset('storage/' . $student->student_image)}}"> --}} <!--読み込みに時間がかかって表示できなかった-->
+        <p>登園降園の管理でQRコードを使います。</p>
+        <img src="data:image/png;base64, {{ base64_encode(QrCode::format('png')->size(100)->generate($url.$student->id)) }} "> <!--これなら成功-->
+        {{-- <p>only student id</p>
+        <img src="data:image/png;base64, {{ base64_encode(QrCode::format('png')->size(100)->generate($student->id)) }} "> <!--これなら成功-->
+        <p>demo qr code</p>
+        <img src="data:image/png;base64, {{ base64_encode(QrCode::format('png')->size(100)->generate('Make me into an QrCode!')) }} "> <!--これなら成功--> --}}
     </body>
 </html>

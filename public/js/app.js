@@ -64,7 +64,7 @@ $(document).ready(function() {
 // QR Reader
 let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
 scanner.addListener('scan', function (content) {
-  alert(content);
+  alert(content); // content が student_id
 });
 Instascan.Camera.getCameras().then(function (cameras) {
   if (cameras.length > 0) {
@@ -75,3 +75,4 @@ Instascan.Camera.getCameras().then(function (cameras) {
 }).catch(function (e) {
   console.error(e);
 });
+

@@ -137,8 +137,15 @@ class StudentController extends Controller
 
     public function generate ($id)
     {
+        $path = 'http://127.0.0.1:8000';
+
+        $route = '/attendance/';
+
         $student = Student::findOrFail($id);
-        $qrcode = QrCode::size(400)->generate($student->id);//student IDでQR作成 #ideal: insert multiple data
+
+        // $qrcode = QrCode::size(400)->generate($student->id);//student IDでQR作成 #ideal: insert multiple data
+
+        $qrcode = QrCode::size(400)->generate($path.$route.$student->id);//URL組み込んだQRコード
 
         return view('auth.student.qrcode',['student' => $student],compact('qrcode'));
     }
@@ -147,9 +154,18 @@ class StudentController extends Controller
     {
         $student = Student::findOrFail($id);
 
-        $pdf = \PDF::loadView('auth.student.pdf', ['student' => $student]); # PDF前の「\」は必要
+        $path = 'http://127.0.0.1:8000';//URL付きQRのために追記 + compact('url')
+        $route = '/attendance/';//URL付きQRのために追記 + compact('url')
+        $url = $path.$route;//URL付きQRのために追記 + compact('url')
+
+        // $image_path = $student->student_image;
+        // $image = storage_path('image/'.$image_path);
+        // $image_data = base64_encode(file_get_contents($image_path));
+
+        $pdf = \PDF::loadView('auth.student.pdf', ['student' => $student],compact('url')); # PDF前の「\」は必要
 
         $pdf->setPaper('A4');
+
         return $pdf->stream();
     }
 }
