@@ -158,10 +158,6 @@ class StudentController extends Controller
         $route = '/attendance/';//URL付きQRのために追記 + compact('url')
         $url = $path.$route;//URL付きQRのために追記 + compact('url')
 
-        // $image_path = $student->student_image;
-        // $image = storage_path('image/'.$image_path);
-        // $image_data = base64_encode(file_get_contents($image_path));
-
         $pdf = \PDF::loadView('auth.student.pdf', ['student' => $student],compact('url')); # PDF前の「\」は必要
 
         $pdf->setPaper('A4');

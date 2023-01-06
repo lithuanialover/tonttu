@@ -9,8 +9,9 @@
                         <h2 class="attendance-ttl">おはようございます。</h2>
                         <div class="attendance-card">
                             <div class="attendance-img">
-                                <img src="{{ asset('img/kids5.jpg') }}" alt="child photo">
-                                <p>Jone<span class="small-p">さんですか？</span></p>
+                                {{-- <img src="{{ asset('img/kids5.jpg') }}" alt="child photo"> --}}
+                                {{-- <p>Jone<span class="small-p">さんですか？</span></p> --}}
+                                <p class= "output1"></p>
                             </div>
                             <div class="flex attendance-btn">
                                 <div class="yes">

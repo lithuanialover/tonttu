@@ -61,14 +61,33 @@ $(document).ready(function() {
 
 });
 
-// QR Reader
-let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
-scanner.addListener('scan', function (content) {
-  alert(content); // content が student_id
+// QR Reader × Ajax
+let scanner = new Instascan.Scanner({ video: document.getElementById('preview') }); //preview: ビデオタグの要素
+scanner.addListener('scan', function (content) { //content: 読み取ったQRコードの情報が「content」に格納されている
+
+  // alert(content);
+  $(".output1").text(content);//読み取ったQRコードの情報をpタグ(class="output1")に表示できた
+
+  // ajax処理スタート
+  $.ajax({
+    type: "get", //HTTP通信の種類
+    url:'/attendance/{id}', //通信したいURL
+    dataType: 'json'
+  })
+  //通信が成功したとき
+  .done((res)=>{
+    console.log(res.message)
+  })
+  //通信が失敗したとき
+  .fail((error)=>{
+    console.log(error.statusText)
+  })
+
 });
+
 Instascan.Camera.getCameras().then(function (cameras) {
   if (cameras.length > 0) {
-    scanner.start(cameras[0]);
+    scanner.start(cameras[0]);//カメラのデバイス情報を指定して読み取りを開始
   } else {
     console.error('No cameras found.');
   }
@@ -76,3 +95,35 @@ Instascan.Camera.getCameras().then(function (cameras) {
   console.error(e);
 });
 
+
+// 【Original】QR Reader
+// let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+// scanner.addListener('scan', function (content) {
+//   alert(content); // content が student_id
+// });
+// Instascan.Camera.getCameras().then(function (cameras) {
+//   if (cameras.length > 0) {
+//     scanner.start(cameras[0]);
+//   } else {
+//     console.error('No cameras found.');
+//   }
+// }).catch(function (e) {
+//   console.error(e);
+// });
+
+// 【Ajax】template
+// $(function(){
+//   $.ajax({
+//     type: "get", //HTTP通信の種類
+//     url:'/attendance/{id}', //通信したいURL
+//     dataType: 'json'
+//   })
+//   //通信が成功したとき
+//   .done((res)=>{
+//     console.log(res.message)
+//   })
+//   //通信が失敗したとき
+//   .fail((error)=>{
+//     console.log(error.statusText)
+//   })
+// });
