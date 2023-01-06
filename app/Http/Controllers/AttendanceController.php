@@ -13,11 +13,12 @@ class AttendanceController extends Controller
         return view('admin.attendance.attendance');
     }
 
-    public function attendanceAjax (Request $request, $id)
+    public function attendanceAjax ($id)
     {
-        $studentData = Student::select('student_name')->get();
 
-        return $studentData;
+        $getStudentData = Student::where('id', $id)->get(); //idに該当するデータをstudentsテーブルから取得
+
+        return $getStudentData;
     }
 
     public function leave()
