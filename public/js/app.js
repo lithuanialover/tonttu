@@ -62,38 +62,43 @@ $(document).ready(function() {
 });
 
 // QR Reader × Ajax
-let scanner = new Instascan.Scanner({ video: document.getElementById('preview') }); //preview: ビデオタグの要素
-scanner.addListener('scan', function (content) { //content: 読み取ったQRコードの情報が「content」に格納されている
+$(window).on('load',function(){
+  // alert('画面表示'); //画面読み込んだ瞬間にalert()発火
+  let scanner = new Instascan.Scanner({ video: document.getElementById('preview') }); //preview: ビデオタグの要素
+  scanner.addListener('scan', function (content) { //content: 読み取ったQRコードの情報が「content」に格納されている
 
-  // alert(content);
-  $(".output1").text(content);//読み取ったQRコードの情報をpタグ(class="output1")に表示できた
+    // alert(content);
+    // $(".output1").text(content);//読み取ったQRコードの情報をpタグ(class="output1")に表示できた
 
-  // ajax処理スタート
-  $.ajax({
-    type: "get", //HTTP通信の種類
-    url:'/attendance/{id}', //通信したいURL
-    dataType: 'json'
-  })
-  //通信が成功したとき
-  .done((res)=>{
-    console.log(res.message)
-  })
-  //通信が失敗したとき
-  .fail((error)=>{
-    console.log(error.statusText)
-  })
+    // ajax処理スタート
+    $.ajax({
+      type: "get", //HTTP通信の種類
+      url: '/attendance/{id}', //通信したいURL
+      dataType: 'json'
+    })
+    //通信が成功したとき
+    .done((res)=>{
+      alert('Ajax成功'); //Ajaxが正常に作動していることを確認できた
+      console.log(res.message)
+    })
+    //通信が失敗したとき
+    .fail((error)=>{
+      alert('Ajax失敗');//Ajaxが正常に作動していることを確認できた
+      console.log(error.statusText)
+    })
 
-});
+  });
 
-Instascan.Camera.getCameras().then(function (cameras) {
-  if (cameras.length > 0) {
-    scanner.start(cameras[0]);//カメラのデバイス情報を指定して読み取りを開始
-  } else {
-    console.error('No cameras found.');
-  }
-}).catch(function (e) {
-  console.error(e);
-});
+  Instascan.Camera.getCameras().then(function (cameras) {
+    if (cameras.length > 0) {
+      scanner.start(cameras[0]);//カメラのデバイス情報を指定して読み取りを開始
+    } else {
+      console.error('No cameras found.');
+    }
+  }).catch(function (e) {
+    console.error(e);
+  });
+})
 
 
 // 【Original】QR Reader
