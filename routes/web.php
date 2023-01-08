@@ -51,7 +51,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
 Route::middleware('auth:admin')->group(function () {
     Route::get('/attendance', [AttendanceController::class, 'attendance'])->name('attendance');
     // Ajaxで実行するメソッドのルーティング
-    Route::post('/attendance',[AttendanceController::class, 'attendanceAjax'])->name('attendanceAjax');
+    Route::get('/attendance/{id}',[AttendanceController::class, 'attendanceAjax'])->name('attendanceAjax');
 
     Route::get('/leave', [AttendanceController::class, 'leave'])->name('leave');
 

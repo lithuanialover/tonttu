@@ -18,6 +18,10 @@ class AttendanceController extends Controller
         // contentは、QR読み取ったデータを定義したもの。詳細は、app.js。scanner.addListener('scan', function (content) {}
         $id = $request->content; //QR読み込みの値を$request->contentで取得、$idに代入する。$idがstudentsテーブル
 
+        dump($id);//「ok」と表示される
+
+        // $id = 1; //student_id のデータをとれた。
+
         $studentId = Student::find($id);
 
         return response()->json($studentId);

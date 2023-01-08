@@ -62,74 +62,118 @@ $(document).ready(function() {
 });
 
 // QR Reader × Ajax
-$(window).on('load',function(){
-  // alert('画面表示'); //画面読み込んだ瞬間にalert()発火
-  let scanner = new Instascan.Scanner({ video: document.getElementById('preview') }); //preview: ビデオタグの要素
+let scanner = new Instascan.Scanner({ video: document.getElementById('preview') }); //preview: ビデオタグの要素
+scanner.addListener('scan', function (content) { //content: 読み取ったQRコードの情報が「content」に格納されている
 
-  //CSRFトークンをAjax送信時にセットで送信させる
-  $.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': '{{ csrf_token() }}'
-    }
-  });
+  // alert(content);
+  $(".output1").text(content);//読み取ったQRコードの情報をpタグ(class="output1")に表示できた
 
-  setInterval(function() {
-    ajaxCheck();
-}, 60000);
+  // ajax処理スタート
+  $.ajax({
+    type: "get", //HTTP通信の種類
+    url:'/attendance/{id}', //通信したいURL
+    dataType: 'json'
+  })
+  //通信が成功したとき
+  .done((res)=>{
+    console.log(res);
 
-function ajaxCheck(){
-  scanner.addListener('scan', function (content) { //content: 読み取ったQRコードの情報が「content」に格納されている
+    // //取得jsonデータ
+    // var data_stringify = JSON.stringify(data);
+    // var data_json = JSON.parse(data_stringify);
+    // //jsonデータから各データを取得
+    // var data_kana = data_json[0]["student_kana"];
+    // //出力
+    // $("#studentKana").text(data_kana);
+  })
+  //通信が失敗したとき
+  .fail((error)=>{
+    console.log(error.statusText);
+  })
 
-    // alert(content);
-    // $(".output1").text(content);//読み取ったQRコードの情報をpタグ(class="output1")に表示できた
+});
 
-    let id = content;//QR読み取ったデータをidに代入
+Instascan.Camera.getCameras().then(function (cameras) {
+  if (cameras.length > 0) {
+    scanner.start(cameras[0]);//カメラのデバイス情報を指定して読み取りを開始
+  } else {
+    console.error('No cameras found.');
+  }
+}).catch(function (e) {
+  console.error(e);
+});
 
-    // ajax処理スタート
-    $.ajax({
-      type: "post", //HTTP通信の種類
-      url: '/attendance', //通信したいURL
-      data: {"id" : id},
-      dataType: 'json'
-    })
+// // QR Reader × Ajax
+// $(window).on('load',function(){
+//   // alert('画面表示'); //画面読み込んだ瞬間にalert()発火
+//   let scanner = new Instascan.Scanner({ video: document.getElementById('preview') }); //preview: ビデオタグの要素
 
-    //通信が成功したとき
-    .done(function(studentId, status, xhr){
+//   //CSRFトークンをAjax送信時にセットで送信させる
+//   $.ajaxSetup({
+//     headers: {
+//         'X-CSRF-TOKEN': '{{ csrf_token() }}'
+//     }
+//   });
 
-      $("#studentKana").text(studentId.student_kana +'さんですか？');
+//   setInterval(function() {
+//     ajaxCheck();
+// }, 60000);
 
-      // 419なのでリダイレクト
-      if(xhr.status == 419) {
-        location.href = location.href;
-      }
+// function ajaxCheck(){
+//   scanner.addListener('scan', function (content) { //content: 読み取ったQRコードの情報が「content」に格納されている
 
-    })
+//     // alert(content);
+//     // $(".output1").text(content);//読み取ったQRコードの情報をpタグ(class="output1")に表示できた
 
-    //通信が失敗したとき
-    .fail(function(xhr, status, error){
+//     let id = content;//QR読み取ったデータをidに代入
 
-      alert('Ajax失敗');
-      console.log(error.statusText)
+//     // ajax処理スタート
+//     $.ajax({
+//       type: "get", //HTTP通信の種類
+//       url: '/attendance', //通信したいURL
+//       data: {"id" : id},//アクセスするときに必要なデータを記載
+//       dataType: 'json'
+//     })
 
-      // 419なのでリダイレクト
-      if(xhr.status == 419) {
-          location.href = location.href;
-      }
-    })
+//     //通信が成功したとき
+//     .done(function(studentId, status, xhr){
 
-  });
-}
+      
 
-  Instascan.Camera.getCameras().then(function (cameras) {
-    if (cameras.length > 0) {
-      scanner.start(cameras[0]);//カメラのデバイス情報を指定して読み取りを開始
-    } else {
-      console.error('No cameras found.');
-    }
-  }).catch(function (e) {
-    console.error(e);
-  });
-})
+//       // $("#studentKana").text(studentId.student_kana +'さんですか？');
+
+//       // 419なのでリダイレクト
+//       if(xhr.status == 419) {
+//         location.href = location.href;
+//       }
+
+//     })
+
+//     //通信が失敗したとき
+//     .fail(function(xhr, status, error){
+
+//       alert('Ajax失敗');
+//       console.log(error.statusText)
+
+//       // 419なのでリダイレクト
+//       if(xhr.status == 419) {
+//           location.href = location.href;
+//       }
+//     })
+
+//   });
+// }
+
+//   Instascan.Camera.getCameras().then(function (cameras) {
+//     if (cameras.length > 0) {
+//       scanner.start(cameras[0]);//カメラのデバイス情報を指定して読み取りを開始
+//     } else {
+//       console.error('No cameras found.');
+//     }
+//   }).catch(function (e) {
+//     console.error(e);
+//   });
+// })
 
 
 // 【Original】QR Reader
