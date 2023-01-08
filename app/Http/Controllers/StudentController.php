@@ -137,15 +137,15 @@ class StudentController extends Controller
 
     public function generate ($id)
     {
-        $path = 'http://127.0.0.1:8000';
+        // $path = 'http://127.0.0.1:8000';
 
-        $route = '/attendance/';
+        // $route = '/attendance/';
 
         $student = Student::findOrFail($id);
 
-        // $qrcode = QrCode::size(400)->generate($student->id);//student IDでQR作成 #ideal: insert multiple data
+        $qrcode = QrCode::size(400)->generate($student->id);//student IDでQR作成 #ideal: insert multiple data
 
-        $qrcode = QrCode::size(400)->generate($path.$route.$student->id);//URL組み込んだQRコード
+        // $qrcode = QrCode::size(400)->generate($path.$route.$student->id);//URL組み込んだQRコード
 
         return view('auth.student.qrcode',['student' => $student],compact('qrcode'));
     }
@@ -154,11 +154,17 @@ class StudentController extends Controller
     {
         $student = Student::findOrFail($id);
 
-        $path = 'http://127.0.0.1:8000';//URL付きQRのために追記 + compact('url')
-        $route = '/attendance/';//URL付きQRのために追記 + compact('url')
-        $url = $path.$route;//URL付きQRのために追記 + compact('url')
+        $qrcode = QrCode::size(400)->generate($student->id);//student IDでQR作成 #ideal: insert multiple data
 
-        $pdf = \PDF::loadView('auth.student.pdf', ['student' => $student],compact('url')); # PDF前の「\」は必要
+        $pdf = \PDF::loadView('auth.student.pdf', ['student' => $student],compact('qrcode')); # PDF前の「\」は必要
+
+        // $student = Student::findOrFail($id);
+
+        // $path = 'http://127.0.0.1:8000';//URL付きQRのために追記 + compact('url')
+        // $route = '/attendance/';//URL付きQRのために追記 + compact('url')
+        // $url = $path.$route;//URL付きQRのために追記 + compact('url')
+
+        // $pdf = \PDF::loadView('auth.student.pdf', ['student' => $student],compact('url')); # PDF前の「\」は必要
 
         $pdf->setPaper('A4');
 

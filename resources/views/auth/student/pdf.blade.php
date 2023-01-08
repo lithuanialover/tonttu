@@ -58,7 +58,9 @@
         </table>
         <p>-------------きりとり線-------------</p>
         <p>登園降園の管理でQRコードを使います。</p>
-        <img src="data:image/png;base64, {{ base64_encode(QrCode::format('png')->size(100)->generate($url.$student->id)) }} "> <!--これなら成功-->
+        <img src="data:image/png;base64, {{ base64_encode(QrCode::format('png')->size(100)->generate($student->id)) }} "> <!--これなら成功-->
+
+        {{-- <img src="data:image/png;base64, {{ base64_encode(QrCode::format('png')->size(100)->generate($url.$student->id)) }} "> <!--これなら成功--> --}}
         {{-- <p>only student id</p>
         <img src="data:image/png;base64, {{ base64_encode(QrCode::format('png')->size(100)->generate($student->id)) }} "> <!--これなら成功-->
         <p>demo qr code</p>

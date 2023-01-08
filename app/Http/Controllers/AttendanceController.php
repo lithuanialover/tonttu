@@ -13,12 +13,14 @@ class AttendanceController extends Controller
         return view('admin.attendance.attendance');
     }
 
-    public function attendanceAjax ($id)
+    public function attendanceAjax (Request $request)
     {
+        // contentは、QR読み取ったデータを定義したもの。詳細は、app.js。scanner.addListener('scan', function (content) {}
+        $id = $request->content; //QR読み込みの値を$request->contentで取得、$idに代入する。$idがstudentsテーブル
 
-        $getStudentData = Student::where('id', $id)->get(); //idに該当するデータをstudentsテーブルから取得
+        $studentId = Student::find($id);
 
-        return $getStudentData;
+        return response()->json($studentId);
     }
 
     public function leave()

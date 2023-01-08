@@ -65,29 +65,60 @@ $(document).ready(function() {
 $(window).on('load',function(){
   // alert('画面表示'); //画面読み込んだ瞬間にalert()発火
   let scanner = new Instascan.Scanner({ video: document.getElementById('preview') }); //preview: ビデオタグの要素
+
+  //CSRFトークンをAjax送信時にセットで送信させる
+  $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+    }
+  });
+
+  setInterval(function() {
+    ajaxCheck();
+}, 60000);
+
+function ajaxCheck(){
   scanner.addListener('scan', function (content) { //content: 読み取ったQRコードの情報が「content」に格納されている
 
     // alert(content);
     // $(".output1").text(content);//読み取ったQRコードの情報をpタグ(class="output1")に表示できた
 
+    let id = content;//QR読み取ったデータをidに代入
+
     // ajax処理スタート
     $.ajax({
-      type: "get", //HTTP通信の種類
-      url: '/attendance/{id}', //通信したいURL
+      type: "post", //HTTP通信の種類
+      url: '/attendance', //通信したいURL
+      data: {"id" : id},
       dataType: 'json'
     })
+
     //通信が成功したとき
-    .done((res)=>{
-      alert('Ajax成功'); //Ajaxが正常に作動していることを確認できた
-      console.log(res.message)
+    .done(function(studentId, status, xhr){
+
+      $("#studentKana").text(studentId.student_kana +'さんですか？');
+
+      // 419なのでリダイレクト
+      if(xhr.status == 419) {
+        location.href = location.href;
+      }
+
     })
+
     //通信が失敗したとき
-    .fail((error)=>{
-      alert('Ajax失敗');//Ajaxが正常に作動していることを確認できた
+    .fail(function(xhr, status, error){
+
+      alert('Ajax失敗');
       console.log(error.statusText)
+
+      // 419なのでリダイレクト
+      if(xhr.status == 419) {
+          location.href = location.href;
+      }
     })
 
   });
+}
 
   Instascan.Camera.getCameras().then(function (cameras) {
     if (cameras.length > 0) {

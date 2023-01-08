@@ -11,7 +11,7 @@
                             <div class="attendance-img">
                                 {{-- <img src="{{ asset('img/kids5.jpg') }}" alt="child photo"> --}}
                                 {{-- <p>Jone<span class="small-p">さんですか？</span></p> --}}
-                                <p class= "output1"></p>
+                                <p id= "studentKana"></p>
                             </div>
                             <div class="flex attendance-btn">
                                 <div class="yes">
