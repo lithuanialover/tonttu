@@ -62,6 +62,9 @@ $(document).ready(function() {
 });
 
 // QR Reader × Ajax
+$(window).on('load',function(){
+
+// QR Reader × Ajax
 let scanner = new Instascan.Scanner({ video: document.getElementById('preview') }); //preview: ビデオタグの要素
 scanner.addListener('scan', function (content) { //content: 読み取ったQRコードの情報が「content」に格納されている
 
@@ -76,8 +79,9 @@ scanner.addListener('scan', function (content) { //content: 読み取ったQRコ
   })
   //通信が成功したとき
   .done((res)=>{
+    $("#yourInputFieldId").val(content); // Pass the scanned content value to an input field
+    
     console.log(res);
-
     // //取得jsonデータ
     // var data_stringify = JSON.stringify(data);
     // var data_json = JSON.parse(data_stringify);
@@ -102,6 +106,9 @@ Instascan.Camera.getCameras().then(function (cameras) {
 }).catch(function (e) {
   console.error(e);
 });
+
+})
+
 
 // // QR Reader × Ajax
 // $(window).on('load',function(){

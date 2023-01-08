@@ -11,11 +11,13 @@
                             <div class="attendance-img">
                                 {{-- <img src="{{ asset('img/kids5.jpg') }}" alt="child photo"> --}}
                                 {{-- <p>Jone<span class="small-p">さんですか？</span></p> --}}
-                                <p id= "studentKana"></p>
                             </div>
+                            <input type='text' id='yourInputFieldId' name="student_id"/>
                             <div class="flex attendance-btn">
                                 <div class="yes">
-                                    <a href="{{ route('attendance') }}">はい</a>
+                                    <form method="post" action="">
+                                        <a href="{{ route('attendance') }}">はい</a>
+                                    </form>
                                 </div>
                                 <div class="no">
                                     <a href="{{ route('leave') }}">いいえ</a>

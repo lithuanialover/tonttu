@@ -20,6 +20,9 @@
                 <li id="min"></li>
             </ul>
         </div>
+        <div class="register">
+            <a href="{{ route('attendanceList') }}">登園・降園のリスト</a>
+        </div>
     </div>
 </div>
 @endsection
