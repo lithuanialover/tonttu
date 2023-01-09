@@ -66,29 +66,31 @@ $(window).on('load',function(){
 
 // QR Reader × Ajax
 let scanner = new Instascan.Scanner({ video: document.getElementById('preview') }); //preview: ビデオタグの要素
-scanner.addListener('scan', function (content) { //content: 読み取ったQRコードの情報が「content」に格納されている
+scanner.addListener('scan', function (id) { //content: 読み取ったQRコードの情報が「content」に格納されている
 
   // alert(content);
-  $(".output1").text(content);//読み取ったQRコードの情報をpタグ(class="output1")に表示できた
+  $(".output1").text(id);//読み取ったQRコードの情報をpタグ(class="output1")に表示できた
+  $("#yourInputFieldId").val(id); // Pass the scanned content value to an input field
 
   // ajax処理スタート
   $.ajax({
     type: "get", //HTTP通信の種類
-    url:'/attendance/{id}', //通信したいURL
+    url: `/attendance/${id}`, //通信したいURL
     dataType: 'json'
   })
   //通信が成功したとき
-  .done((res)=>{
-    $("#yourInputFieldId").val(content); // Pass the scanned content value to an input field
+  .done((res)=>{// resの部分にコントローラーから返ってきた値 $studentKana が入る
+
+    $("#kana").text(res.qrResult.student_kana); // Pass the scanned content value to an input field
+    // $('#image').append('<img src="' + res.studentKana.student_image + '" />');
+    // $.each(res, function (index, value) {
+    //     html = `
+    //             <p>${value.student_kana}さんですか？</p>
+    //     `;
+    //   $("#kana").append(html); //できあがったテンプレートを <div id="kana"></div>の中に追加
+    // });
 
     console.log(res);
-    // //取得jsonデータ: 下記のやり方はエラーがでる
-    // var data_stringify = JSON.stringify(studentId);
-    // var data_json = JSON.parse(data_stringify);
-    // //jsonデータから各データを取得
-    // var data_kana = data_json[2]["student_kana"];
-    // //出力
-    // $("#studentKana").text(data_kana);
   })
   //通信が失敗したとき
   .fail((error)=>{
@@ -96,6 +98,8 @@ scanner.addListener('scan', function (content) { //content: 読み取ったQRコ
   })
 
 });
+
+//reference: json形式 https://qiita.com/si-ma/items/6931ecc0b8562e96733e
 
 Instascan.Camera.getCameras().then(function (cameras) {
   if (cameras.length > 0) {

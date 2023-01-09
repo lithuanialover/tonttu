@@ -9,8 +9,8 @@
                         <h2 class="attendance-ttl">おはようございます。</h2>
                         <div class="attendance-card">
                             <div class="attendance-img">
-                                {{-- <img src="{{ asset('img/kids5.jpg') }}" alt="child photo"> --}}
-                                {{-- <p>Jone<span class="small-p">さんですか？</span></p> --}}
+                                <p><span id="kana"><!-- ここに集合場所が入る --></span></p>
+                                <p style="font-size: 20px">さんですか？</p>
                             </div>
                             <input type='text' id='yourInputFieldId' name="student_id"/>
                             {{-- <input type='text' id='studentKana' name="student_id"/> --}}
@@ -24,6 +24,7 @@
                                     <a href="{{ route('leave') }}">いいえ</a>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
