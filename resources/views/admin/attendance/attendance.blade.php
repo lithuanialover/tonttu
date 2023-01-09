@@ -13,6 +13,7 @@
                                 {{-- <p>Jone<span class="small-p">さんですか？</span></p> --}}
                             </div>
                             <input type='text' id='yourInputFieldId' name="student_id"/>
+                            {{-- <input type='text' id='studentKana' name="student_id"/> --}}
                             <div class="flex attendance-btn">
                                 <div class="yes">
                                     <form method="post" action="">

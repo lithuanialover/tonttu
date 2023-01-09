@@ -80,13 +80,13 @@ scanner.addListener('scan', function (content) { //content: 読み取ったQRコ
   //通信が成功したとき
   .done((res)=>{
     $("#yourInputFieldId").val(content); // Pass the scanned content value to an input field
-    
+
     console.log(res);
-    // //取得jsonデータ
-    // var data_stringify = JSON.stringify(data);
+    // //取得jsonデータ: 下記のやり方はエラーがでる
+    // var data_stringify = JSON.stringify(studentId);
     // var data_json = JSON.parse(data_stringify);
     // //jsonデータから各データを取得
-    // var data_kana = data_json[0]["student_kana"];
+    // var data_kana = data_json[2]["student_kana"];
     // //出力
     // $("#studentKana").text(data_kana);
   })
