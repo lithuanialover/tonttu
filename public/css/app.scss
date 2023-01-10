@@ -288,6 +288,14 @@ a{
     text-align: center;
 }
 
+.alert-error{
+    margin-bottom: 15px;
+    background-color: #ffdddd;
+    font-size: 24px;
+    padding: 10px;
+    text-align: center;
+}
+
 .show-form{
     flex-direction: column
 }
@@ -384,6 +392,17 @@ a{
         border-radius: 100%;
     }
 }
+
+// 【管理者】attendance/index.blade.php
+.checkbox-p{
+    font-size: 14px;
+}
+
+.attendanceTd{
+    align-items: center;
+    justify-content: space-between;
+}
+
 
 @media #{$pc} {
     .cnt-width{//【配置の共通化】.cnt-positionのdivの下に作ったdivにこのcssを書く

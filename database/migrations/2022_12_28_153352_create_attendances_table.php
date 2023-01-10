@@ -15,8 +15,11 @@ return new class extends Migration
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('punchIn');
-            $table->dateTime('punchOut')->nullable();
+            $table->dateTime('punchIn')->comment('登園時間');
+            $table->dateTime('punchOut')->nullable()->comment('降園時間');
+            // $table->date('date')->comment('登園・降園の日付');
+            // $table->time('punchIn')->comment('登園時間');
+            // $table->time('punchOut')->comment('降園時間');
             #student_id; one-many relationship
             $table->foreignId('student_id')->constrained('students')->onDelete('cascade');
             $table->timestamps();

@@ -15,6 +15,10 @@ class Attendance extends Model
         'student_id',
     ];
 
+    /**
+     * ユーザー関連付け
+     * one to many
+     */
     public function student() {
         return $this->belongsTo(Student::class);
     }

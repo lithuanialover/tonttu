@@ -247,6 +247,14 @@ a {
   text-align: center;
 }
 
+.alert-error {
+  margin-bottom: 15px;
+  background-color: #ffdddd;
+  font-size: 24px;
+  padding: 10px;
+  text-align: center;
+}
+
 .show-form {
   flex-direction: column;
 }
@@ -332,6 +340,15 @@ a {
   left: 9.5%;
   width: 565px;
   border-radius: 100%;
+}
+
+.checkbox-p {
+  font-size: 14px;
+}
+
+.attendanceTd {
+  align-items: center;
+  justify-content: space-between;
 }
 
 @media only screen and (min-width: 1200px) {

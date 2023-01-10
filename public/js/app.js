@@ -11,6 +11,8 @@ $(function () {
     });
 });
 
+//----------------------------------------------------------------------------------------
+
 // リアルタイム時計
 $(document).ready(function() {
 
@@ -61,16 +63,17 @@ $(document).ready(function() {
 
 });
 
-// QR Reader × Ajax
+//----------------------------------------------------------------------------------------
+
+// QR Reader × Ajax for attendance.blade.php and leave.blade.php
 $(window).on('load',function(){
 
-// QR Reader × Ajax
 let scanner = new Instascan.Scanner({ video: document.getElementById('preview') }); //preview: ビデオタグの要素
 scanner.addListener('scan', function (id) { //content: 読み取ったQRコードの情報が「content」に格納されている
 
   // alert(content);
-  $(".output1").text(id);//読み取ったQRコードの情報をpタグ(class="output1")に表示できた
-  $("#yourInputFieldId").val(id); // Pass the scanned content value to an input field
+  // $(".output1").text(id);//読み取ったQRコードの情報をpタグ(class="output1")に表示できた
+  // $("#yourInputFieldId").val(id); // Pass the scanned content value to an input field
 
   // ajax処理スタート
   $.ajax({
@@ -82,13 +85,7 @@ scanner.addListener('scan', function (id) { //content: 読み取ったQRコー�
   .done((res)=>{// resの部分にコントローラーから返ってきた値 $studentKana が入る
 
     $("#kana").text(res.qrResult.student_kana); // Pass the scanned content value to an input field
-    // $('#image').append('<img src="' + res.studentKana.student_image + '" />');
-    // $.each(res, function (index, value) {
-    //     html = `
-    //             <p>${value.student_kana}さんですか？</p>
-    //     `;
-    //   $("#kana").append(html); //できあがったテンプレートを <div id="kana"></div>の中に追加
-    // });
+    $("#studentId").val(res.qrResult.id); // Pass the scanned content value to an input field
 
     console.log(res);
   })
@@ -113,108 +110,12 @@ Instascan.Camera.getCameras().then(function (cameras) {
 
 })
 
-
-// // QR Reader × Ajax
-// $(window).on('load',function(){
-//   // alert('画面表示'); //画面読み込んだ瞬間にalert()発火
-//   let scanner = new Instascan.Scanner({ video: document.getElementById('preview') }); //preview: ビデオタグの要素
-
-//   //CSRFトークンをAjax送信時にセットで送信させる
-//   $.ajaxSetup({
-//     headers: {
-//         'X-CSRF-TOKEN': '{{ csrf_token() }}'
-//     }
-//   });
-
-//   setInterval(function() {
-//     ajaxCheck();
-// }, 60000);
-
-// function ajaxCheck(){
-//   scanner.addListener('scan', function (content) { //content: 読み取ったQRコードの情報が「content」に格納されている
-
-//     // alert(content);
-//     // $(".output1").text(content);//読み取ったQRコードの情報をpタグ(class="output1")に表示できた
-
-//     let id = content;//QR読み取ったデータをidに代入
-
-//     // ajax処理スタート
-//     $.ajax({
-//       type: "get", //HTTP通信の種類
-//       url: '/attendance', //通信したいURL
-//       data: {"id" : id},//アクセスするときに必要なデータを記載
-//       dataType: 'json'
-//     })
-
-//     //通信が成功したとき
-//     .done(function(studentId, status, xhr){
-
-      
-
-//       // $("#studentKana").text(studentId.student_kana +'さんですか？');
-
-//       // 419なのでリダイレクト
-//       if(xhr.status == 419) {
-//         location.href = location.href;
-//       }
-
-//     })
-
-//     //通信が失敗したとき
-//     .fail(function(xhr, status, error){
-
-//       alert('Ajax失敗');
-//       console.log(error.statusText)
-
-//       // 419なのでリダイレクト
-//       if(xhr.status == 419) {
-//           location.href = location.href;
-//       }
-//     })
-
-//   });
-// }
-
-//   Instascan.Camera.getCameras().then(function (cameras) {
-//     if (cameras.length > 0) {
-//       scanner.start(cameras[0]);//カメラのデバイス情報を指定して読み取りを開始
-//     } else {
-//       console.error('No cameras found.');
-//     }
-//   }).catch(function (e) {
-//     console.error(e);
-//   });
-// })
-
-
-// 【Original】QR Reader
-// let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
-// scanner.addListener('scan', function (content) {
-//   alert(content); // content が student_id
-// });
-// Instascan.Camera.getCameras().then(function (cameras) {
-//   if (cameras.length > 0) {
-//     scanner.start(cameras[0]);
-//   } else {
-//     console.error('No cameras found.');
-//   }
-// }).catch(function (e) {
-//   console.error(e);
-// });
-
-// 【Ajax】template
-// $(function(){
-//   $.ajax({
-//     type: "get", //HTTP通信の種類
-//     url:'/attendance/{id}', //通信したいURL
-//     dataType: 'json'
-//   })
-//   //通信が成功したとき
-//   .done((res)=>{
-//     console.log(res.message)
-//   })
-//   //通信が失敗したとき
-//   .fail((error)=>{
-//     console.log(error.statusText)
-//   })
-// });
+//----------------------------------------------------------------------------------------
+// success & error: 時間経つと非表示になる
+$(document).ready(function() {
+  $("#fadeInOut").fadeIn().queue(function() {
+  setTimeout(function(){$("#fadeInOut").dequeue();
+  }, 3000);
+  });
+  $("#fadeInOut").fadeOut();
+  });

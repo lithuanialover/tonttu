@@ -52,11 +52,18 @@ Route::middleware('auth:admin')->group(function () {
 
     Route::get('/attendance/list', [AttendanceController::class, 'index'])->name('attendanceList');
 
-    Route::get('/attendance', [AttendanceController::class, 'attendance'])->name('attendance');
-    // Ajaxで実行するメソッドのルーティング
-    Route::get('/attendance/{id}',[AttendanceController::class, 'attendanceAjax'])->name('attendanceAjax');
+# 登園管理
+    Route::get('/attendance', [AttendanceController::class, 'attendance'])->name('attendance'); //QRリーダー表示
 
+    Route::get('/attendance/{id}',[AttendanceController::class, 'attendanceAjax'])->name('attendanceAjax');// Ajaxで実行するメソッドのルーティング
+
+    Route::post('/punchin', [AttendanceController::class, 'punchIn'])->name('punchIn'); //「登園」をDBに登録
+
+#降園管理
     Route::get('/leave', [AttendanceController::class, 'leave'])->name('leave');
+
+    Route::post('/punchout', [AttendanceController::class, 'punchOut'])->name('punchOut'); //「降園」をDBに登録
+
 
     // require __DIR__.'/admin.php';//これをいれるとtoo many directsエラーでる
 });

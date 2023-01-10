@@ -5,6 +5,19 @@
         <div class="attendance-width cnt-mg-top">
             <div class="flex">
                 <div id="attendance-cnt">
+                    <div id="fadeInOut">
+                        @if($message = Session::get('success'))
+                        <div class="alert-success">
+                            {{ $message }}
+                        </div>
+                        @endif
+                        {{-- 失敗の時 --}}
+                        @if ($message = Session::get('error'))
+                            <div class="alert-error">
+                                {{ $message }}
+                            </div>
+                        @endif
+                    </div>
                     <div>
                         <h2 class="attendance-ttl">おはようございます。</h2>
                         <div class="attendance-card">
@@ -12,20 +25,21 @@
                                 <p><span id="kana"><!-- ここに集合場所が入る --></span></p>
                                 <p style="font-size: 20px">さんですか？</p>
                             </div>
-                            <input type='text' id='yourInputFieldId' name="student_id"/>
-                            {{-- <input type='text' id='studentKana' name="student_id"/> --}}
                             <div class="flex attendance-btn">
                                 <div class="yes">
-                                    <form method="post" action="">
-                                        <a href="{{ route('attendance') }}">はい</a>
+                                    <form method="post" action="{{ route('punchIn') }}">
+                                        @csrf
+                                        <input type='hidden' id='studentId' name="student_id"/>
+                                        {{-- <a href="{{ route('attendance') }}">はい</a> --}}
+                                        <button type="submit">はい</button>
                                     </form>
                                 </div>
                                 <div class="no">
-                                    <a href="{{ route('leave') }}">いいえ</a>
+                                    <a href="{{ route('attendance') }}">いいえ</a>
                                 </div>
                             </div>
-
                         </div>
+                        <small>*「はい」をクリックすると、登園報告ができます。</small>
                     </div>
                 </div>
                 <div id="qrreader">
