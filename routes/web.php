@@ -29,11 +29,15 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// 園児情報のCRUD
 Route::middleware('auth')->group(function () {
+    // 園児情報のCRUD
     Route::resource('students', StudentController::class);
     Route::get('qrcode/{id}', [StudentController::class, 'generate'])->name('generate');
     Route::get('/pdf/{id}', [StudentController::class, 'pdf'])->name('pdf');
+
+    //園児の登園/降園の履歴取得
+    Route::get('/student/attendance', [AttendanceController::class, 'attendanceCheck'])->name('attendanceCheck');
+
 });
 
 require __DIR__.'/auth.php';//会員
@@ -53,6 +57,8 @@ Route::prefix('admin')->name('admin.')->group(function(){
 Route::middleware('auth:admin')->group(function () {
 
     Route::get('/attendance/list', [AttendanceController::class, 'index'])->name('attendanceList');
+
+    Route::get('/attendance/history', [AttendanceController::class, 'showHistory'])->name('attendanceHistory');
 
 # 登園管理
     Route::get('/attendance', [AttendanceController::class, 'attendance'])->name('attendance'); //QRリーダー表示

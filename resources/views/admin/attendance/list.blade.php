@@ -3,18 +3,9 @@
 @section('main')
 <div class="cnt-position">
     <div class="cnt-width cnt-mg-top">
-        <div class="clock">
-            <div id="Date">
-            </div>
-            <ul class="flex">
-                <li id="hours"></li>
-                <li id="point">:</li>
-                <li id="min"></li>
-            </ul>
-        </div>
+        <h2>過去の登園降園一覧(日付順)</h2>
         <div class="table">
             <table>
-                <p>*本日の登園/降園一覧</p>
                 <tr class="table-bloke">
                     <th>園児</th>
                     <th>登園</th>
@@ -61,7 +52,7 @@
                 <a href="{{ route('admin.dashboard') }}">もどる</a>
             </div>
             <div class="login">
-                <a href="{{ route('attendanceHistory') }}">履歴</a>
+                <button>CSV出力</button>
             </div>
         </div>
     </div>

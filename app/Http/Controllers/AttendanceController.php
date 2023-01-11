@@ -12,9 +12,44 @@ class AttendanceController extends Controller
 {
     public function index(){
 
-        $attendanceStudents = Attendance::with('student')->orderBy('student_id', 'asc')->with(['student'])->paginate(1); //園児のFKを昇順に並べる
+        $attendanceStudents = Attendance::with('student')->orderBy('student_id', 'asc')->with(['student'])->whereDate('created_at', Carbon::today())->paginate(2);
 
         return view('admin.attendance.index',compact('attendanceStudents'));
+    }
+
+    /**
+     * 「登園・降園」過去のリスト一覧を取得
+     */
+    public function showHistory(){
+
+        // $attendanceStudents = Attendance::with('student')->orderBy('student_id', 'asc')->with(['student'])->orderBy('created_at', 'asc')->paginate(5);
+        $attendanceStudents = Attendance::orderBy('created_at', 'asc')->paginate(5);
+
+
+        return view('admin.attendance.list',compact('attendanceStudents'));
+    }
+
+    /**
+     * 【会員ページ】「登園・降園」過去のリスト一覧を取得
+     */
+    public function attendanceCheck(){
+
+        //ログイン中のユーザーIDをもとに注文情報を取得する。今日の日付のみ取得ができていない
+        $attendanceStudents = Student::where('user_id', \Auth::id())
+            ->with(['user', 'attendances'])
+            ->paginate(3);
+
+        // dd($attendanceStudents);
+
+        #失敗
+        // $attendanceStudents = Student::where('user_id', \Auth::id())
+        //     ->with(['user', 'attendances'])
+        //     ->whereHas('attendances', function($q){
+        //     $q->whereDate('punchIn', Carbon::today());
+        // })->paginate(3);
+        // dd($attendanceStudents);
+
+        return view('auth.attendance.list',compact('attendanceStudents'));
     }
 
     /**
@@ -48,25 +83,16 @@ class AttendanceController extends Controller
          * 打刻は1日一回までにしたい
          * DB
          */
-        $oldTimestamp = Attendance::where('student_id', $student_id)->latest()->first(); //attendancesテーブルのstudent_idカラム = studentsテーブルのid
-        if ($oldTimestamp) {
-            // $oldTimestampPunchIn = new Carbon($oldTimestamp->punchIn);
-            // $oldTimestampDay = $oldTimestampPunchIn->startOfDay();
-            // URL: https://github.com/rinonkia/AttendanceSystem/blob/master/app/Http/Controllers/TimestampsController.php
+        $attended = Attendance::where('student_id', $student_id)
+            ->whereDate('created_at', Carbon::today()) // created_at is just an example
+            ->exists();
+
+        if ($attended) {
+            // The user already has attended, so lets redirect back/abort etc
+            return redirect()->back()->with('error','既に登園手続き済です。');;
         }
 
-        $newTimestampDay = Carbon::today();
-
-        /**
-         * 日付を比較する。同日付の出勤打刻で、かつ直前のTimestampの退勤打刻がされていない場合エラーを吐き出す。
-         */
-        // if (($oldTimestampDay == $newTimestampDay) && (empty($oldTimestamp->punchOut))){
-        //     return redirect()->back()->with('error', 'すでに登園打刻がされています');
-        // }
-
-        $student_id = $request->student_id; //$requestの後ろは、<input type='hidden' id='studentId' name="student_id"/>の name="student_id"が入る
-
-        $timestamp = Attendance::create([
+        Attendance::create([
             'student_id' => $student_id,
             'punchIn' => Carbon::now(),
         ]);

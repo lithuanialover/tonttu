@@ -5,11 +5,19 @@
         <div class="attendance-width cnt-mg-top">
             <div class="flex">
                 <div id="attendance-cnt">
-                    @if($message = Session::get('success'))
+                    <div id="fadeInOut">
+                        @if($message = Session::get('success'))
                         <div class="alert-success">
                             {{ $message }}
                         </div>
-                    @endif
+                        @endif
+                        {{-- 失敗の時 --}}
+                        @if ($message = Session::get('error'))
+                            <div class="alert-error">
+                                {{ $message }}
+                            </div>
+                        @endif
+                    </div>
                     <div>
                         <h2 class="attendance-ttl">さようなら。</h2>
                         <div class="attendance-card">
