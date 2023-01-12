@@ -35,7 +35,7 @@
                     <div class="remember-me">
                         <label for="remember_me">
                             <input id="remember_me" type="checkbox"name="remember">
-                            <span class="">{{ __('Remember me') }}</span>
+                            <span class="">{{ __('パスワードを保持') }}</span>
                         </label>
                     </div>
                     <div class="auth-submit flex">

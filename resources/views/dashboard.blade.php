@@ -12,15 +12,20 @@
                 <li id="min"></li>
             </ul>
         </div>
-        <div class="register" style="margin-bottom: 30px">
-            <a href="{{ route('attendanceCheck') }}">登園・降園の確認</a>
+        <div class="flex table-btn-position">
+            <div class="register" style="margin-bottom: 30px">
+                <a href="{{ route('attendanceCheck') }}">登園・降園の確認</a>
+            </div>
+            <div class="login" style="margin-bottom: 30px">
+                <a href="{{ route('attendanceCheck') }}">当日の欠席連絡</a>
+            </div>
         </div>
         <div class="flex table-btn-position">
             <div class="register">
                 <a href="{{ route('students.index') }}">お子様の情報</a>
             </div>
             <div class="login">
-                <a href="{{ route('students.create') }}">新規登録</a>
+                <a href="{{ route('students.create') }}">お子様の新規登録</a>
             </div>
         </div>
     </div>

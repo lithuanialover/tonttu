@@ -15,7 +15,7 @@
                 <div class="auth-input flex">
                     <label for="email" value="email">メールアドレス</label>
                     <input id="email"  class="input-css" type="email" name="email" value="{{ old('email') }}" required autofocus placeholder="メールアドレス">
-                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                    {{-- <x-input-error :messages="$errors->get('email')" class="mt-2" /> --}}
                 </div>
         
                 <!-- Password -->
@@ -28,15 +28,26 @@
                             name="password"
                             required autocomplete="current-password"
                             placeholder="パスワード">
-        
-                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                    {{-- <x-input-error :messages="$errors->get('password')" class="mt-2" /> --}}
                 </div>
-        
+                <div>
+                    @if ($errors->any())
+                    <article class="message is-danger">
+                        <div class="message-body">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                <li style="color: red; list-style: none;">{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </article>
+                    @endif
+                </div>
                 <!-- Remember Me -->
                 <div class="remember-me">
                     <label for="remember_me">
                         <input id="remember_me" type="checkbox"  name="remember">
-                        <span>{{ __('Remember me') }}</span>
+                        <span>{{ __('パスワードを保持') }}</span>
                     </label>
                 </div>
         

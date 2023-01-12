@@ -34,7 +34,10 @@ class AttendanceController extends Controller
      */
     public function attendanceCheck(){
 
-        //ログイン中のユーザーIDをもとに注文情報を取得する。今日の日付のみ取得ができていない
+        /*ログイン中のユーザーIDをもとに注文情報を取得する。
+        *【To Do】
+            ・条件設定「今日の日付のみ取得」ができていない
+        */
         $attendanceStudents = Student::where('user_id', \Auth::id())
             ->with(['user', 'attendances'])
             ->paginate(3);
@@ -67,7 +70,7 @@ class AttendanceController extends Controller
     {
 
         // $studentKana = Student::find($id, ['student_kana']); //studentsテーブルから該当するidを元に「student_kana」カラムのみ取得
-        $qrResult = Student::find($id); //studentsテーブルから該当するidを元に全カラム取得
+        $qrResult = Student::find($id);
 
         return response()->json(['qrResult' => $qrResult]);
     }

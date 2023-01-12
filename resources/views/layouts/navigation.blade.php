@@ -9,11 +9,11 @@
         <nav>
             <ul class="flex">
                 <li>{{ Auth::user()->name }}さん</li>
-                <li>
+                {{-- <li>
                     <a href="{{ route('profile.edit') }}">
                         {{ __('Profile') }}
                     </a>
-                </li>
+                </li> --}}
                 <li>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
