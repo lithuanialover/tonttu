@@ -3,19 +3,17 @@
 @section('main')
 <div class="cnt-position">
     <div class="cnt-width cnt-mg-top">
-        <div class="table">
-            <table>
-                <tr class="table-bloke">
-                    <th class="table-student">お子さま</th>
-                    <th class="table-qr">QRコード</th>
-                    <th class="table-btn"></th>
-                </tr>
-        <div class="flex table-btn-position">
-            <div class="register">
-                <a href="{{ route('dashboard') }}">もどる</a>
+        <div class="cnt-width cnt-mg-top auth-flame">
+            <h2 class="form-ttl">欠席履歴</h2>
+            @if($message = Session::get('success'))
+            <div class="alert-success">
+                {{ $message }}
             </div>
-            <div class="login">
-                <a href="{{ route('students.create') }}">新規登録</a>
+            @endif
+            <div class="auth-form" style="margin-top: 50px;">
+                <div class="register">
+                    <a href="{{ route('absences.create') }}">新規欠席連絡</a>
+                </div>
             </div>
         </div>
     </div>

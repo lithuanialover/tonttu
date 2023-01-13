@@ -10,8 +10,9 @@ class Absence extends Model
     use HasFactory;
 
     protected $fillable = [
-        'submit',
         'student_id',
+        'absentDay',
+        'absentReason'
     ];
 
     /**

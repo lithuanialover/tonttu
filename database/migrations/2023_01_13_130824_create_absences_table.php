@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('absences', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('submit')->comment('欠席届日');
+            $table->date('absentDay')->comment('欠席日');
+            $table->string('absentReason')->comment('欠席理由');
             $table->foreignId('student_id')->constrained('students')->onDelete('cascade');
             $table->timestamps();
         });
