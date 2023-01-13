@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AbsenceController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ProfileController;
@@ -37,6 +38,9 @@ Route::middleware('auth')->group(function () {
 
     //園児の登園/降園の履歴取得
     Route::get('/student/attendance', [AttendanceController::class, 'attendanceCheck'])->name('attendanceCheck');
+
+    //園児の欠席報告
+    Route::resource('absences', AbsenceController::class);
 
 });
 

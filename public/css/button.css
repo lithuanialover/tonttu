@@ -448,4 +448,8 @@ button {
 }
 #pagination .pagination .page-link {
   font-size: 18px;
+}
+
+.dashboard-position-btn {
+  justify-content: center;
 }/*# sourceMappingURL=button.css.map */

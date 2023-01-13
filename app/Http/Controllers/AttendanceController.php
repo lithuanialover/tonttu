@@ -30,26 +30,27 @@ class AttendanceController extends Controller
     }
 
     /**
-     * 【会員ページ】「登園・降園」過去のリスト一覧を取得
+     * 【会員ページ】「登園・降園」当日の情報だけ取得
      */
     public function attendanceCheck(){
 
         /*ログイン中のユーザーIDをもとに注文情報を取得する。
         *【To Do】
             ・条件設定「今日の日付のみ取得」ができていない
+
+            Carbonファサードで指定日の最初と最後を得ることができます。
         */
-        $attendanceStudents = Student::where('user_id', \Auth::id())
-            ->with(['user', 'attendances'])
-            ->paginate(3);
 
-        // dd($attendanceStudents);
+        $today_start = Carbon::today()->format('Y-m-d 00:00:00');
+        $today_end = Carbon::today()->format('Y-m-d 23:59:59');
 
-        #失敗
-        // $attendanceStudents = Student::where('user_id', \Auth::id())
-        //     ->with(['user', 'attendances'])
-        //     ->whereHas('attendances', function($q){
-        //     $q->whereDate('punchIn', Carbon::today());
-        // })->paginate(3);
+        $attendanceStudents = Attendance::whereBetween('attendances.punchIn', [$today_start, $today_end]) //条件１：ログインユーザーに紐づくstudentsテーブルのみ取得
+        ->with('student')
+        ->whereHas('student', function($q){
+            $q->where('user_id', \Auth::id());
+        })
+        ->paginate(3);
+
         // dd($attendanceStudents);
 
         return view('auth.attendance.list',compact('attendanceStudents'));

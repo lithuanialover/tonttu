@@ -20,6 +20,32 @@
                     <th>降園</th>
                 </tr>
                 @foreach( $attendanceStudents as  $attendanceStudent)
+                <tr class="table-bloke">
+                    <td style="width: 30%">
+                        <ul class="flex" style="align-items: center;">
+                            <li class="index-img"><img class="rounded-circle" src="{{asset('storage/' . $attendanceStudent->student->student_image)}}"></li>
+                            <li>{{  $attendanceStudent->student->student_kana }}</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <div>
+                            <ul class="flex">
+                                <li><p class="attendanceTime">{{  $attendanceStudent->punchIn }}</p></li>
+                                <li class="td-checkbox"><input type="checkbox" class="checkbox"></li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <ul class="flex">
+                                <li><p class="attendanceTime">{{  $attendanceStudent->punchOut }}</p></li>
+                                <li class="td-checkbox"><input type="checkbox"></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            @endforeach
+                {{-- @foreach( $attendanceStudents as  $attendanceStudent)
                     @foreach( $attendanceStudent->attendances as $attendances)
                     <tr class="table-bloke">
                         <td style="width: 30%">
@@ -46,7 +72,7 @@
                         </td>
                     </tr>
                     @endforeach
-                @endforeach
+                @endforeach --}}
             </table>
         </div>
         <div class="table-attention-txt">

@@ -25,6 +25,11 @@ class Student extends Model
     public function attendances()
     {
         return $this->hasMany(Attendance::class);
-        //return $this->hasMany('App\Comment', 'foreign_key', 'local_key');
+    }
+
+    // 1対多の関係でリレーションを設定 Student→Absence(Userが1)(Absenceが多)
+    public function absences()
+    {
+        return $this->hasMany(Absence::class);
     }
 }

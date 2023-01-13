@@ -3,7 +3,7 @@
 @section('main')
 <div class="cnt-position">
     <div class="cnt-width cnt-mg-top">
-        <h2>過去の登園降園一覧(日付順)</h2>
+        <h2>過去の登園降園一覧(園児のid順)</h2>
         <div class="table">
             <table>
                 <tr class="table-bloke">
