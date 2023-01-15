@@ -64,6 +64,10 @@ Route::middleware('auth:admin')->group(function () {
 
     Route::get('/attendance/history', [AttendanceController::class, 'showHistory'])->name('attendanceHistory');
 
+    Route::get('/attendance/csv', [AttendanceController::class, 'csvDownload'])->name('csv');
+
+    Route::get('/attendance/students', [StudentController::class, 'allStudents'])->name('allStudents');
+
 # 登園管理
     Route::get('/attendance', [AttendanceController::class, 'attendance'])->name('attendance'); //QRリーダー表示
 

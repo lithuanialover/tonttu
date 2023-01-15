@@ -14,6 +14,7 @@
         </div>
         <div class="table">
             <table>
+                <p>*本日の登園/降園一覧</p>
                 <tr class="table-bloke">
                     <th>お子さま</th>
                     <th>登園</th>
@@ -28,20 +29,10 @@
                         </ul>
                     </td>
                     <td>
-                        <div>
-                            <ul class="flex">
-                                <li><p class="attendanceTime">{{  $attendanceStudent->punchIn }}</p></li>
-                                <li class="td-checkbox"><input type="checkbox" class="checkbox"></li>
-                            </ul>
-                        </div>
+                        <p class="attendanceTime">{{  $attendanceStudent->punchIn }}</p>
                     </td>
                     <td>
-                        <div>
-                            <ul class="flex">
-                                <li><p class="attendanceTime">{{  $attendanceStudent->punchOut }}</p></li>
-                                <li class="td-checkbox"><input type="checkbox"></li>
-                            </ul>
-                        </div>
+                        <p class="attendanceTime">{{  $attendanceStudent->punchOut }}</p>
                     </td>
                 </tr>
             @endforeach
@@ -75,16 +66,13 @@
                 @endforeach --}}
             </table>
         </div>
-        <div class="table-attention-txt">
-            <p class="attention-color">＊先生がお子さまの登園・降園を確認したときに、チェックボックスを付けます。</p>
-        </div>
         <div class="flex table-btn-position">
             <div class="register">
                 <a href="{{ route('dashboard') }}">もどる</a>
             </div>
-            <div class="login">
+            {{-- <div class="login">
                 <a href="{{ route('students.create') }}">履歴</a>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>

@@ -14,6 +14,12 @@
     </main>
     @component('layouts.lp.footer')
     @endcomponent
+    {{-- Jump To Top --}}
+    <div id="page_top"><a href="#">TOP</a></div>
+    {{-- Google Map API --}}
+    <script src="{{ asset('js/map.js') }}" defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyDlECI9g5hLBBg_EB883ZOFEyVGRJKI7Sk&callback=initMap" async defer>
+    </script>
 </body>
 
 </html>

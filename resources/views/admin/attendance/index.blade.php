@@ -3,17 +3,39 @@
 @section('main')
 <div class="cnt-position">
     <div class="cnt-width cnt-mg-top">
-        <div class="clock">
-            <div id="Date">
+        <div class="flex attendanceAbsenceTable">
+            <div class="clock attendanceTable">
+                <div id="Date">
+                </div>
+                <ul class="flex">
+                    <li id="hours"></li>
+                    <li id="point">:</li>
+                    <li id="min"></li>
+                </ul>
             </div>
-            <ul class="flex">
-                <li id="hours"></li>
-                <li id="point">:</li>
-                <li id="min"></li>
-            </ul>
+            <div class="calculation absenceTable">
+                <table class="table">
+                    <tr>
+                        <th>総生徒数</th>
+                        <td>{{ $countStudents }} <span style="font-size: 14px;">人</span></td>
+                    </tr>
+                    <tr>
+                        <th>登園数</th>
+                        <td>{{ $countAttendances }} <span style="font-size: 14px;">人</span></td>
+                    </tr>
+                    <tr>
+                        <th>欠席数</th>
+                        <td>{{ $countAbsences }} <span style="font-size: 14px;">人</span></td>
+                    </tr>
+                    <tr>
+                        <th>未登園数</th>
+                        <td><span class="red-p">{{ $countNonAttendances }}</span> <span style="font-size: 14px;">人</span></td>
+                    </tr>
+                </table>
+            </div>
         </div>
         <div class="flex attendanceAbsenceTable">
-            <div id="attendanceTable" class="table">
+            <div class="attendanceTable table">
                 <table>
                     <p>*本日の登園/降園一覧</p>
                     <tr class="table-bloke">
@@ -23,17 +45,17 @@
                     </tr>
                         @foreach( $attendanceStudents as  $attendanceStudent)
                         <tr class="table-bloke">
-                            <td style="width: 30%">
+                            <td style="width: 40%">
                                 <ul class="flex" style="align-items: center;">
                                     <li class="index-img"><img class="rounded-circle" src="{{asset('storage/' . $attendanceStudent->student->student_image)}}"></li>
                                     {{-- <li>{{  $attendanceData->student_id }}</li> --}}
                                     <li>{{  $attendanceStudent->student->student_kana }}</li>
                                 </ul>
                             </td>
-                            <td style="width: 35%">
+                            <td style="width: 30%">
                                 <p class="attendanceTime">{{  $attendanceStudent->punchIn }}</p>
                             </td>
-                            <td style="width: 35%">
+                            <td style="width: 30%">
                                 <p class="attendanceTime">{{  $attendanceStudent->punchOut }}</p>
                             </td>
                         </tr>
@@ -43,7 +65,7 @@
                     {{ $attendanceStudents->links() }}
                 </div>
             </div>
-            <div id="absenceTable" class="table">
+            <div class="absenceTable table">
                 <table>
                     <p>*本日の欠席者</p>
                     <tr class="table-bloke">
@@ -76,7 +98,10 @@
                 <a href="{{ route('admin.dashboard') }}">もどる</a>
             </div>
             <div class="login">
-                <a href="{{ route('attendanceHistory') }}">履歴</a>
+                <a href="{{ route('attendanceHistory') }}">登降園 履歴</a>
+            </div>
+            <div class="register">
+                <a href="{{ route('allStudents') }}">生徒一覧</a>
             </div>
         </div>
     </div>

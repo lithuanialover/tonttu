@@ -15,6 +15,25 @@ a {
   font-family: "UD デジタル 教科書体 N-R";
 }
 
+li {
+  list-style: none;
+}
+
+.lp-p {
+  font-family: "UD デジタル 教科書体 N-R";
+  font-size: 20px;
+  line-height: 2;
+  color: #4d5156;
+}
+
+.lp-h3 {
+  font-family: "UD デジタル 教科書体 N-R";
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
 .flex {
   display: flex;
 }
@@ -30,6 +49,11 @@ a {
 
 .attention-color {
   color: #C25338;
+}
+
+.red-p {
+  color: red;
+  font-weight: bold;
 }
 
 .user-header {
@@ -101,6 +125,45 @@ a {
 
 /* LP */
 #parent {
+  background-color: rgba(170, 142, 238, 0.2588235294);
+}
+
+.about-ul {
+  margin-bottom: 10px;
+}
+.about-ul li {
+  font-size: 20px;
+}
+
+.about-subttl {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.feature-cnt {
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 50px;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+}
+.feature-cnt .featureText,
+.feature-cnt .featureImg {
+  width: 45%;
+}
+.feature-cnt .featureNo {
+  margin-bottom: 15px;
+  font-size: 26px;
+  color: #800000;
+}
+.feature-cnt .featureImg img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.teacherFeatureCnt {
   background-color: rgba(170, 142, 238, 0.2588235294);
 }
 
@@ -192,6 +255,8 @@ a {
   border: 1.5px solid rgba(128, 0, 0, 0.2470588235);
 }
 .table th {
+  background-color: rgba(128, 0, 0, 0.85);
+  color: #fff;
   text-align: center;
 }
 .table td {
@@ -359,12 +424,16 @@ a {
   width: 100%;
 }
 
-#attendanceTable {
+.attendanceTable {
   width: 60%;
 }
 
-#absenceTable {
+.absenceTable {
   width: 35%;
+}
+
+.calculation table th, .calculation table td {
+  padding: 10px;
 }
 
 @media only screen and (min-width: 1200px) {
@@ -382,6 +451,7 @@ a {
   }
   .lp-ttl {
     font-size: 40px;
+    margin-bottom: 20px;
   }
   .lp-btn-position {
     justify-content: center;

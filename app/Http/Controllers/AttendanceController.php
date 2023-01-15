@@ -26,10 +26,30 @@ class AttendanceController extends Controller
 
         // dd($todaysAbsents);
 
-        return view('admin.attendance.index',compact('attendanceStudents', 'todaysAbsents'));
+        //カウント関数-当日
+        #生徒数
+        $countStudents = Student::count();
+        // dd($countStudents); 2
+
+        #登園数
+        $countAttendances = Attendance::with('student')->whereDate('created_at', Carbon::today())->count();
+        // dd($countAttendances); 1
+
+        #欠席数
+        $countAbsences = Absence::whereBetween('absences.absentDay', [$today_start, $today_end])->with('student')->count();
+        // dd($countAbsences); 1
+
+        #未登園数
+        $countNonAttendances = $countStudents - $countAttendances - $countAbsences;
+        // dd($countNonAttendances); 0
+
+        // return view('admin.attendance.index', compact('attendanceStudents', 'todaysAbsents'));
+
+        return view('admin.attendance.index', compact('attendanceStudents', 'todaysAbsents', 'countStudents', 'countAttendances', 'countAbsences', 'countNonAttendances'));
     }
 
     /**
+     * 【管理者】
      * 「登園・降園」過去のリスト一覧を取得
      */
     public function showHistory(){
@@ -37,8 +57,96 @@ class AttendanceController extends Controller
         // $attendanceStudents = Attendance::with('student')->orderBy('student_id', 'asc')->with(['student'])->orderBy('created_at', 'asc')->paginate(5);
         $attendanceStudents = Attendance::orderBy('created_at', 'asc')->paginate(5);
 
-
         return view('admin.attendance.list',compact('attendanceStudents'));
+    }
+
+    /**
+     * 【管理者】
+     * csv出力：カラム
+     */
+    public function csvcolmns()
+    {
+        //日本語だと文字化けした
+        $csvlists = array(
+            'student_name' => 'Student Name',
+            'punchIn' => 'punchIn',
+            'punchOut' => 'punchOut',
+        );
+
+        return $csvlists;
+    }
+
+    /**
+     * 【管理者】
+     * csv出力：カラム
+     */
+    public function csvDownload()
+    {
+                // 出力項目定義
+        $csvlist = $this->csvcolmns(); //auth_information + profiles
+
+        // ファイル名
+        $filename = "登降園履歴".date('Ymd').".csv";
+
+        // 仮ファイルOpen
+        $stream = fopen('php://temp', 'r+b');
+
+        // *** ヘッダ行 ***
+        $output = array();
+
+        foreach($csvlist as $key => $value){
+            $output[] = $value;
+        }
+
+        // CSVファイルを出力
+        fputcsv($stream, $output);
+
+        // *** データ行 ***
+        $blocksize = 100; // QUERYする単位
+        for($i=0 ; true ; $i++) {
+            $query = Student::query();
+            $query->Join('attendances','students.id','=','attendances.student_id'); //内部結合
+            // $query->orderBy('created_at', 'asc');
+            $query->skip($i * $blocksize); // 取得開始位置
+            $query->take($blocksize); // 取得件数を指定
+            $lists = $query->get();
+
+            //デバッグ
+            // dd($lists);
+            // $list_sql = $query->toSql();
+            // \Log::debug('$list_sql="' . $list_sql . '"');
+
+            // レコードあるか？
+            if ($lists->count() == 0) {
+                break;
+            }
+
+            foreach ($lists as $list) {
+                $output = array();
+                foreach ($csvlist as $key => $value) {
+                    $output[] = str_replace(array("\r\n", "\r", "\n"), '', $list->$key);
+                }
+                // CSVファイルを出力
+                fputcsv($stream, $output);
+            }
+        }
+
+        // ポインタの先頭へ
+        rewind($stream);
+
+        // 改行変換
+        $csv = str_replace(PHP_EOL, "\r\n", stream_get_contents($stream));
+
+        // 文字コード変換
+        $csv = mb_convert_encoding($csv, 'SJIS-win', 'UTF-8');
+
+        // header
+        $headers = array(
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => 'attachment; filename="'.$filename.'"',
+        );
+
+        return \Response::make($csv, 200, $headers);
     }
 
     /**
@@ -143,4 +251,5 @@ class AttendanceController extends Controller
 
         return redirect()->back()->with('success', '降園手続きが完了しました');
     }
+
 }

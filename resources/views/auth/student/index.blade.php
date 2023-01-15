@@ -32,8 +32,14 @@
                             </ul>
                         </td>
                         <td class="table-qr">
-                            <a href="{{ route('generate',$student->id) }}" class="btn btn-primary">表示</a>
-                            <a href="{{ route('pdf',$student->id) }}" class="btn btn-primary">PDF</a>
+                            <div class="flex lists-btn-position">
+                                <div class="details">
+                                    <a href="{{ route('generate',$student->id) }}" class="btn btn-primary">表示</a>
+                                </div>
+                                <div class="edit">
+                                    <a href="{{ route('pdf',$student->id) }}" class="btn btn-primary">PDF</a>
+                                </div>
+                            </div>
                         </td>
                         <td class="table-btn">
                             <form action="{{ route('students.destroy',$student->id) }}" method="POST">

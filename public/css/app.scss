@@ -21,6 +21,25 @@ a{
     font-family: "UD デジタル 教科書体 N-R";
 }
 
+li{
+    list-style: none;
+}
+
+.lp-p{
+    font-family: "UD デジタル 教科書体 N-R";
+    font-size: 20px;
+    line-height: 2;
+    color: #4d5156;
+}
+
+.lp-h3{
+    font-family: "UD デジタル 教科書体 N-R";
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
 .flex{
     display: flex;
 }
@@ -36,6 +55,11 @@ a{
 
 .attention-color{
     color: #C25338;
+}
+
+.red-p{
+    color: red;
+    font-weight: bold;
 }
 // Header
 .user-header{
@@ -121,6 +145,52 @@ a{
 #parent{
     background-color: #aa8eee42;
 }
+
+//About
+.about-ul{
+    margin-bottom: 10px;
+
+    li{
+        font-size: 20px;
+    }
+}
+
+.about-subttl{
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.feature-cnt{
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 50px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+
+    .featureText,
+    .featureImg{
+        width: 45%;
+    }
+
+    .featureNo{
+        margin-bottom: 15px;
+        font-size: 26px;
+        color: #800000;
+    }
+
+    .featureImg{
+        img{
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+.teacherFeatureCnt{
+    background-color: #aa8eee42;
+}
+
 
 // Live Clock
 .clock{
@@ -230,6 +300,8 @@ a{
     }
 
     th{
+        background-color: rgb(128 0 0 / 85%);
+        color: #fff;
         text-align: center;
     }
 
@@ -415,12 +487,20 @@ a{
     width: 100%;
 }
 
-#attendanceTable{
+.attendanceTable{
     width: 60%;
 }
 
-#absenceTable{
+.absenceTable{
     width: 35%;
+}
+
+.calculation {
+    table{
+        th, td{
+            padding: 10px;
+        }
+    }
 }
 
 
@@ -442,6 +522,7 @@ a{
 
     .lp-ttl{
         font-size: 40px;
+        margin-bottom: 20px;
     }
 
     .lp-btn-position{

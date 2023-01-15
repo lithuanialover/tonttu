@@ -170,4 +170,20 @@ class StudentController extends Controller
 
         return $pdf->stream();
     }
+
+    /**
+     * 【Admin】
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function allStudents()
+    {
+        // 「\Auth::user()->students」ログインユーザーのデータのみ取得
+        $students = Student::with('user')->paginate(5); #Ignore an error「Undefined type 'Auth'」 because it does not effect the functions of CRUD.
+
+        // dd($students);
+
+        return view('admin.attendance.allStudents',compact('students'));
+    }
 }

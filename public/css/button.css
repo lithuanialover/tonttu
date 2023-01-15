@@ -4,6 +4,27 @@ button {
   cursor: hand;
 }
 
+#page_top {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+}
+
+#page_top a {
+  background-color: rgb(82, 82, 82);
+  border-radius: 100%;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  padding: 20px 20px;
+}
+
+#page_top a:hover {
+  background-color: #666;
+  border-radius: 100%;
+  text-decoration: none;
+}
+
 .register {
   margin: 0 30px;
 }

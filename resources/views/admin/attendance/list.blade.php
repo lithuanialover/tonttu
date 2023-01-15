@@ -38,10 +38,10 @@
 
         <div class="flex lp-btn-position">
             <div class="register">
-                <a href="{{ route('admin.dashboard') }}">もどる</a>
+                <a href="{{ route('attendanceList') }}">もどる</a>
             </div>
             <div class="login">
-                <button>CSV出力</button>
+                <a class="btn btn-primary" href="{{ route('csv') }}" target="_blank"> CSV出力</a>
             </div>
         </div>
     </div>
