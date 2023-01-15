@@ -409,6 +409,20 @@ a{
     justify-content: space-between;
 }
 
+// 【管理者】attendance/index.blade.php
+.attendanceAbsenceTable{
+    justify-content: space-between;
+    width: 100%;
+}
+
+#attendanceTable{
+    width: 60%;
+}
+
+#absenceTable{
+    width: 35%;
+}
+
 
 @media #{$pc} {
     .cnt-width{//【配置の共通化】.cnt-positionのdivの下に作ったdivにこのcssを書く

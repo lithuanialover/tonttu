@@ -21,22 +21,11 @@
                             </ul>
                         </td>
                         <td style="width: 35%">
-                            <ul class="flex attendanceTd">
-                                <li><p class="attendanceTime">{{  $attendanceStudent->punchIn }}</p></li>
-                                {{-- <li>{{  $attendanceData->student_id }}</li> --}}
-                                <li>
-                                    <p class="checkbox-p">確認</p>
-                                    <input type="checkbox">
-                                </li>
-                            </ul>
+                            <p class="attendanceTime">{{  $attendanceStudent->punchIn }}</p>
                         </td>
                         <td style="width: 35%">
                             <ul class="flex attendanceTd">
-                                <li><p class="attendanceTime">{{  $attendanceStudent->punchOut }}</p></li>
-                                <li>
-                                    <p class="checkbox-p">確認</p>
-                                    <input type="checkbox">
-                                </li>
+                                <p class="attendanceTime">{{  $attendanceStudent->punchOut }}</p>
                             </ul>
                         </td>
                     </tr>

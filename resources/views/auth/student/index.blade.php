@@ -3,11 +3,19 @@
 @section('main')
 <div class="cnt-position">
     <div class="cnt-width cnt-mg-top">
-    @if($message = Session::get('success'))
+    <div id="fadeInOut">
+        @if($message = Session::get('success'))
         <div class="alert-success">
             {{ $message }}
         </div>
-    @endif
+        @endif
+        {{-- 失敗の時 --}}
+        @if ($message = Session::get('error'))
+            <div class="alert-error">
+                {{ $message }}
+            </div>
+        @endif
+    </div>
         <div class="table">
             <table>
                 <tr class="table-bloke">

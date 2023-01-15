@@ -354,6 +354,19 @@ a {
   justify-content: space-between;
 }
 
+.attendanceAbsenceTable {
+  justify-content: space-between;
+  width: 100%;
+}
+
+#attendanceTable {
+  width: 60%;
+}
+
+#absenceTable {
+  width: 35%;
+}
+
 @media only screen and (min-width: 1200px) {
   .cnt-width {
     width: 900px;

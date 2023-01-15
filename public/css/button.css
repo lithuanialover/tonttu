@@ -262,6 +262,30 @@ button {
   color: #fff;
 }
 
+.details-btn {
+  background-color: #fff;
+  border: 2px solid #4d33d1;
+  border-radius: 5px;
+  box-shadow: 0 3px 0 rgba(211, 210, 210, 0.462745098);
+  padding: 5px;
+  margin: 0 5px;
+  font-size: 20px;
+  font-family: "UD デジタル 教科書体 N-R";
+  color: #4d33d1;
+}
+
+.details-btn:hover {
+  background-color: #4d33d1;
+  border: 2px solid #4d33d1;
+  border-radius: 5px;
+  box-shadow: 0 3px 0 rgba(211, 210, 210, 0.462745098);
+  padding: 5px;
+  margin: 0 5px;
+  font-size: 20px;
+  font-family: "UD デジタル 教科書体 N-R";
+  color: #fff;
+}
+
 .paging {
   display: flex;
   justify-content: center;

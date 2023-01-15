@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Absence;
 use App\Models\Attendance;
 use App\Models\Student;
 use Illuminate\Http\Request;
@@ -12,9 +13,20 @@ class AttendanceController extends Controller
 {
     public function index(){
 
+        // 当日の登園・降園の一覧
         $attendanceStudents = Attendance::with('student')->orderBy('student_id', 'asc')->with(['student'])->whereDate('created_at', Carbon::today())->paginate(2);
 
-        return view('admin.attendance.index',compact('attendanceStudents'));
+        // 当日の欠席一覧
+        $today_start = Carbon::today()->format('Y-m-d 00:00:00');
+        $today_end = Carbon::today()->format('Y-m-d 23:59:59');
+
+        $todaysAbsents = Absence::whereBetween('absences.absentDay', [$today_start, $today_end])
+        ->with('student')
+        ->get();
+
+        // dd($todaysAbsents);
+
+        return view('admin.attendance.index',compact('attendanceStudents', 'todaysAbsents'));
     }
 
     /**

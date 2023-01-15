@@ -17,7 +17,16 @@ class AbsenceController extends Controller
     //  */
     public function index()
     {
-        return view('auth.absence.index');
+
+        $absenceHistories = Absence::with('student')
+        ->whereHas('student', function($q){
+            $q->where('user_id', \Auth::id());
+        })
+        ->paginate(3);
+
+        // dd($absenceHistories);
+
+        return view('auth.absence.index', compact('absenceHistories'));
     }
 
     /**
@@ -48,7 +57,7 @@ class AbsenceController extends Controller
         ]);
 
         return redirect()->route('absences.index')
-                        ->with('success','新規作成しました。');
+                        ->with('complete','新規作成しました。');
     }
 
     /**
@@ -59,7 +68,12 @@ class AbsenceController extends Controller
      */
     public function show(Absence $absence)
     {
-        //
+
+        $student_id = $absence->student_id;
+
+        $student = Student::find($student_id);
+
+        return view('auth.absence.show',compact('absence', 'student'));
     }
 
     /**
@@ -70,7 +84,11 @@ class AbsenceController extends Controller
      */
     public function edit(Absence $absence)
     {
-        //
+        $student_id = $absence->student_id;
+
+        $student = Student::find($student_id);
+
+        return view('auth.absence.edit',compact('absence', 'student'));
     }
 
     /**
@@ -80,9 +98,17 @@ class AbsenceController extends Controller
      * @param  \App\Models\Absence  $absence
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Absence $absence)
+    public function update(AbsenceRequest $request, Absence $absence)
     {
-        //
+        // 商品をデータベースに登録
+        $absence->update([
+            'student_id' => $request->student_id,
+            'absentDay' => $request->absentDay,
+            'absentReason' => $request->absentReason,
+        ]);
+
+        return redirect()->route('absences.index')
+                        ->with('complete','更新しました。');
     }
 
     /**
@@ -93,6 +119,9 @@ class AbsenceController extends Controller
      */
     public function destroy(Absence $absence)
     {
-        //
+        $absence->delete();
+
+        return redirect()->route('absences.index')
+                        ->with('complete','削除しました。');
     }
 }
