@@ -21,7 +21,7 @@
 <div id="parent" class="cnt-position cnt-mg-top">
     <div class="cnt-width cnt-top cnt-btm">
         <h2 class="lp-ttl">保護者へ</h2>
-        <h3 class="lp-h3">3つの機能</h3>
+        <h3 class="lp-h3"><span class="lp-h3-no">3</span>つの機能</h3>
         <div class="feature-cnt flex">
             <div class="featureText">
                 <h2 class="featureNo">01</h2>
@@ -62,7 +62,7 @@
 <div id="teacher" class="cnt-position cnt-mg-top">
     <div class="cnt-width cnt-top cnt-btm">
         <h2 class="lp-ttl">幼稚園 保育園の先生へ</h2>
-        <h3 class="lp-h3">3つの機能</h3>
+        <h3 class="lp-h3"><span class="lp-h3-no">4</span>つの機能</h3>
         <div class="feature-cnt flex teacherFeatureCnt">
             <div class="featureText">
                 <h2 class="featureNo">01</h2>
@@ -88,6 +88,15 @@
             </div>
             <div class="featureImg">
                 <img src="{{ asset('img/lp/AdminQR.png') }}" alt="登園降園確認">
+            </div>
+        </div>
+        <div class="feature-cnt flex teacherFeatureCnt">
+            <div class="featureText">
+                <h2 class="featureNo">04</h2>
+                <p class="lp-p">過去の登園・降園履歴を確認、CSV出力ができます。</p>
+            </div>
+            <div class="featureImg">
+                <img src="{{ asset('img/lp/AdminCSV.png') }}" alt="登園降園確認">
             </div>
         </div>
         <div class="flex lp-btn-position">

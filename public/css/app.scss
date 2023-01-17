@@ -35,9 +35,14 @@ li{
 .lp-h3{
     font-family: "UD デジタル 教科書体 N-R";
     font-size: 26px;
+    color: #303030;
     font-weight: bold;
     text-align: center;
     margin-bottom: 15px;
+}
+
+.lp-h3-no{
+    font-size: 36px;
 }
 
 .flex{
@@ -162,7 +167,6 @@ li{
 
 .feature-cnt{
     justify-content: space-between;
-    width: 100%;
     margin-bottom: 50px;
     background-color: #fff;
     border-radius: 10px;
@@ -175,7 +179,7 @@ li{
 
     .featureNo{
         margin-bottom: 15px;
-        font-size: 26px;
+        font-size: 35px;
         color: #800000;
     }
 
