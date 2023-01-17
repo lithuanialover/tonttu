@@ -32,6 +32,10 @@
     ```
     URL: dompdfの日本語設定  
     https://codelikes.com/laravel-dompdf/  
+ ・シンボリックを使用
+    ```
+    php artisan storage:link
+    ```
  
  
 ## DB  
@@ -39,10 +43,19 @@
 ```
 tonttu
 ```
-
-1. 使い方
-2. 使い方
-3. 使い方
+*Seeder  
+1. AdminsTableSeeder
+    管理者用のアカウント
+2. UsersTableSeeder
+    保護者用のアカウント
+3. AttendancesTableSeeder
+    登園(punchIn)・降園(punchOut)
+4. AbsencesTableSeeder
+    欠席報告
+*SQLファイル
+1. students.sql
+    gitのなかに「students.sql」のファイルを同封しています。  
+    「README.md」の下部にあります。
 
 ## 注意事項
 
