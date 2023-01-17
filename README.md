@@ -7,7 +7,7 @@
 
 ## 環境
 
-* Version
+* Version  
  ・Windows 11  
  ・XAMPP  
  ・Laravel Framework 9.46.0  
