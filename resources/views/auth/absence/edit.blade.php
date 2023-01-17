@@ -20,7 +20,12 @@
                 <!-- 園児：名前 -->
                 <div class="auth-input flex">
                     <label for="student_name" value="student_name">名前</label>
+                    {{-- <img class="rounded-circle" src="{{asset('storage/' . $student->student_image)}}" style="margin: 10px 0"> --}}
+                    @if (empty($student->student_image))
+                    <img class="rounded-circle" src="{{asset('/img/seeder/user.png')}}">
+                    @else
                     <img class="rounded-circle" src="{{asset('storage/' . $student->student_image)}}" style="margin: 10px 0">
+                    @endif
                     <p class="input-css show-input">{{ $student->student_name }}</p>
                     <input type="hidden" name="student_id" value="{{ $absence->student_id }}" >
                 </div>

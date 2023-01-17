@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('student_name');
             $table->string('student_kana');
             $table->enum('student_gender', ['男の子', '女の子']);
-            $table->string('student_image');#->comment('画像ファイルパス')
+            $table->string('student_image')->nullable();#->comment('画像ファイルパス')
             #user_id; one-many relationship
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();

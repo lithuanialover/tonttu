@@ -38,7 +38,12 @@
                 <!-- 園児：写真 -->
                 <div class="auth-input flex">
                     <label for="student_image" value="student_image">写真</label>
-                    <img class="rounded-circle" src="{{asset('storage/' . $student->student_image)}}">
+                        @if (empty($student->student_image))
+                        <img src="{{asset('/img/seeder/user.png')}}">
+                        @else
+                        <img class="rounded-circle" src="{{asset('storage/' . $student->student_image)}}">
+                        @endif
+                    {{-- <img class="rounded-circle" src="{{asset('storage/' . $student->student_image)}}"> --}}
                     <input type="file" id="student_image" class="input-img" name="student_image">
                 </div>
                 <!-- 外部キー user_id -->

@@ -47,7 +47,14 @@
                         <tr class="table-bloke">
                             <td style="width: 40%">
                                 <ul class="flex" style="align-items: center;">
-                                    <li class="index-img"><img class="rounded-circle" src="{{asset('storage/' . $attendanceStudent->student->student_image)}}"></li>
+                                    <li class="index-img">
+                                        {{-- <img class="rounded-circle" src="{{asset('storage/' . $attendanceStudent->student->student_image)}}"> --}}
+                                        @if (empty($attendanceStudent->student->student_image))
+                                        <img class="rounded-circle" src="{{asset('/img/seeder/user.png')}}">
+                                        @else
+                                        <img class="rounded-circle" src="{{asset('storage/' . $attendanceStudent->student->student_image)}}" style="margin: 10px 0">
+                                        @endif
+                                    </li>
                                     {{-- <li>{{  $attendanceData->student_id }}</li> --}}
                                     <li>{{  $attendanceStudent->student->student_kana }}</li>
                                 </ul>

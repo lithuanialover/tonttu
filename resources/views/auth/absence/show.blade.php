@@ -8,7 +8,12 @@
                 <!-- 園児：写真 -->
                 <div class="auth-input flex" style="margin-bottom: 30px;">
                     <label for="student_image" value="student_image">写真</label>
+                    @if (empty($student->student_image))
+                    <img class="rounded-circle" src="{{asset('/img/seeder/user.png')}}">
+                    @else
                     <img class="rounded-circle" src="{{asset('storage/' . $student->student_image)}}" style="margin: 10px 0">
+                    @endif
+                    {{-- <img class="rounded-circle" src="{{asset('storage/' . $student->student_image)}}" style="margin: 10px 0"> --}}
                 </div>
                 <!-- 園児：名前 -->
                 <div class="auth-input flex">

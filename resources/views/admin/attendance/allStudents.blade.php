@@ -14,7 +14,14 @@
                     <tr class="table-bloke">
                         <td>
                             <ul class="flex " style="align-items: center;">
-                                <li class="index-img" style="padding-right: 20px;"><img class="rounded-circle" src="{{asset('storage/' . $student->student_image)}}"></li>
+                                <li class="index-img" style="padding-right: 20px;">
+                                    @if (empty($student->student_image))
+                                    <img class="rounded-circle" src="{{asset('/img/seeder/user.png')}}">
+                                    @else
+                                    <img class="rounded-circle" src="{{asset('storage/' . $student->student_image)}}" style="margin: 10px 0">
+                                    @endif
+                                    {{-- <img class="rounded-circle" src="{{asset('storage/' . $student->student_image)}}"> --}}
+                                </li>
                                 <li style="padding-right: 20px;">{{  $student->student_name }} /</li>
                                 <li style="padding-right: 20px;">{{  $student->student_kana }} /</li>
                                 <li style="padding-right: 20px;">{{  $student->student_gender }}</li>
