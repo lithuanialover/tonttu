@@ -17,25 +17,25 @@
 * Extentions for PHP/XAMPP  
  ・ImageMagick  
  ・imagick  
-    URL: How to Install Imagick and ImageMagick for XAMPP on a PC  
-    https://phpandmysql.com/extras/install-imagemagick-and-imagick-xampp/  
+     URL: How to Install Imagick and ImageMagick for XAMPP on a PC  
+     https://phpandmysql.com/extras/install-imagemagick-and-imagick-xampp/  
  ・You may need to change "PHP GD extention"  
-   URL: The PHP GD extension is required, but is not installed  
-   https://www.youtube.com/watch?v=CDbtKYbm-8Q&ab_channel=programminghub  
+    URL: The PHP GD extension is required, but is not installed  
+    https://www.youtube.com/watch?v=CDbtKYbm-8Q&ab_channel=programminghub  
       
 * Extentions for Laravel  
  ・dompdf  
-   URL: How to download dompdf   
-   https://github.com/dompdf/dompdf  
-   ```
-   composer require barryvdh/laravel-dompdf
-   ```
-   URL: dompdfの日本語設定  
-   https://codelikes.com/laravel-dompdf/  
+    URL: How to download dompdf   
+    https://github.com/dompdf/dompdf  
+    ```
+    composer require barryvdh/laravel-dompdf
+    ```
+    URL: dompdfの日本語設定  
+    https://codelikes.com/laravel-dompdf/  
  
  
 ## DB  
-*database name   
+* database name   
 ```
 tonttu
 ```
