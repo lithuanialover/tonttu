@@ -68,7 +68,7 @@ tonttu
 * SeederとSQLファイル入れた結果  
 ・users(保護者)tableのid「1～5」に各2つずつstudentsのデータを格納。  
 ・students(園児)tableのid「1～9」にattendances(登園/降園)tableのデータを紐づけ。  
-  よって、シーディングした日付の「登園/降園」の情報をDBに格納。
+  よって、シーディングした日付の「登園/降園」の情報をDBに格納。  
 ・students(園児)tableのid「10」にabsences(欠席)tableのデータを紐づけ。  
   よって、シーディングした日付の「欠席」の情報をDBに格納。
 
