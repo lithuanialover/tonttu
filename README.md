@@ -66,8 +66,8 @@ tonttu
     「README.md」の下部にあります。  
 
 * SeederとSQLファイル入れた結果  
-・users(保護者)tableのid「1~5」に各2つずつstudentsのデータを格納。  
-・students(園児)tableのid「1~9」にattendances(登園/降園)tableのデータを紐づけ。  
+・users(保護者)tableのid「1～5」に各2つずつstudentsのデータを格納。  
+・students(園児)tableのid「1～9」にattendances(登園/降園)tableのデータを紐づけ。  
   よって、シーディングした日付の「登園/降園」の情報をDBに格納。
 ・students(園児)tableのid「10」にabsences(欠席)tableのデータを紐づけ。  
   よって、シーディングした日付の「欠席」の情報をDBに格納。
@@ -89,7 +89,12 @@ tonttu
     ```
     php artisan serve
     ```
-11. 管理者ページにログイン
+11. LPに接続
+    URL  
+    ```
+    /tonttu
+    ```
+13. 管理者ページにログイン
     ```
     email: admin@gmail.com
     pw: password
@@ -102,23 +107,16 @@ tonttu
 注意点などがあれば書く
 
 
-## 文責
+## 知らない技術に挑戦
 
-作成情報を列挙する
+* 非同期処理（Ajax）  
+    QRコードを読み込み、該当するデータをDBから取得し画面に表示する。  
+* API連携
+    Google Map API  
+        LPの「会社概要」の地図をGoogle Mapから取得し、ピン📍を立てた。  
+* 出力
+    1. PDF出力　　
+        保護者ページ：園児のQRコードをPDFで出力
+    2. CSV出力
+        管理者ページ：過去の登園降園の履歴をCSVで出力
 
-* 作成者
-* 所属
-* E-mail
-* [@twitter_username](https://twitter.com/twitter_username)
-
-
-## ライセンス
-
-ライセンスを明示する
-
-"リポジトリ名" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
-
-
-## 参考文献
-
-参考にした情報源（サイト・論文）などの情報、リンク
