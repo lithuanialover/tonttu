@@ -8,34 +8,34 @@
 ## 環境
 
 * Version
- ・Windows 11
- ・XAMPP
- ・Laravel Framework 9.46.0
- ・PHP 8.1.12
- ・jQuery 3.5.1.min.js
- 
-* Extentions for PHP/XAMPP
- ・ImageMagick
- ・imagick
-    URL: How to Install Imagick and ImageMagick for XAMPP on a PC
-    https://phpandmysql.com/extras/install-imagemagick-and-imagick-xampp/
- ・You may need to change "PHP GD extention"
-   URL: The PHP GD extension is required, but is not installed
-   https://www.youtube.com/watch?v=CDbtKYbm-8Q&ab_channel=programminghub 
-    
-* Extentions for Laravel
- ・dompdf
-   URL: How to download dompdf
-   https://github.com/dompdf/dompdf
+ ・Windows 11  
+ ・XAMPP  
+ ・Laravel Framework 9.46.0  
+ ・PHP 8.1.12  
+ ・jQuery 3.5.1.min.js  
+   
+* Extentions for PHP/XAMPP  
+ ・ImageMagick  
+ ・imagick  
+    URL: How to Install Imagick and ImageMagick for XAMPP on a PC  
+    https://phpandmysql.com/extras/install-imagemagick-and-imagick-xampp/  
+ ・You may need to change "PHP GD extention"  
+   URL: The PHP GD extension is required, but is not installed  
+   https://www.youtube.com/watch?v=CDbtKYbm-8Q&ab_channel=programminghub  
+      
+* Extentions for Laravel  
+ ・dompdf  
+   URL: How to download dompdf  
+   https://github.com/dompdf/dompdf  
    ```
    composer require barryvdh/laravel-dompdf
    ```
-   URL: dompdfの日本語設定
-   https://codelikes.com/laravel-dompdf/
+   URL: dompdfの日本語設定  
+   https://codelikes.com/laravel-dompdf/  
  
  
-## DB
-database name 
+## DB  
+database name   
 ```
 tonttu
 ```
