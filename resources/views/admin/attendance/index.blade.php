@@ -95,7 +95,7 @@
                         @endforeach
                 </table>
                 <div id="pagination">
-                    {{ $attendanceStudents->links() }}
+                    {{ $todaysAbsents->links() }}
                 </div>
             </div>
         </div>

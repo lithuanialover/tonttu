@@ -22,7 +22,7 @@ class AttendanceController extends Controller
 
         $todaysAbsents = Absence::whereBetween('absences.absentDay', [$today_start, $today_end])
         ->with('student')
-        ->get();
+        ->paginate(2);
 
         // dd($todaysAbsents);
 
