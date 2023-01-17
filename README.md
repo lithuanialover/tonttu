@@ -76,35 +76,34 @@ tonttu
 1. git cloneをする
 2. PHPとLaravelに拡張機能を導入
 3. DB接続
-4. DBにSQLファイル「students.sql」をインポートする
-5. マイグレーション実行
+4. マイグレーション実行
     ```
     php artisan migrate
     ```
-7. シーダー実行
+5. DBにSQLファイル「students.sql」をインポートする
+6. シーダー実行
     ```
     php artisan db:seed
     ```
-9. サーバー立ち上げ
+7. サーバー立ち上げ
     ```
     php artisan serve
     ```
-11. LPに接続
+8. LPに接続
     URL  
     ```
     /tonttu
     ```
-13. 管理者ページにログイン
+9. 管理者ページにログイン
     ```
     email: admin@gmail.com
     pw: password
     ```
-13. 保護者ページにログイン
+10. 保護者ページにログイン
     ```
     email: james@example.com
     pw: password
     ```
-注意点などがあれば書く
 
 
 ## 知らない技術に挑戦
