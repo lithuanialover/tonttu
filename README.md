@@ -25,7 +25,7 @@
       
 * Extentions for Laravel  
  ・dompdf  
-   URL: How to download dompdf  
+   URL: How to download dompdf   
    https://github.com/dompdf/dompdf  
    ```
    composer require barryvdh/laravel-dompdf
@@ -35,7 +35,7 @@
  
  
 ## DB  
-database name   
+*database name   
 ```
 tonttu
 ```
