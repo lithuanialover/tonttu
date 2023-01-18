@@ -127,7 +127,7 @@ tonttu
 2. ログイン
     ![AdminLogin](https://user-images.githubusercontent.com/90084344/213057354-e7ddb804-a17b-454c-8143-db568001ece9.png)
 3. dashboardにアクセス
-    ![AdminDashboard](https://user-images.githubusercontent.com/90084344/213057438-02372cc6-5a9e-492a-a244-7bebb8789f96.png)
+   ![AdminDashboard](https://user-images.githubusercontent.com/90084344/213062178-9bf37eca-3761-4dbd-a42e-ecd60799d884.png)
 
 
 * 「登園・降園」一覧を表示  
