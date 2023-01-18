@@ -131,7 +131,7 @@ tonttu
 
 
 * 「登園・降園」一覧を表示  
-1. dashboardの「登園・降園状況」をクリック 
+1. dashboardの「登園・降園の状況」をクリック 
 2.  本日の登園・降園を一覧で表示
     - 本日の「登園・降園」をリアルタイムで表示
     - 本日の「欠席」を表示
@@ -157,10 +157,21 @@ tonttu
    ![AdminQR](https://user-images.githubusercontent.com/90084344/213060788-265ba3cc-bf22-4c3f-89cc-3164b8ff4c62.png)
 4.   「はい」をクリック
 5. DBに「登園」のデータが格納される
+    - 条件：1日1回だけ「登園」のデータを格納できる。
 
 
 * 降園報告
-
+1. 「降園」クリック
+    ![AdminAttendance](https://user-images.githubusercontent.com/90084344/213060471-bc86ef8d-977a-4c39-879f-fb336f790bbf.png)
+2. 園児のQRコードを読み取り画面(カエルの口の中)にかざす
+    - QR Readerは、jQueryを使用
+    ![AdminLeave](https://user-images.githubusercontent.com/90084344/213061905-1d3757ad-3dc7-4076-b2a3-e5360d053102.png)
+3.  QRコードに組み込まれた値「student_id」を元に、students tableから student_kanaを取得
+    - Ajaxを使用し、DBから取得したデータを画面に表示
+   ![AdminLeavePunchOut](https://user-images.githubusercontent.com/90084344/213062042-b08538c0-9e93-46b7-a798-3ec5889eaa7d.png)
+4.   「はい」をクリック
+5. DBに「降園」のデータが格納される
+    - 条件：1日1回だけ「降園」のデータを格納できる
 
 ## 保護者ページ  
 * ログイン方法
