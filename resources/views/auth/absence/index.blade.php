@@ -44,7 +44,9 @@
                                 <p>{{ $absenceHistory->absentDay }}</p>
                             </td>
                             <td class="table-btn">
-                                <form action="{{ route('students.destroy',$absenceHistory->id) }}" method="POST">
+                                <form action="{{ route('absences.destroy',$absenceHistory->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
                                     <div class="flex lists-btn-position">
                                         <div class="details">
                                             <a href="{{ route('absences.show',$absenceHistory->id) }}">詳細</a>
@@ -52,8 +54,6 @@
                                         <div class="edit">
                                             <a href="{{ route('absences.edit',$absenceHistory->id) }}">編集</a>
                                         </div>
-                                        @csrf
-                                        @method('DELETE')
                                         <button type="submit" class="delete-btn">削除</button>
                                     </div>
                                 </form>
