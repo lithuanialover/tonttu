@@ -68,7 +68,7 @@ tonttu
 3. studentsテーブルを選択
 4. 「SQL」をクリック
 5. 下記のSQL文を入力し、実行  
-    ```
+```
     INSERT INTO `students` (`id`, `student_name`, `student_kana`, `student_gender`, `student_image`, `user_id`, `created_at`, `updated_at`) VALUES
 (1, 'Richard', 'りちゃーど', '男の子', 'students/54W9swvnLollieA4mPFMXp0IyKkCKeOoB39EdjQ8.jpg', 1, '2023-01-17 08:50:48', '2023-01-17 08:50:48'),
 (2, 'Susan', 'スーザン', '女の子', 'students/qwIvGqoQUZ4s7MQdgOJcWHPf7E57HAA7GCvnVyAW.jpg', 1, '2023-01-17 08:51:36', '2023-01-17 08:51:36'),
@@ -79,8 +79,8 @@ tonttu
 (7, 'Lisa', 'りさ', '女の子', 'students/Wh0hEzewG8rmNu5BNhjSXh4bgK5lmBHnuwA8xYKl.jpg', 4, '2023-01-17 08:55:12', '2023-01-17 08:55:12'),
 (8, 'Daniel', 'だにえる', '男の子', 'students/7QYhVvvgrnBO5sPx3JfzUEKFVPoomCCaGMYRfXso.jpg', 4, '2023-01-17 08:55:35', '2023-01-17 08:55:35'),
 (9, 'Matthew', 'ましゅー', '男の子', 'students/EfHNNWxoIKInjwWcEaMh1PxzA0tPhkN5fFhecgwz.jpg', 5, '2023-01-17 08:57:20', '2023-01-17 08:57:20'),
-(10, 'Anthony', 'あんそにー', '男の子', 'students/JOi0rfoEoCYTsRF4BtAj6SBgdOFN2Bg3iUOcJgcn.jpg', 5, '2023-01-17 08:57:37', '2023-01-17 08:57:37');
-    ```
+(10, 'Anthony', 'あんそにー', '男の子', 'students/JOi0rfoEoCYTsRF4BtAj6SBgdOFN2Bg3iUOcJgcn.jpg', 5, '2023-01-17 08:57:37', '2023-01-17 08:57:37');  
+```
 
 * SeederとSQLファイル入れた結果  
 ・users(保護者)tableのid「1～5」に各2つずつstudentsのデータを格納。  
