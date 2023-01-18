@@ -170,9 +170,11 @@ tonttu
     ![AdminAttendance](https://user-images.githubusercontent.com/90084344/213060471-bc86ef8d-977a-4c39-879f-fb336f790bbf.png)
 2. 園児のQRコードを読み取り画面(カエルの口の中)にかざす
     - QR Readerは、jQueryを使用
+    - 園児が連続でQRコード読み込みを行ったとき、毎回画面をリロードする手間をなくすためにAjaxを使用した。
     ![AdminQRAttendance](https://user-images.githubusercontent.com/90084344/213060564-b042a92c-5a74-4f1b-82cc-00797fc590b8.png)
 3.  QRコードに組み込まれた値「student_id」を元に、students tableから student_kanaを取得
     - Ajaxを使用し、DBから取得したデータを画面に表示
+    - 園児が連続でQRコード読み込みを行ったとき、毎回画面をリロードする手間をなくすためにAjaxを使用した。
    ![AdminQR](https://user-images.githubusercontent.com/90084344/213060788-265ba3cc-bf22-4c3f-89cc-3164b8ff4c62.png)
 4.   「はい」をクリック
 5. DBに「登園」のデータが格納される
