@@ -3,7 +3,7 @@
 @section('main')
 <div class="cnt-position">
     <div class="cnt-width cnt-mg-top auth-flame">
-        <h2 class="form-ttl">詳細</h2>
+        <h2 class="form-ttl">お子様の詳細</h2>
         <div class="flex auth-form show-form">
                 <!-- 園児：名前 -->
                 <div class="auth-input flex">
