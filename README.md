@@ -102,6 +102,14 @@ tonttu
     ```
     php artisan db:seed
     ```
+    attendances table用のseeding  
+    ```
+    php artisan db:seed --class=AttendancesTableSeeder
+    ```  
+    absences table用のseeding  
+    ```
+    php artisan db:seed --class=AbsencesTableSeeder
+    ```
 7. サーバー立ち上げ
     ```
     php artisan serve
