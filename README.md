@@ -153,11 +153,33 @@ tonttu
         ![UserRegisterAbsent](https://user-images.githubusercontent.com/90084344/213040326-3462e9f8-8c9d-4aae-a3b7-671280c54f2d.png)
     - 登録完了のメッセージが表示される。この文字は3秒後に自動で消える。
         ![UserCompleteAbsent](https://user-images.githubusercontent.com/90084344/213041082-8ba6a59a-55fb-4c7d-84b8-82bafb2e597a.png)
-    - 
-8. 
+    - 「詳細」クリック
+        ![UserAbsentDetails](https://user-images.githubusercontent.com/90084344/213044365-9e2452bc-f975-4559-8a61-c99a2a2e19f2.png)
+    - 「編集」クリック
+        欠席日と欠席理由のみ編集が可能。  
+        ![UserAbsentEdit](https://user-images.githubusercontent.com/90084344/213046299-4bfe37ac-24a5-47ce-80d5-c30f6c9d6265.png)
+    - 「削除」クリック
+        欠席連絡のデータを削除。
+
+* お子様の新規登録
+1. 「新規登録」をクリック
+2. 必要事項の情報を入力し、登録する。
+    ![UserAddStudent](https://user-images.githubusercontent.com/90084344/213053769-a1604eb9-48e7-448a-a40a-4140fe8afc83.png)
+3. 「詳細」クリック
+    ![UserStudentShow](https://user-images.githubusercontent.com/90084344/213054213-942dec7d-8707-4534-825a-0fa9f0c2080f.png)
+4. 「編集」クリック
+    ![UserStudentUpdate](https://user-images.githubusercontent.com/90084344/213054330-be1d121b-3790-4aee-a5ca-381166cd61f5.png)
+5. 「削除」クリック 
+    ![UserStudentDelete](https://user-images.githubusercontent.com/90084344/213054410-12425124-2f18-4bc6-80ec-1be9be995c02.png)
+
+* 登園・降園の登録に必要なQRコードを出力
+1. 「表示」クリック
+    ![UserQR](https://user-images.githubusercontent.com/90084344/213054629-59117752-f1a8-4808-9737-3ffee7e7fe6a.png)
+2. 「PDF」クリック
+    ![UserPDF](https://user-images.githubusercontent.com/90084344/213054752-8e968765-29f0-4607-a1b2-0b27c436bd61.png)
 
 * 
 
 
-## ReadMeに画像を入れる
+## 既存システム
 https://qiita.com/r_midori/items/2c4feb5de05535441bc8
