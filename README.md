@@ -129,9 +129,17 @@ tonttu
 
 ## 保護者ページ  
 * 当日の登園/降園を確認
-1. ログイン
-2. dashboardにアクセス
-3. 「登園・降園のリスト」
+1. 会員登録  
+    ![UserRegister](https://user-images.githubusercontent.com/90084344/213037962-a25f92d6-d3c4-4085-a60a-38077260e71f.png)
+
+2. ログイン  
+    ![UserLogin](https://user-images.githubusercontent.com/90084344/213037824-73694fcf-a6ce-4d03-a083-ee94f86dd000.png)
+
+3. dashboardにアクセス
+    ![UserDashboard](https://user-images.githubusercontent.com/90084344/213038057-d5d37310-eaa5-439d-b128-4b34ca4aa37b.png)
+
+4. 「登園・降園状況」をクリック
+    
 * 
 
 
