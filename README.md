@@ -121,10 +121,14 @@ tonttu
 
 
 ## 管理者ページ  
-* 当日の登園/降園を確認
-1. ログイン
-2. dashboardにアクセス
-3. 「登園・降園のリスト」
+* ログイン方法
+1. 会員登録
+2. ログイン
+3. dashboardにアクセス
+
+
+* 「登園・降園のリスト」  
+1. dashboardの「登園・降園状況」をクリック  
 
 
 ## 保護者ページ  
@@ -138,28 +142,31 @@ tonttu
 3. dashboardにアクセス
     ![UserDashboard](https://user-images.githubusercontent.com/90084344/213038057-d5d37310-eaa5-439d-b128-4b34ca4aa37b.png)
 
+
 * 当日の登園/降園を確認
-4. dashboardの「登園・降園状況」をクリック  
-5. 当日の登園・降園時間をリアルタイムで確認できます。
+1. dashboardの「登園・降園状況」をクリック  
+2. 当日の登園・降園時間をリアルタイムで確認できます。
     「もどる」をクリックするとdashboardに遷移。
     ![UserAttendance](https://user-images.githubusercontent.com/90084344/213038936-61a74b50-a8c4-45cf-8269-39516e48cba5.png)  
 
+
 * 欠席連絡
-5. dashboardの「欠席連絡」をクリック
-6. 新規で欠席連絡をする場合
+1. dashboardの「欠席連絡」をクリック
+2. 新規で欠席連絡をする場合
     - 「新規欠席連絡」をクリック
         ![UserAbsent](https://user-images.githubusercontent.com/90084344/213039455-a821e990-fa2c-4c9e-8239-b92d37a6b783.png)
     - ログインユーザーに紐ずく園児(お子様)の名前・欠席日・欠席理由を記入し、送信
         ![UserRegisterAbsent](https://user-images.githubusercontent.com/90084344/213040326-3462e9f8-8c9d-4aae-a3b7-671280c54f2d.png)
     - 登録完了のメッセージが表示される。この文字は3秒後に自動で消える。
         ![UserCompleteAbsent](https://user-images.githubusercontent.com/90084344/213041082-8ba6a59a-55fb-4c7d-84b8-82bafb2e597a.png)
-    - 「詳細」クリック
+3. 「詳細」クリック
         ![UserAbsentDetails](https://user-images.githubusercontent.com/90084344/213044365-9e2452bc-f975-4559-8a61-c99a2a2e19f2.png)
-    - 「編集」クリック
-        欠席日と欠席理由のみ編集が可能。  
-        ![UserAbsentEdit](https://user-images.githubusercontent.com/90084344/213046299-4bfe37ac-24a5-47ce-80d5-c30f6c9d6265.png)
-    - 「削除」クリック
-        欠席連絡のデータを削除。
+4. 「編集」クリック  
+    欠席日と欠席理由のみ編集が可能。  
+        ![UserAbsentEdit](https://user-images.githubusercontent.com/90084344/213046299-4bfe37ac-24a5-47ce-80d5-c30f6c9d6265.png)  
+5. 「削除」クリック  
+    欠席連絡のデータを削除。
+
 
 * お子様の新規登録
 1. 「新規登録」をクリック
@@ -172,13 +179,13 @@ tonttu
 5. 「削除」クリック 
     ![UserStudentDelete](https://user-images.githubusercontent.com/90084344/213054410-12425124-2f18-4bc6-80ec-1be9be995c02.png)
 
+
 * 登園・降園の登録に必要なQRコードを出力
 1. 「表示」クリック  
     ![UserQR](https://user-images.githubusercontent.com/90084344/213054629-59117752-f1a8-4808-9737-3ffee7e7fe6a.png)
 2. 「PDF」クリック
     ![UserPDF](https://user-images.githubusercontent.com/90084344/213054752-8e968765-29f0-4607-a1b2-0b27c436bd61.png)
 
-* 
 
 
 ## 既存システム
