@@ -173,7 +173,7 @@ tonttu
     ![UserStudentDelete](https://user-images.githubusercontent.com/90084344/213054410-12425124-2f18-4bc6-80ec-1be9be995c02.png)
 
 * 登園・降園の登録に必要なQRコードを出力
-1. 「表示」クリック
+1. 「表示」クリック  
     ![UserQR](https://user-images.githubusercontent.com/90084344/213054629-59117752-f1a8-4808-9737-3ffee7e7fe6a.png)
 2. 「PDF」クリック
     ![UserPDF](https://user-images.githubusercontent.com/90084344/213054752-8e968765-29f0-4607-a1b2-0b27c436bd61.png)
