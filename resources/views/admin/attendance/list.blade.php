@@ -43,7 +43,7 @@
             </div>
         </div>
 
-        <div class="flex lp-btn-position">
+        <div class="flex lp-btn-position" style="margin-bottom: 100px;">
             <div class="register">
                 <a href="{{ route('attendanceList') }}">もどる</a>
             </div>

@@ -22,7 +22,7 @@
         </div>
         <div class="flex lp-btn-position">
             <div class="register">
-                <a href="{{ route('attendanceList') }}">登園・降園のリスト</a>
+                <a href="{{ route('attendanceList') }}">登園・降園の状況</a>
             </div>
             <div class="login">
                 <a href="{{ route('allStudents') }}">生徒一覧</a>

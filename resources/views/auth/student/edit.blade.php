@@ -49,7 +49,7 @@
                 <!-- 外部キー user_id -->
                 <input type="hidden" value="{{ auth()->id() }}" name="user_id">
 
-                <div class="flex table-btn-position">
+                <div class="flex table-btn-position" style="margin-bottom: 100px;">
                     <div class="register">
                         <a href="{{ route('students.index') }}">もどる</a>
                     </div>

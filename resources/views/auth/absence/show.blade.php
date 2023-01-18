@@ -7,7 +7,6 @@
         <div class="flex auth-form show-form">
                 <!-- 園児：写真 -->
                 <div class="auth-input flex" style="margin-bottom: 30px;">
-                    <label for="student_image" value="student_image">写真</label>
                     @if (empty($student->student_image))
                     <img class="rounded-circle" src="{{asset('/img/seeder/user.png')}}">
                     @else
@@ -30,7 +29,7 @@
                     <label for="absentReason" value="absentReason">欠席理由</label>
                     <p class="input-css show-input">{{ $absence->absentReason }}</p>
                 </div>
-                <div class="flex table-btn-position">
+                <div class="flex table-btn-position" style="margin-bottom: 100px;">
                     <div class="register show-btn">
                         <a href="{{ route('absences.index') }}">もどる</a>
                     </div>

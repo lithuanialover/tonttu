@@ -29,7 +29,7 @@
                         <img class="rounded-circle" src="{{asset('storage/' . $student->student_image)}}" style="margin: 10px 0">
                         @endif
                 </div>
-                <div class="flex table-btn-position">
+                <div class="flex table-btn-position" style="margin-bottom: 100px;">
                     <div class="register show-btn">
                         <a href="{{ route('students.index') }}">もどる</a>
                     </div>

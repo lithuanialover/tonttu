@@ -37,7 +37,7 @@
                 {{ $students->links() }}
             </div>
         </div>
-        <div class="register">
+        <div class="register" style="margin-bottom: 100px;">
             <a href="{{ route('attendanceList') }}">もどる</a>
         </div>
     </div>
