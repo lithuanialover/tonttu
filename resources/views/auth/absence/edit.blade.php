@@ -14,7 +14,7 @@
         </div>
         @endif
         <div class="flex auth-form show-form">
-            <form method="post" action="{{ route('absences.update', $student->id) }}" enctype="multipart/form-data">
+            <form method="post" action="{{ route('absences.update', $absence->id) }}" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 {{-- 園児：写真 --}}
