@@ -123,12 +123,43 @@ tonttu
 ## 管理者ページ  
 * ログイン方法
 1. 会員登録
+    ![Adminregister](https://user-images.githubusercontent.com/90084344/213057244-fbf11478-31b9-44ed-8eeb-e5defa4854b3.png)
 2. ログイン
+    ![AdminLogin](https://user-images.githubusercontent.com/90084344/213057354-e7ddb804-a17b-454c-8143-db568001ece9.png)
 3. dashboardにアクセス
+    ![AdminDashboard](https://user-images.githubusercontent.com/90084344/213057438-02372cc6-5a9e-492a-a244-7bebb8789f96.png)
 
 
-* 「登園・降園のリスト」  
-1. dashboardの「登園・降園状況」をクリック  
+* 「登園・降園」一覧を表示  
+1. dashboardの「登園・降園状況」をクリック 
+2.  本日の登園・降園を一覧で表示
+    - 本日の「登園・降園」をリアルタイムで表示
+    - 本日の「欠席」を表示
+    - 「未登園数」を「総生徒数-登園済生徒数-当日の欠席数」を元に表示
+    ![AdminAttendanceIndex](https://user-images.githubusercontent.com/90084344/213058062-bad72c61-2f5c-45d7-b280-d1f7b88ba68d.png)
+3. 「生徒一覧」クリック
+    全ての生徒を表示。  
+    ![AdminAllStudents](https://user-images.githubusercontent.com/90084344/213058575-34973e04-6952-49b0-86df-991ee0421496.png)
+
+* 過去の「登園・降園」履歴をCSVで出力
+1. 「登降園 履歴」クリック
+2. 「CSV出力」クリック  
+    ![AdminCSV](https://user-images.githubusercontent.com/90084344/213058868-fc25f557-d014-4f04-bf77-e6139ba2e160.png)
+
+* 登園報告
+1. 「登園」クリック
+    ![AdminAttendance](https://user-images.githubusercontent.com/90084344/213060471-bc86ef8d-977a-4c39-879f-fb336f790bbf.png)
+2. 園児のQRコードを読み取り画面(カエルの口の中)にかざす
+    - QR Readerは、jQueryを使用
+    ![AdminQRAttendance](https://user-images.githubusercontent.com/90084344/213060564-b042a92c-5a74-4f1b-82cc-00797fc590b8.png)
+3.  QRコードに組み込まれた値「student_id」を元に、students tableから student_kanaを取得
+    - Ajaxを使用し、DBから取得したデータを画面に表示
+   ![AdminQR](https://user-images.githubusercontent.com/90084344/213060788-265ba3cc-bf22-4c3f-89cc-3164b8ff4c62.png)
+4.   「はい」をクリック
+5. DBに「登園」のデータが格納される
+
+
+* 降園報告
 
 
 ## 保護者ページ  
