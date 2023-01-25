@@ -86,8 +86,17 @@ Route::middleware('auth:admin')->group(function () {
 
 #イベント
     Route::get('/event', [MeetingController::class, 'index'])->name('meetingList'); //一覧表示
+    
     Route::get('/event/create', [MeetingController::class, 'create'])->name('meetingForm'); //イベント作成フォーム画面表示
     Route::post('/event/store', [MeetingController::class, 'store'])->name('meetingStore');//イベント作成フォーム画面表示
+    
+    Route::get('/event/show/{id}', [MeetingController::class, 'show'])->name('meeting.show'); //詳細画面
+    
+    Route::get('/event/edit/{id}', [MeetingController::class, 'edit'])->name('meeting.edit'); //編集画面
+    Route::post('/event/edit/{id}', [MeetingController::class, 'update'])->name('meeting.update'); //編集画面
+
+    Route::delete('/event/destroy/{id}', [MeetingController::class, 'destroy'])->name('meeting.destroy'); //編集画面
+
 });
 
 // require __DIR__.'/admin.php'; #こいつが原因で「保護者用login/registerに飛べなかった」ここに書いたらダメ

@@ -34,15 +34,15 @@
                             <p>{{ $eventHistory->eventDay }}</p>
                         </td>
                         <td>
-                            <form action="{{ route('absences.destroy',$eventHistory->id) }}" method="POST">
+                            <form action="{{ route('meeting.destroy', ['id'=>$eventHistory->id]) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <div class="flex lists-btn-position">
                                     <div class="details">
-                                        <a href="{{ route('absences.show',$eventHistory->id) }}">詳細</a>
+                                        <a href="{{ route('meeting.show',$eventHistory->id) }}">詳細</a>
                                     </div>
                                     <div class="edit">
-                                        <a href="{{ route('absences.edit',$eventHistory->id) }}">編集</a>
+                                        <a href="{{ route('meeting.edit',$eventHistory->id) }}">編集</a>
                                     </div>
                                     <button type="submit" class="delete-btn">削除</button>
                                 </div>

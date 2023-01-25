@@ -22,7 +22,7 @@ return new class extends Migration
             $table->timestamps();
 
             // $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('meeting_id')->references('id')->on('meetings');
+            $table->foreign('meeting_id')->references('id')->on('meetings')->onDelete('cascade');
             $table->foreign('type_id')->references('id')->on('meeting_attendance_types');
         });
     }

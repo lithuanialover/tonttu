@@ -12,7 +12,8 @@ use App\Http\Requests\MeetingRequest;
 
 class MeetingController extends Controller
 {
-    public function index(){
+    public function index()
+    {
 
         $eventHistories = Meeting::orderBy('eventDay', 'asc')->paginate(3);
 
@@ -63,5 +64,56 @@ class MeetingController extends Controller
         $attendance->save();
 
         return redirect()->route('meetingList')->with('complete', '新規作成しました。');
+    }
+
+    public function show($id)
+    {
+
+        $meeting = Meeting::find($id);
+        
+        return view('admin.meeting.show', compact('meeting'));
+    }
+
+    public function edit($id)
+    {
+
+        $meeting = Meeting::find($id);
+
+        return view('admin.meeting.edit', compact('meeting'));
+    }
+
+    public function update(MeetingRequest $request, $id)
+    {
+        // Meeting::create([
+        //     'name' => $request->name,
+        //     'description' => $request->description,
+        //     'eventDay' => $request->eventDay,
+        //     'startTime' => $request->startTime,
+        //     'endTime' => $request->endTime,
+        //     'deadline' => $request->deadline,
+        // ]);
+
+        $meeting = Meeting::find($id);
+        $meeting->name = $request->name;
+        $meeting->description = $request->description;
+        $meeting->eventDay = $request->eventDay;
+        $meeting->startTime = $request->startTime;
+        $meeting->endTime = $request->endTime;
+        $meeting->deadline = $request->deadline;
+        $meeting->save();
+
+        return redirect()->route('meetingList')->with('complete', '更新しました。');
+    }
+
+    public function destroy($id)
+    {
+
+        $meeting = Meeting::find($id);
+
+        // レコードを削除
+        $meeting->delete();
+
+        return redirect()->route('meetingList')
+        ->with('complete', '削除しました。');
     }
 }
