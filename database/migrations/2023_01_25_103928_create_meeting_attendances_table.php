@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('meeting_attendances', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id')->nullable()->comment('ユーザーID');
-            // $table->unsignedBigInteger('user_id')->comment('ユーザーID');
+            // $table->string('user_id')->nullable()->comment('ユーザーID');
+            $table->unsignedBigInteger('user_id')->comment('ユーザーID');
             $table->unsignedBigInteger('meeting_id')->comment('イベントID');
             $table->unsignedBigInteger('type_id')->comment('出欠タイプID');
             $table->timestamps();
 
-            // $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('meeting_id')->references('id')->on('meetings')->onDelete('cascade');
             $table->foreign('type_id')->references('id')->on('meeting_attendance_types');
         });

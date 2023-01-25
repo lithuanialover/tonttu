@@ -63,14 +63,15 @@ class MeetingController extends Controller
         // $attendance->type_id = MeetingAttendanceType::TYPE_NOT_YET;
         // $attendance->save();
 
-        $user_ids = User::select('id')->get();
+        $user_ids = User::all();
 
-        dd($user_ids);
+
+        // dd($user_ids);
 
         foreach ($user_ids as $user_id) {
 
             $attendance = new MeetingAttendance();
-            $attendance->user_id = $user_id;
+            $attendance->user_id = $user_id->id;
             $attendance->meeting_id = $meeting->id;
             $attendance->type_id = MeetingAttendanceType::TYPE_NOT_YET;
             $attendance->save();

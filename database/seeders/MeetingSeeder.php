@@ -28,40 +28,40 @@ class MeetingSeeder extends Seeder
             'deadline' => Carbon::now()->addMonth(2),
         ]);
 
-        Meeting::create([
-            'name' => 'お花見',
-            'description' => '桜の下でお弁当を食べます。',
-            'eventDay' => Carbon::now()->addMonth(2),
-            'startTime' => Carbon::now()->addHour(1),
-            'endTime' => Carbon::now()->addHour(2),
-            'deadline' => Carbon::now()->addMonth(3),
-        ]);
+        // Meeting::create([
+        //     'name' => 'お花見',
+        //     'description' => '桜の下でお弁当を食べます。',
+        //     'eventDay' => Carbon::now()->addMonth(2),
+        //     'startTime' => Carbon::now()->addHour(1),
+        //     'endTime' => Carbon::now()->addHour(2),
+        //     'deadline' => Carbon::now()->addMonth(3),
+        // ]);
 
-        Meeting::create([
-            'name' => 'プール',
-            'description' => '水遊びをします。',
-            'eventDay' => Carbon::now()->addMonth(3),
-            'startTime' => Carbon::now()->addHour(1),
-            'endTime' => Carbon::now()->addHour(2),
-            'deadline' => Carbon::now()->addMonth(4),
-        ]);
+        // Meeting::create([
+        //     'name' => 'プール',
+        //     'description' => '水遊びをします。',
+        //     'eventDay' => Carbon::now()->addMonth(3),
+        //     'startTime' => Carbon::now()->addHour(1),
+        //     'endTime' => Carbon::now()->addHour(2),
+        //     'deadline' => Carbon::now()->addMonth(4),
+        // ]);
 
-        Meeting::create([
-            'name' => 'お芋ほり',
-            'description' => 'サツマイモを掘りに行きます。',
-            'eventDay' => Carbon::now()->addMonth(4),
-            'startTime' => Carbon::now()->addHour(1),
-            'endTime' => Carbon::now()->addHour(2),
-            'deadline' => Carbon::now()->addMonth(5),
-        ]);
+        // Meeting::create([
+        //     'name' => 'お芋ほり',
+        //     'description' => 'サツマイモを掘りに行きます。',
+        //     'eventDay' => Carbon::now()->addMonth(4),
+        //     'startTime' => Carbon::now()->addHour(1),
+        //     'endTime' => Carbon::now()->addHour(2),
+        //     'deadline' => Carbon::now()->addMonth(5),
+        // ]);
 
-        Meeting::create([
-            'name' => '運動会',
-            'description' => 'ダンス・かけっこをします。',
-            'eventDay' => Carbon::now()->addMonth(5),
-            'startTime' => Carbon::now()->addHour(1),
-            'endTime' => Carbon::now()->addHour(2),
-            'deadline' => Carbon::now()->addMonth(6),
-        ]);
+        // Meeting::create([
+        //     'name' => '運動会',
+        //     'description' => 'ダンス・かけっこをします。',
+        //     'eventDay' => Carbon::now()->addMonth(5),
+        //     'startTime' => Carbon::now()->addHour(1),
+        //     'endTime' => Carbon::now()->addHour(2),
+        //     'deadline' => Carbon::now()->addMonth(6),
+        // ]);
     }
 }
