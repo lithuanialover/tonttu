@@ -4,9 +4,9 @@
 <div class="cnt-position">
     <div class="cnt-width">
         <div class="cnt-width cnt-mg-top auth-flame">
-            <h2 class="form-ttl">欠席履歴</h2>
+            <h2 class="form-ttl">イベント出欠確認</h2>
             <div id="fadeInOut">
-                {{-- @if($message = Session::get('complete'))
+                @if($message = Session::get('complete'))
                 <div class="alert-success">
                     {{ $message }}
                 </div>
@@ -15,7 +15,7 @@
                 <div class="alert-error">
                     {{ $message }}
                 </div>
-                @endif --}}
+                @endif
             </div>
             <div class="table">
                 <table>
@@ -60,7 +60,7 @@
                     <a href="{{ route('admin.dashboard') }}">もどる</a>
                 </div>
                 <div class="login">
-                    <a href="{{ route('attendanceHistory') }}">新規作成</a>
+                    <a href="{{ route('meetingForm') }}">新規作成</a>
                 </div>
             </div>
         </div>

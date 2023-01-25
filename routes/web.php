@@ -85,8 +85,9 @@ Route::middleware('auth:admin')->group(function () {
     // require __DIR__.'/admin.php';//これをいれるとtoo many directsエラーでる
 
 #イベント
-    //一覧表示
-    Route::get('/event', [MeetingController::class, 'index'])->name('meetingList'); //QRリーダー表示
+    Route::get('/event', [MeetingController::class, 'index'])->name('meetingList'); //一覧表示
+    Route::get('/event/create', [MeetingController::class, 'create'])->name('meetingForm'); //イベント作成フォーム画面表示
+    Route::post('/event/store', [MeetingController::class, 'store'])->name('meetingStore');//イベント作成フォーム画面表示
 });
 
 // require __DIR__.'/admin.php'; #こいつが原因で「保護者用login/registerに飛べなかった」ここに書いたらダメ
