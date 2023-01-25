@@ -12,11 +12,33 @@ class MeetingAttendanceController extends Controller
 {
     public function index()
     {
+        #完成
+        $meetingAttendances = MeetingAttendance::where('user_id', \Auth::id())
+            ->with('meeting')
+            ->paginate(3);
 
-        $meetings = Meeting::with('attendances')->paginate(3);
+        // dd($meetingAttendances);
 
-        // dd($meetings);
+        #全ユーザーのイベントを取得(リレーションとれてる)
+        // $meetings = Meeting::with('attendances')->paginate(3);
 
-        return view('auth.meeting.index', compact('meetings'));
+        #リレーションとれてるbut条件が反映されていない
+        // $meetings = Meeting::with('attendances')
+        // ->whereHas('attendances', function($q){
+        //     $q->where('user_id', \Auth::id());
+        // })
+        // ->paginate(3);
+
+        #リレーションができていない
+        // $meetings = Meeting::whereHas('attendances', function($q){
+        //     $q->where('user_id', \Auth::id());
+        // })
+        // ->paginate(3);
+
+        #失敗
+        // $meetings = Meeting::with('attendances')->where('user_id', \Auth::id())
+        //     ->paginate(3);
+
+        return view('auth.meeting.index', compact('meetingAttendances'));
     }
 }

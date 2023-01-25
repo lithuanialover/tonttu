@@ -26,47 +26,42 @@
                         <th>提出期日</th>
                         <th>提出状況</th>
                     </tr>
-                        @foreach($meetings as $meeting)
+                        @foreach($meetingAttendances as $meetingAttendance)
                         <tr class="table-bloke" style="height: 100px">
-                            <td><p>{{ $meeting->name }}</p></td>
-                            <td><p>{{ $meeting->eventDay }}</p></td>
-                            <td><p>{{ $meeting->deadline }}</p></td>
+                            <td><p>{{ $meetingAttendance->meeting->name }}</p></td>
+                            <td><p>{{ $meetingAttendance->meeting->eventDay }}</p></td>
+                            <td><p>{{ $meetingAttendance->meeting->deadline }}</p></td>
                             <td>
                                 <ul class="flex">
                                     <li>
-                                        @foreach($meeting->attendances as $attendance)
-                                                @switch($attendance->type_id)
-                                                    @case(99)
-                                                        未回答
-                                                        @break
-
-                                                    @case(1)
-                                                        出席
-                                                        @break
-
-                                                    @case(2)
-                                                        欠席
-                                                        @break
-
-                                                    @default
-                                                        デフォルトケース
-                                                @endswitch
-
-                                        <p>{{ $attendance->type_id }}</p>
-                                        @endforeach
+                                        @switch($meetingAttendance->type_id)
+                                            @case(99)
+                                                未回答
+                                                @break
+                                            @case(1)
+                                                出席
+                                                @break
+                                            @case(2)
+                                                欠席
+                                                @break
+                                            @default
+                                                デフォルトケース
+                                        @endswitch
                                     </li>
-                                    <li></li>
+                                    <li>
+                                        <button>回答</button>
+                                    </li>
+                                    <li>
+                                        <p>ログイン中id番号</p> 
+                                        <p>{{ $meetingAttendance->user_id }}</p>
+                                    </li>
                                 </ul>
-                                meetingAttendancesのid, 
-                                @foreach($meeting->attendances as $attendance)
-                                <p>{{ $attendance->id }}</p>
-                                @endforeach
                             </td>
                         </tr>
-                        @endforeach
+                    @endforeach
                 </table>
                 <div id="pagination">
-                    {{ $meetings->links() }}
+                    {{ $meetingAttendances->links() }}
                 </div>
             </div>
             <div class="flex table-btn-position" style="margin-top: 50px;">
