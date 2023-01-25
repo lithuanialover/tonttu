@@ -14,7 +14,7 @@ class AttendanceController extends Controller
     public function index(){
 
         // 当日の登園・降園の一覧
-        $attendanceStudents = Attendance::with('student')->orderBy('student_id', 'asc')->with(['student'])->whereDate('created_at', Carbon::today())->paginate(2);
+        $attendanceStudents = Attendance::with('student')->orderBy('student_id', 'desc')->with(['student'])->whereDate('created_at', Carbon::today())->paginate(2);
 
         // 当日の欠席一覧
         $today_start = Carbon::today()->format('Y-m-d 00:00:00');
@@ -55,7 +55,7 @@ class AttendanceController extends Controller
     public function showHistory(){
 
         // $attendanceStudents = Attendance::with('student')->orderBy('student_id', 'asc')->with(['student'])->orderBy('created_at', 'asc')->paginate(5);
-        $attendanceStudents = Attendance::orderBy('created_at', 'asc')->paginate(5);
+        $attendanceStudents = Attendance::orderBy('created_at', 'desc')->paginate(5);
 
         return view('admin.attendance.list',compact('attendanceStudents'));
     }

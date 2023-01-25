@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AbsenceController;
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -82,6 +83,10 @@ Route::middleware('auth:admin')->group(function () {
 
 
     // require __DIR__.'/admin.php';//これをいれるとtoo many directsエラーでる
+
+#イベント
+    //一覧表示
+    Route::get('/event', [MeetingController::class, 'index'])->name('meetingList'); //QRリーダー表示
 });
 
 // require __DIR__.'/admin.php'; #こいつが原因で「保護者用login/registerに飛べなかった」ここに書いたらダメ

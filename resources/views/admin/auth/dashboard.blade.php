@@ -20,12 +20,15 @@
                 <li id="min"></li>
             </ul>
         </div>
-        <div class="flex lp-btn-position">
+        <div class="flex lp-btn-position" style="margin-bottom: 100px;">
             <div class="register">
                 <a href="{{ route('attendanceList') }}">登園・降園の状況</a>
             </div>
             <div class="login">
                 <a href="{{ route('allStudents') }}">生徒一覧</a>
+            </div>
+            <div class="register">
+                <a href="{{ route('meetingList') }}">イベント</a>
             </div>
         </div>
     </div>

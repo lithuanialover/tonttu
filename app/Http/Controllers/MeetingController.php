@@ -12,9 +12,9 @@ class MeetingController extends Controller
 {
     public function index(){
 
-        $eventHistories = MeetingAttendance::paginate(3);
+        $eventHistories = Meeting::orderBy('eventDay', 'asc')->paginate(3);
 
-        // dd($absenceHistories);
+        // dd($eventHistories);
 
         return view('admin.meeting.index', compact('eventHistories'));
     }
