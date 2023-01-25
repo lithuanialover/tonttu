@@ -19,8 +19,13 @@
             <div class="login">
                 <a href="{{ route('absences.index') }}">欠席連絡</a>
             </div>
+        </div>
+        <div class="flex dashboard-position-btn" style="margin-top: 30px;">
             <div class="register">
                 <a href="{{ route('students.index') }}">お子様の情報</a>
+            </div>
+            <div class="login">
+                <a href="{{ route('meetingAttendance.index') }}">イベント</a>
             </div>
         </div>
     </div>

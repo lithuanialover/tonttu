@@ -3,6 +3,7 @@
 use App\Http\Controllers\AbsenceController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\MeetingController;
+use App\Http\Controllers\MeetingAttendanceController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -32,16 +33,21 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    // 園児情報のCRUD
+#園児情報のCRUD
     Route::resource('students', StudentController::class);
     Route::get('qrcode/{id}', [StudentController::class, 'generate'])->name('generate');
     Route::get('/pdf/{id}', [StudentController::class, 'pdf'])->name('pdf');
 
-    //園児の登園/降園の履歴取得
+#園児の登園/降園の履歴取得
     Route::get('/student/attendance', [AttendanceController::class, 'attendanceCheck'])->name('attendanceCheck');
 
-    //園児の欠席報告
+#園児の欠席報告
     Route::resource('absences', AbsenceController::class);
+
+#出欠報告
+    Route::get('/meeting', [MeetingAttendanceController::class, 'index'])->name('meetingAttendance.index');
+    
+
 
 });
 

@@ -58,10 +58,23 @@ class MeetingController extends Controller
         $meeting->deadline = $request->deadline;
         $meeting->save();
 
-        $attendance = new MeetingAttendance();
-        $attendance->meeting_id = $meeting->id;
-        $attendance->type_id = MeetingAttendanceType::TYPE_NOT_YET;
-        $attendance->save();
+        // $attendance = new MeetingAttendance();
+        // $attendance->meeting_id = $meeting->id;
+        // $attendance->type_id = MeetingAttendanceType::TYPE_NOT_YET;
+        // $attendance->save();
+
+        $user_ids = User::select('id')->get();
+
+        dd($user_ids);
+
+        foreach ($user_ids as $user_id) {
+
+            $attendance = new MeetingAttendance();
+            $attendance->user_id = $user_id;
+            $attendance->meeting_id = $meeting->id;
+            $attendance->type_id = MeetingAttendanceType::TYPE_NOT_YET;
+            $attendance->save();
+        }
 
         return redirect()->route('meetingList')->with('complete', '新規作成しました。');
     }
