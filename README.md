@@ -58,6 +58,13 @@ tonttu
 4. AbsencesTableSeeder  
     欠席報告  
     ・データ数：1  
+5. MeetingSeeder.php
+    イベントのデータ
+6. MeetingAttendanceTypeSeeder.php
+    回答ステータス用
+7. MeetingAttendanceSeeder.php
+    イベントデータ, 会員id, 回答ステータスを紐づけ
+
    
 * SQLファイル
 1. students.sql  
@@ -227,6 +234,19 @@ tonttu
 4.   「はい」をクリック
 5. DBに「降園」のデータが格納される
     - 条件：1日1回だけ「降園」のデータを格納できる
+    
+
+* イベント出欠確認
+1. 「イベント」クリック
+    ![AdminDashboard](https://user-images.githubusercontent.com/90084344/214800025-64ec6598-f6aa-4e3d-8ec9-86eb55a86365.png)
+2. 「新規作成クリック」
+    必要情報を入力し登録
+    ![AdminNewMeeting](https://user-images.githubusercontent.com/90084344/214800407-c32aa1f5-a49c-4870-bcd2-72bbabb1209e.png)
+3. 「詳細」クリック。出欠状況を確認する。
+    ![AdminMeeting](https://user-images.githubusercontent.com/90084344/214800774-3d43c0e5-e980-4c86-b68d-010f46772057.png)
+4. 「編集」クリック
+    ![AdminMeetingEdit](https://user-images.githubusercontent.com/90084344/214801666-dca7ee1c-3c59-44f7-957f-00f49b2024ab.png)
+
 
 ## 保護者ページ  
 * ログイン方法
@@ -283,6 +303,14 @@ tonttu
 2. 「PDF」クリック
     ![UserPDF](https://user-images.githubusercontent.com/90084344/213054752-8e968765-29f0-4607-a1b2-0b27c436bd61.png)
 
+
+* 出欠確認
+1. 「イベントクリック」
+    ![UserDashboard](https://user-images.githubusercontent.com/90084344/214802432-aa7cf63d-0cff-4572-8abe-40f3440c55cb.png)
+2. 「回答」クリック
+    ![UserMeetingAnswer](https://user-images.githubusercontent.com/90084344/214802160-d178412f-cc06-43b3-a2bc-cd7d7436daef.png)
+3. 「はい」「いいえ」クリック
+    ![UserMeetingAnswer](https://user-images.githubusercontent.com/90084344/214802661-47e74b8e-5e33-40de-a2bf-14b0e60f49a9.png)
 
 
 ## 既存システム：ルクミー
