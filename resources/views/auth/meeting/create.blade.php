@@ -43,6 +43,7 @@
                     <p>参加しますか？</p> 
                     <div class="flex lists-btn-position">
                         {{-- はい 「1」出席--}}
+                        <div>
                         <form method="post" action="{{ route('meetingAttendance.attend', ['id'=>$meetingAttendance->id]) }}" enctype="multipart/form-data">
                         @csrf
                             <!-- user_id -->
@@ -54,7 +55,9 @@
 
                             <button type="submit" class="details-btn">はい</button>
                         </form>
+                        </div>
                         {{-- いいえ 「2」欠席--}}
+                        <div>
                         <form method="post" action="{{ route('meetingAttendance.absent', ['id'=>$meetingAttendance->id]) }}" enctype="multipart/form-data">
                         @csrf
                             <!-- user_id -->
@@ -66,6 +69,7 @@
 
                             <button type="submit" class="delete-btn">いいえ</button>
                         </form>
+                        </div>
                     </div>
                 </div>              
         </div>
