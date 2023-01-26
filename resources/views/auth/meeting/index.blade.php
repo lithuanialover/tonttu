@@ -45,7 +45,7 @@
                                                 欠席
                                                 @break
                                             @default
-                                                デフォルトケース
+                                                エラー
                                         @endswitch
                                     </li>
                                     <li>

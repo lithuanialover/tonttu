@@ -22,10 +22,10 @@ class MeetingSeeder extends Seeder
         Meeting::create([
             'name' => '節分の会',
             'description' => '鬼さんと豆まきをします。',
-            'eventDay' => Carbon::now()->addMonth(1),
+            'eventDay' => Carbon::now()->addMonth(2),
             'startTime' => Carbon::now()->addHour(1),
             'endTime' => Carbon::now()->addHour(2),
-            'deadline' => Carbon::now()->addMonth(2),
+            'deadline' => Carbon::now()->addMonth(1),
         ]);
 
         // Meeting::create([
