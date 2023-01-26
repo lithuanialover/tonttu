@@ -36,7 +36,7 @@
                 </div>
             </div>
             <div style="width;20%;">
-                <h2 class="form-ttl">投票の状況</h2>
+                <h2 class="form-ttl">回答状況</h2>
                 <div class="table">
                     <table style="width: 100%;">
                         <tr class="table-bloke">
@@ -63,6 +63,43 @@
                 </div>
             </div>
         </div>
+        <div class="flex" style="justify-content: center;"> 
+            <div style="margin-bottom: 30px; width: 60%;">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+        <div class="flex" style="justify-content: space-between;  margin-bottom: 50px;">
+            <div class="table" style="width: 30%;">
+                <table>
+                    <tr class="table-bloke">
+                        <th>参加者</th>
+                    </tr>
+                    <tr>
+                        <td>aa</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="table" style="width: 30%;">
+                <table>
+                    <tr class="table-bloke">
+                        <th>欠席者</th>
+                    </tr>
+                    <tr>
+                        <td>aa</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="table" style="width: 30%;">
+                <table>
+                    <tr class="table-bloke">
+                        <th>未回答者</th>
+                    </tr>
+                    <tr>
+                        <td>aa</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
         <div class="flex table-btn-position" style="margin-bottom: 100px;">
             <div class="register show-btn">
                 <a href="{{ route('meetingList') }}">もどる</a>
@@ -70,4 +107,28 @@
         </div>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+    <script>
+    var ctx = document.getElementById("myChart");
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ["参加", "欠席", "未回答"],
+            datasets: [{
+                backgroundColor: [
+                    "#BB5179",
+                    "#FAFF67",
+                    "#58A27C"
+                ],
+                data: [{{ $countAttend }}, {{ $countAbsent }}, {{ $countNotYet }}]
+            }]
+        },
+        options: {
+            title: {
+                display: true,
+                text: '回答状況の円グラフ'
+            }
+        }
+    });
+    </script>
 @endsection
