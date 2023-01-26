@@ -28,6 +28,10 @@
                             <td>イベント詳細</td>
                             <td>{{ $meeting->description }}</td>
                         </tr>
+                        <tr class="table-bloke">
+                            <td>回答期日</td>
+                            <td>{{ $meeting->deadline }}</td>
+                        </tr>
                     </table>
                 </div>
             </div>
@@ -41,19 +45,19 @@
                         </tr>
                         <tr class="table-bloke">
                             <td>会員数</td>
-                            <td></td>
+                            <td>{{ $countUser }}人</td>
                         </tr>
                         <tr class="table-bloke">
                             <td>参加</td>
-                            <td></td>
+                            <td>{{ $countAttend }}人</td>
                         </tr>
                         <tr class="table-bloke">
                             <td>欠席</td>
-                            <td></td>
+                            <td>{{ $countAbsent }}人</td>
                         </tr>
                         <tr class="table-bloke">
                             <td>未回答</td>
-                            <td></td>
+                            <td>{{ $countNotYet }}人</td>
                         </tr>
                     </table>
                 </div>
