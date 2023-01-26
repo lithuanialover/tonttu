@@ -4,7 +4,7 @@
 <div class="cnt-position">
     <div class="cnt-width cnt-mg-top">
         <div class="cnt-width cnt-mg-top auth-flame">
-            <h2 class="form-ttl">新規出欠案内作成</h2>
+            <h2 class="form-ttl">出欠案内編集</h2>
             @if ($errors->any())
             <article class="message is-danger">
                 <div class="message-header">
