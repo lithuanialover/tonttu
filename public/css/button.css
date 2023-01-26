@@ -497,4 +497,21 @@ button {
 
 .dashboard-position-btn {
   justify-content: center;
+}
+
+.status {
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.notyet {
+  background-color: #fcf8e3;
+}
+
+.attend {
+  background: #dff0d8;
+}
+
+.absent {
+  background: #f2dede;
 }/*# sourceMappingURL=button.css.map */

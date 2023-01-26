@@ -27,34 +27,37 @@
                         <th>提出状況</th>
                     </tr>
                         @foreach($meetingAttendances as $meetingAttendance)
-                        <tr class="table-bloke" style="height: 100px">
+                        <tr class="table-bloke">
                             <td><p>{{ $meetingAttendance->meeting->name }}</p></td>
                             <td><p>{{ $meetingAttendance->meeting->eventDay }}</p></td>
                             <td><p>{{ $meetingAttendance->meeting->deadline }}</p></td>
                             <td>
-                                <ul class="flex">
+                                <ul class="flex" style="justify-content: space-between;">
                                     <li>
                                         @switch($meetingAttendance->type_id)
                                             @case(99)
-                                                未回答
+                                                <p class="status notyet">未回答</p>
                                                 @break
                                             @case(1)
-                                                出席
+                                                <p class="status attend">出席</p>
                                                 @break
                                             @case(2)
-                                                欠席
+                                                <p class="status absent">欠席</p>
                                                 @break
                                             @default
                                                 エラー
                                         @endswitch
                                     </li>
                                     <li>
-                                        <button>回答</button>
+                                        <div class="details">
+                                            <a href="{{ route('meetingAttendance.create',$meetingAttendance->id) }}">回答</a>
+                                        </div>
                                     </li>
-                                    <li>
+                                    {{-- 下記：あとでコメントアウトする --}}
+                                    {{-- <li>
                                         <p>ログイン中id番号</p> 
                                         <p>{{ $meetingAttendance->user_id }}</p>
-                                    </li>
+                                    </li> --}}
                                 </ul>
                             </td>
                         </tr>

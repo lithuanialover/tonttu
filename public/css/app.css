@@ -245,6 +245,12 @@ li {
   margin-bottom: 15px;
 }
 
+.form-sub-ttl {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
 .table {
   margin-bottom: 40px;
 }

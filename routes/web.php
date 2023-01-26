@@ -45,9 +45,13 @@ Route::middleware('auth')->group(function () {
     Route::resource('absences', AbsenceController::class);
 
 #出欠報告
-    Route::get('/meeting', [MeetingAttendanceController::class, 'index'])->name('meetingAttendance.index');
-    
+    Route::get('/meeting', [MeetingAttendanceController::class, 'index'])->name('meetingAttendance.index'); //イベント一覧取得
+    Route::get('/meeting/create/{id}', [MeetingAttendanceController::class, 'create'])->name('meetingAttendance.create');
 
+    //出席
+    Route::post('/meeting/attend/{id}', [MeetingAttendanceController::class, 'attend'])->name('meetingAttendance.attend');
+    //欠席
+    Route::post('/meeting/absent/{id}', [MeetingAttendanceController::class, 'absent'])->name('meetingAttendance.absent');
 
 });
 
