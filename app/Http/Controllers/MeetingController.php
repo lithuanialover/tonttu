@@ -85,6 +85,7 @@ class MeetingController extends Controller
 
         $meeting = Meeting::find($id);
 
+        #count関数
         $countUser = User::count();
 
         $countAttend = MeetingAttendance::where('meeting_id', $id)
@@ -95,8 +96,6 @@ class MeetingController extends Controller
 
         $countNotYet = MeetingAttendance::where('meeting_id', $id)
         ->where('type_id', 99)->count();
-
-        // dd($countAttend);
         
         return view('admin.meeting.show', compact('meeting', 'countUser', 'countAttend', 'countAbsent', 'countNotYet'));
     }

@@ -68,14 +68,14 @@
                 <canvas id="myChart"></canvas>
             </div>
         </div>
-        <div class="flex" style="justify-content: space-between;  margin-bottom: 50px;">
+        {{-- <div class="flex" style="justify-content: space-between;  margin-bottom: 50px;">
             <div class="table" style="width: 30%;">
                 <table>
                     <tr class="table-bloke">
                         <th>参加者</th>
                     </tr>
                     <tr>
-                        <td>aa</td>
+                        <td></td>
                     </tr>
                 </table>
             </div>
@@ -99,7 +99,7 @@
                     </tr>
                 </table>
             </div>
-        </div>
+        </div> --}}
         <div class="flex table-btn-position" style="margin-bottom: 100px;">
             <div class="register show-btn">
                 <a href="{{ route('meetingList') }}">もどる</a>

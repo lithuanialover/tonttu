@@ -19,4 +19,9 @@ class MeetingAttendance extends Model
     {
         return $this->belongsTo(Meeting::class, 'meeting_id', 'id');
     }
+
+    // public function user()
+    // {
+    //     return $this->belongsTo(User::class,'user_id', 'id');
+    // }
 }
