@@ -100,8 +100,8 @@
                 </table>
             </div>
         </div> --}}
-        <div class="flex table-btn-position" style="margin-bottom: 100px;">
-            <div class="register show-btn">
+        <div class="flex table-btn-position" style="margin-bottom: 100px; justify-content: center;">
+            <div class="register show-btn" style="width:200px;">
                 <a href="{{ route('meetingList') }}">もどる</a>
             </div>
         </div>

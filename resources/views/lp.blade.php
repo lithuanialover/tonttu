@@ -21,7 +21,7 @@
 <div id="parent" class="cnt-position cnt-mg-top">
     <div class="cnt-width cnt-top cnt-btm">
         <h2 class="lp-ttl">保護者へ</h2>
-        <h3 class="lp-h3"><span class="lp-h3-no">3</span>つの機能</h3>
+        <h3 class="lp-h3"><span class="lp-h3-no">4</span>つの機能</h3>
         <div class="feature-cnt flex">
             <div class="featureText">
                 <h2 class="featureNo">01</h2>
@@ -49,6 +49,15 @@
                 <img src="{{ asset('img/lp/UserQr.png') }}" alt="登園降園確認">
             </div>
         </div>
+        <div class="feature-cnt flex">
+            <div class="featureText">
+                <h2 class="featureNo">04</h2>
+                <p class="lp-p">幼稚園・保育園からのイベント案内に「出欠」をオンラインで連絡できます。</p>
+            </div>
+            <div class="featureImg">
+                <img src="{{ asset('img/lp/UsermeetingAttend.png') }}" alt="出欠報告">
+            </div>
+        </div>
         <div class="flex lp-btn-position">
             <div class="register">
                 <a href="{{ route('register') }}">会員登録</a>
@@ -62,7 +71,7 @@
 <div id="teacher" class="cnt-position cnt-mg-top">
     <div class="cnt-width cnt-top cnt-btm">
         <h2 class="lp-ttl">幼稚園 保育園の先生へ</h2>
-        <h3 class="lp-h3"><span class="lp-h3-no">4</span>つの機能</h3>
+        <h3 class="lp-h3"><span class="lp-h3-no">5</span>つの機能</h3>
         <div class="feature-cnt flex teacherFeatureCnt">
             <div class="featureText">
                 <h2 class="featureNo">01</h2>
@@ -97,6 +106,15 @@
             </div>
             <div class="featureImg">
                 <img src="{{ asset('img/lp/AdminCSV.png') }}" alt="登園降園確認">
+            </div>
+        </div>
+        <div class="feature-cnt flex teacherFeatureCnt">
+            <div class="featureText">
+                <h2 class="featureNo">05</h2>
+                <p class="lp-p">イベントの登録、出欠状況をリアルタイムで確認できます。</p>
+            </div>
+            <div class="featureImg">
+                <img src="{{ asset('img/lp/AdminMeeting.png') }}" alt="出欠確認">
             </div>
         </div>
         <div class="flex lp-btn-position">
