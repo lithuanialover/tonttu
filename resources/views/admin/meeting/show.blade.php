@@ -3,46 +3,66 @@
 @section('main')
 <div class="cnt-position">
     <div class="cnt-width cnt-mg-top auth-flame">
-        <h2 class="form-ttl">イベントの詳細</h2>
-        <div class="flex auth-form show-form">
-                <!-- イベント名 -->
-                <div class="auth-input flex">
-                    <label for="student_name" value="name">イベント名</label>
-                    <p class="input-css show-input">{{ $meeting->name }}</p>
+        <div class="flex" style="justify-content: space-between;">
+            <div style="width: 75%;">
+                <h2 class="form-ttl">イベントの詳細</h2>
+                <div class="table">
+                    <table style="width: 100%;">
+                        <tr class="table-bloke">
+                            <th>項目</th>
+                            <th>内容</th>
+                        </tr>
+                        <tr class="table-bloke">
+                            <td>イベント名</td>
+                            <td>{{ $meeting->name }}</td>
+                        </tr>
+                        <tr class="table-bloke">
+                            <td>開催日</td>
+                            <td>{{ $meeting->eventDay }}</td>
+                        </tr>
+                        <tr class="table-bloke">
+                            <td>開催時間</td>
+                            <td>{{ $meeting->startTime }}～{{ $meeting->endTime }}</td>
+                        </tr>
+                        <tr class="table-bloke">
+                            <td>イベント詳細</td>
+                            <td>{{ $meeting->description }}</td>
+                        </tr>
+                    </table>
                 </div>
-                <!-- イベント詳細 -->
-                <div class="auth-input flex">
-                    <label for="description" value="description">イベント詳細</label>
-                    <p class="input-css show-input">{{ $meeting->description }}</p>
+            </div>
+            <div style="width;20%;">
+                <h2 class="form-ttl">投票の状況</h2>
+                <div class="table">
+                    <table style="width: 100%;">
+                        <tr class="table-bloke">
+                            <th>項目</th>
+                            <th>数値</th>
+                        </tr>
+                        <tr class="table-bloke">
+                            <td>会員数</td>
+                            <td></td>
+                        </tr>
+                        <tr class="table-bloke">
+                            <td>参加</td>
+                            <td></td>
+                        </tr>
+                        <tr class="table-bloke">
+                            <td>欠席</td>
+                            <td></td>
+                        </tr>
+                        <tr class="table-bloke">
+                            <td>未回答</td>
+                            <td></td>
+                        </tr>
+                    </table>
                 </div>
-                <!-- 開催日 -->
-                <div class="auth-input flex">
-                    <label for="eventDay" value="eventDay">イベント開催日</label>
-                    <p class="input-css show-input">{{ $meeting->eventDay }}</p>
-                </div>
-                <div class="flex" style="justify-content: space-between;">
-                    <!-- 開始時間 -->
-                    <div class="auth-input flex"style="width:45%;">
-                        <label for="startTime" value="startTime">開始時間</label>
-                        <p class="input-css show-input">{{ $meeting->startTime}}</p>
-                    </div>
-                    <!-- 終了時間 -->
-                    <div class="auth-input flex" style="width:45%;">
-                        <label for="endTime" value="endTime">終了時間</label>
-                        <p class="input-css show-input">{{ $meeting->endTime }}</p>
-                    </div>
-                </div>
-                <!-- 提出期日 -->
-                <div class="auth-input flex">
-                    <label for="eventDay" value="eventDay">提出期日</label>
-                    <p class="input-css show-input">{{ $meeting->deadline }}</p>
-                </div>
-                <div class="flex table-btn-position" style="margin-bottom: 100px;">
-                    <div class="register show-btn">
-                        <a href="{{ route('meetingList') }}">もどる</a>
-                    </div>
-                </div>
-            </form>
+            </div>
+        </div>
+        <div class="flex table-btn-position" style="margin-bottom: 100px;">
+            <div class="register show-btn">
+                <a href="{{ route('meetingList') }}">もどる</a>
+            </div>
         </div>
     </div>
 </div>
