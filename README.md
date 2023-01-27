@@ -58,6 +58,13 @@ tonttu
 4. AbsencesTableSeeder  
     欠席報告  
     ・データ数：1  
+5. MeetingSeeder.php
+    イベントのデータ
+6. MeetingAttendanceTypeSeeder.php
+    回答ステータス用
+7. MeetingAttendanceSeeder.php
+    イベントデータ, 会員id, 回答ステータスを紐づけ
+
    
 * SQLファイル
 1. students.sql  
@@ -69,17 +76,18 @@ tonttu
 4. 「SQL」をクリック
 5. 下記のSQL文を入力し、実行  
 ```
-    INSERT INTO `students` (`id`, `student_name`, `student_kana`, `student_gender`, `student_image`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, 'Richard', 'りちゃーど', '男の子', 'students/54W9swvnLollieA4mPFMXp0IyKkCKeOoB39EdjQ8.jpg', 1, '2023-01-17 08:50:48', '2023-01-17 08:50:48'),
-(2, 'Susan', 'スーザン', '女の子', 'students/qwIvGqoQUZ4s7MQdgOJcWHPf7E57HAA7GCvnVyAW.jpg', 1, '2023-01-17 08:51:36', '2023-01-17 08:51:36'),
-(3, 'Joseph', 'じょぜふ', '男の子', 'students/ikpinNOkTBpc1L4Rk0gE55xWycz2GGfyjQNnGaEB.jpg', 2, '2023-01-17 08:52:48', '2023-01-17 08:52:48'),
-(4, 'Thomas', 'とーます', '男の子', 'students/J0dKk41oG6e2whqh3ueyTa6h61e5ATrRG4gQXXhQ.jpg', 2, '2023-01-17 08:53:07', '2023-01-17 08:53:07'),
-(5, 'Charles', 'ちゃーるず', '男の子', 'students/aeRnpqbaomq4IEXQmSumM8lW12HDYXuI9UHUWmse.jpg', 3, '2023-01-17 08:53:58', '2023-01-17 08:53:58'),
-(6, 'Karen', 'かれん', '女の子', 'students/u2OItZegsZIeaPaIhjjtLn04QnDM8Mm9NUzNvuWz.jpg', 3, '2023-01-17 08:54:18', '2023-01-17 08:54:18'),
-(7, 'Lisa', 'りさ', '女の子', 'students/Wh0hEzewG8rmNu5BNhjSXh4bgK5lmBHnuwA8xYKl.jpg', 4, '2023-01-17 08:55:12', '2023-01-17 08:55:12'),
-(8, 'Daniel', 'だにえる', '男の子', 'students/7QYhVvvgrnBO5sPx3JfzUEKFVPoomCCaGMYRfXso.jpg', 4, '2023-01-17 08:55:35', '2023-01-17 08:55:35'),
-(9, 'Matthew', 'ましゅー', '男の子', 'students/EfHNNWxoIKInjwWcEaMh1PxzA0tPhkN5fFhecgwz.jpg', 5, '2023-01-17 08:57:20', '2023-01-17 08:57:20'),
-(10, 'Anthony', 'あんそにー', '男の子', 'students/JOi0rfoEoCYTsRF4BtAj6SBgdOFN2Bg3iUOcJgcn.jpg', 5, '2023-01-17 08:57:37', '2023-01-17 08:57:37');  
+INSERT INTO `students` (`id`, `student_name`, `student_kana`, `student_gender`, `student_image`, `user_id`, `created_at`, `updated_at`) VALUES
+(1, 'Richard', 'りちゃーど', '男の子', 'students/NbUxhiSGS7vPyS6SwIXaBoDoViNRS8LHyqgqnCz6.jpg', 1, '2023-01-27 01:49:01', '2023-01-27 01:49:01'),
+(2, 'Susan', 'スーザン', '女の子', 'students/B1ETxGCAv6bg3Mv9wGhEoVLb7LKw2DrHhhJvEsyp.jpg', 1, '2023-01-27 01:49:28', '2023-01-27 01:49:28'),
+(3, 'Joseph', 'じょぜふ', '男の子', 'students/pAfUPkki94sziWYFbBhIvBGXbySkJ75TJ5WNqMJo.jpg', 2, '2023-01-27 01:50:13', '2023-01-27 01:50:13'),
+(4, 'Thomas', 'とーます', '男の子', 'students/gPAao0WPNa5DRqwpYOPeiXGIcc7cdorgT4CYynIW.jpg', 2, '2023-01-27 01:50:36', '2023-01-27 01:50:36'),
+(5, 'Charles', 'ちゃーるず', '男の子', 'students/83nakX6Cdwqo7QZWeM3ozcOk1qJeXOKv97F5gb2F.jpg', 3, '2023-01-27 01:51:32', '2023-01-27 01:51:32'),
+(6, 'Karen', 'かれん', '女の子', 'students/l5z9VeBcuXNIlFH9jH3vEiUekFf6WiBJwuOB5e7s.jpg', 3, '2023-01-27 01:51:57', '2023-01-27 01:51:57'),
+(7, 'Lisa', 'りさ', '女の子', 'students/NIe6pVL29x3rwcZAwAbdM0bPNkFw1nD6wfLQzAXd.jpg', 4, '2023-01-27 01:52:36', '2023-01-27 01:52:36'),
+(8, 'Daniel', 'だにえる', '男の子', 'students/es39Oa1hPr7CwdPegx3Oud8Vd6DDN4SU2MvrtA1K.jpg', 4, '2023-01-27 01:53:16', '2023-01-27 01:53:16'),
+(9, 'Matthew', 'ましゅー', '男の子', 'students/N6sqlhKyQ6ae52oof0nmlA6tEWAJbNL3pgZ7qfzq.jpg', 5, '2023-01-27 01:53:51', '2023-01-27 01:53:51'),
+(10, 'Anthony', 'あんそにー', '男の子', 'students/yS2Nw024raZgAkv37hAVNEza9kALfkJQwuwuMaUy.jpg', 5, '2023-01-27 01:54:21', '2023-01-27 01:54:21'),
+(11, 'Ana', 'あな', '女の子', 'students/d8FAQ1SzwYC3X1KmwSZo5ZohXodiwWyx1PIuDEVo.jpg', 5, '2023-01-27 01:54:40', '2023-01-27 01:54:40');
 ```
 
 * SeederとSQLファイル入れた結果  
@@ -227,6 +235,19 @@ tonttu
 4.   「はい」をクリック
 5. DBに「降園」のデータが格納される
     - 条件：1日1回だけ「降園」のデータを格納できる
+    
+
+* イベント出欠確認
+1. 「イベント」クリック
+    ![AdminDashboard](https://user-images.githubusercontent.com/90084344/214800025-64ec6598-f6aa-4e3d-8ec9-86eb55a86365.png)
+2. 「新規作成クリック」
+    必要情報を入力し登録
+    ![AdminNewMeeting](https://user-images.githubusercontent.com/90084344/214800407-c32aa1f5-a49c-4870-bcd2-72bbabb1209e.png)
+3. 「詳細」クリック。出欠状況を確認する。
+    ![AdminMeeting](https://user-images.githubusercontent.com/90084344/214800774-3d43c0e5-e980-4c86-b68d-010f46772057.png)
+4. 「編集」クリック
+    ![AdminMeetingEdit](https://user-images.githubusercontent.com/90084344/214801666-dca7ee1c-3c59-44f7-957f-00f49b2024ab.png)
+
 
 ## 保護者ページ  
 * ログイン方法
@@ -283,6 +304,14 @@ tonttu
 2. 「PDF」クリック
     ![UserPDF](https://user-images.githubusercontent.com/90084344/213054752-8e968765-29f0-4607-a1b2-0b27c436bd61.png)
 
+
+* 出欠確認
+1. 「イベントクリック」
+    ![UserDashboard](https://user-images.githubusercontent.com/90084344/214802432-aa7cf63d-0cff-4572-8abe-40f3440c55cb.png)
+2. 「回答」クリック
+    ![UserMeetingAnswer](https://user-images.githubusercontent.com/90084344/214802160-d178412f-cc06-43b3-a2bc-cd7d7436daef.png)
+3. 「はい」「いいえ」クリック
+    ![UserMeetingAnswer](https://user-images.githubusercontent.com/90084344/214802661-47e74b8e-5e33-40de-a2bf-14b0e60f49a9.png)
 
 
 ## 既存システム：ルクミー
