@@ -68,9 +68,10 @@ class AttendanceController extends Controller
     {
         //日本語だと文字化けした
         $csvlists = array(
-            'student_name' => 'Student Name',
-            'punchIn' => 'punchIn',
-            'punchOut' => 'punchOut',
+            'student_name' => '園児の名前',
+            'student_kana' => 'ふりがな',
+            'punchIn' => '登園時間',
+            'punchOut' => '降園時間',
         );
 
         return $csvlists;
@@ -138,7 +139,8 @@ class AttendanceController extends Controller
         $csv = str_replace(PHP_EOL, "\r\n", stream_get_contents($stream));
 
         // 文字コード変換
-        $csv = mb_convert_encoding($csv, 'SJIS-win', 'UTF-8');
+        $csv = mb_convert_encoding($csv, 'SJIS', 'UTF-8'); //日本語出力できた
+        // $csv = mb_convert_encoding($csv, 'SJIS-win', 'UTF-8'); //日本語出力できなかった
 
         // header
         $headers = array(
