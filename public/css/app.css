@@ -414,9 +414,9 @@ li {
 }
 #qrreader #preview {
   position: absolute;
-  top: 27%;
+  top: 30%;
   left: 9.5%;
-  width: 565px;
+  width: 700px;
   border-radius: 100%;
 }
 
