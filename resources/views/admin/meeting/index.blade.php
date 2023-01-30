@@ -17,6 +17,14 @@
                 </div>
                 @endif
             </div>
+            <div id="search" style="margin-bottom: 20px;">
+                <form method="GET" action="{{ route('meetingList') }}" class="search_container">
+                    <input type="text" placeholder="イベント名を入力" name="search" value="@if (isset($search)) {{ $search }} @endif">
+                    <a href="{{ route('meetingList') }}" class="text-white">✖</a>
+                    <input type="submit" value="&#xf002">
+                    
+                </form>
+            </div>
             <div class="table">
                 <table>
                     <tr class="table-bloke">
@@ -53,6 +61,7 @@
                 </table>
                 <div id="pagination">
                     {{ $eventHistories->links() }}
+                    {{-- {{ $institutions->appends(request()->input())->links() }} --}}
                 </div>
             </div>
             <div class="flex lp-btn-position" style="margin-bottom: 100px;">
