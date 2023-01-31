@@ -416,7 +416,7 @@ li {
   position: absolute;
   top: 30%;
   left: 9.5%;
-  width: 700px;
+  width: 550px;
   border-radius: 100%;
 }
 
@@ -483,7 +483,7 @@ li {
 
 @media only screen and (min-width: 1200px) {
   .cnt-width {
-    width: 900px;
+    width: 70%;
   }
   .cnt-mg-top {
     margin-top: 70px;

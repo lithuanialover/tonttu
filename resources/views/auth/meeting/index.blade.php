@@ -3,7 +3,7 @@
 @section('main')
 <div class="cnt-position">
     <div class="cnt-width cnt-mg-top">
-        <div class="cnt-width cnt-mg-top auth-flame">
+        <div class="cnt-mg-top auth-flame">
             <h2 class="form-ttl">イベント出欠連絡</h2>
             <div id="fadeInOut">
                 @if($message = Session::get('complete'))
