@@ -63,7 +63,13 @@ tonttu
 6. MeetingAttendanceTypeSeeder.php
     回答ステータス用
 7. MeetingAttendanceSeeder.php
-    イベントデータ, 会員id, 回答ステータスを紐づけ
+    イベントデータ, 会員id, 回答ステータスを紐づ  
+8. LateTableSeeder  
+    遅刻報告  
+    ・データ数：1  
+9. LeaveEarlyTableSeeder  
+    早退報告  
+    ・データ数：1  
 
    
 * SQLファイル
@@ -117,6 +123,14 @@ INSERT INTO `students` (`id`, `student_name`, `student_kana`, `student_gender`, 
     absences table用のseeding  
     ```
     php artisan db:seed --class=AbsencesTableSeeder
+    ```
+    lateness table用のseeding  
+    ```
+    php artisan db:seed --class=LateTableSeeder
+    ```
+    leaveearlies table用のseeding  
+    ```
+    php artisan db:seed --class=LeaveEarlyTableSeeder
     ```
 7. サーバー立ち上げ
     ```
