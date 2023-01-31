@@ -126,11 +126,12 @@ INSERT INTO `students` (`id`, `student_name`, `student_kana`, `student_gender`, 
     ```
     lateness table用のseeding  
     ```
-    php artisan db:seed --class=LateTableSeedeer
+    php artisan db:seed --class=LateTableSeeder
     ```
     leaveearlies table用のseeding  
     ```
     php artisan db:seed --class=LeaveEarlyTableSeeder
+    ```
 7. サーバー立ち上げ
     ```
     php artisan serve
