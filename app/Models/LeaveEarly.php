@@ -9,7 +9,7 @@ class LeaveEarly extends Model
 {
     use HasFactory;
 
-    protected $table = "leaveEarlies";
+    protected $table = "leaveearlies";
 
     protected $fillable = [
         'day',

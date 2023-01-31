@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\LeaveEarly;
+use App\Models\Student;
+
 use Illuminate\Http\Request;
+use App\Http\Requests\LeaveEarlyRequest;
+
 
 class LeaveEarlyController extends Controller
 {
@@ -14,7 +18,15 @@ class LeaveEarlyController extends Controller
      */
     public function index()
     {
-        //
+        $leaveEarlyHistories = LeaveEarly::with('student')
+        ->whereHas('student', function ($q) {
+            $q->where('user_id', \Auth::id());
+        })
+            ->paginate(3);
+
+        // dd($absenceHistories);
+
+        return view('auth.leaveEarly.index', compact('leaveEarlyHistories'));
     }
 
     /**
@@ -24,7 +36,10 @@ class LeaveEarlyController extends Controller
      */
     public function create()
     {
-        //
+        //ログイン中のユーザーに紐ずくstudent_idを全て取得
+        $students = \Auth::user()->students;
+
+        return view('auth.leaveEarly.create', compact('students'));
     }
 
     /**
@@ -33,9 +48,17 @@ class LeaveEarlyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LeaveEarlyRequest $request)
     {
-        //
+        LeaveEarly::create([
+            'student_id' => $request->student_id,
+            'day' => $request->day,
+            'time' => $request->time,
+            'parent' => $request->parent,
+        ]);
+
+        return redirect()->route('leaveearlys.index')
+        ->with('complete', '新規作成しました。');
     }
 
     /**
@@ -46,7 +69,11 @@ class LeaveEarlyController extends Controller
      */
     public function show(LeaveEarly $leaveEarly)
     {
-        //
+        $student_id = $leaveEarly->student_id;
+
+        $student = Student::find($student_id);
+
+        return view('auth.leaveEarly.show', compact('leaveEarly', 'student'));
     }
 
     /**
@@ -57,7 +84,11 @@ class LeaveEarlyController extends Controller
      */
     public function edit(LeaveEarly $leaveEarly)
     {
-        //
+        $student_id = $leaveEarly->student_id;
+
+        $student = Student::find($student_id);
+
+        return view('auth.leaveEarly.edit', compact('leaveEarly', 'student'));
     }
 
     /**
@@ -69,7 +100,16 @@ class LeaveEarlyController extends Controller
      */
     public function update(Request $request, LeaveEarly $leaveEarly)
     {
-        //
+        // 更新
+        $leaveEarly->update([
+            'student_id' => $request->student_id,
+            'day' => $request->day,
+            'time' => $request->time,
+            'parent' => $request->parent,
+        ]);
+
+        return redirect()->route('leaveearlys.index')
+        ->with('complete', '更新しました。');
     }
 
     /**
@@ -80,6 +120,9 @@ class LeaveEarlyController extends Controller
      */
     public function destroy(LeaveEarly $leaveEarly)
     {
-        //
+        $leaveEarly->delete();
+
+        return redirect()->route('leaveearlys.index')
+        ->with('complete', '削除しました。');
     }
 }
