@@ -32,4 +32,16 @@ class Student extends Model
     {
         return $this->hasMany(Absence::class);
     }
+
+    // 1対多の関係でリレーションを設定 Student→Lateness(Userが1)(Lateが多)
+    public function lateness()
+    {
+        return $this->hasMany(Late::class);
+    }
+
+    // 1対多の関係でリレーションを設定 Student→LeaveEarly(Userが1)(Absenceが多)
+    public function leaveEarlies()
+    {
+        return $this->hasMany(LeaveEarly::class);
+    }
 }

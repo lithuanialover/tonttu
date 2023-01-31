@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('lateness', function (Blueprint $table) {
             $table->id();
+            $table->date('day')->comment('遅刻日');
+            $table->time('time')->comment('到着予想時間');
+            $table->string('parent')->comment('送迎者名');
+            $table->foreignId('student_id')->constrained('students')->onDelete('cascade');
             $table->timestamps();
         });
     }

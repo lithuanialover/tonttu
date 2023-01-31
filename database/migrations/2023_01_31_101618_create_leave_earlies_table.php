@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('leaveEarlies', function (Blueprint $table) {
             $table->id();
+            $table->date('day')->comment('早退日');
+            $table->time('time')->comment('早退時間');
+            $table->string('parent')->comment('お迎えにくる人の名前');
+            $table->foreignId('student_id')->constrained('students')->onDelete('cascade');
             $table->timestamps();
         });
     }
