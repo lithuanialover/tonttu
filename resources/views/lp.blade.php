@@ -21,7 +21,7 @@
 <div id="parent" class="cnt-position cnt-mg-top">
     <div class="cnt-width cnt-top cnt-btm">
         <h2 class="lp-ttl">保護者へ</h2>
-        <h3 class="lp-h3"><span class="lp-h3-no">4</span>つの機能</h3>
+        <h3 class="lp-h3"><span class="lp-h3-no">6</span>つの機能</h3>
         <div class="feature-cnt flex">
             <div class="featureText">
                 <h2 class="featureNo">01</h2>
@@ -43,6 +43,24 @@
         <div class="feature-cnt flex">
             <div class="featureText">
                 <h2 class="featureNo">03</h2>
+                <p class="lp-p">事前・当日の早退連絡ができます。</p>
+            </div>
+            <div class="featureImg">
+                <img src="{{ asset('img/lp/UserLeaveEarly.png') }}" alt="登園降園確認">
+            </div>
+        </div>
+        <div class="feature-cnt flex">
+            <div class="featureText">
+                <h2 class="featureNo">04</h2>
+                <p class="lp-p">事前・当日の遅刻連絡ができます。</p>
+            </div>
+            <div class="featureImg">
+                <img src="{{ asset('img/lp/UserLate.png') }}" alt="登園降園確認">
+            </div>
+        </div>
+        <div class="feature-cnt flex">
+            <div class="featureText">
+                <h2 class="featureNo">05</h2>
                 <p class="lp-p">お子様の情報をいつでも編集可能。<br>登園・降園報告に必要なQRコードをご自宅で印刷できます。</p>
             </div>
             <div class="featureImg">
@@ -51,7 +69,7 @@
         </div>
         <div class="feature-cnt flex">
             <div class="featureText">
-                <h2 class="featureNo">04</h2>
+                <h2 class="featureNo">06</h2>
                 <p class="lp-p">幼稚園・保育園からのイベント案内に「出欠」をオンラインで連絡できます。</p>
             </div>
             <div class="featureImg">
