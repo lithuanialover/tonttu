@@ -67,11 +67,15 @@ class LeaveEarlyController extends Controller
      * @param  \App\Models\LeaveEarly  $leaveEarly
      * @return \Illuminate\Http\Response
      */
-    public function show(LeaveEarly $leaveEarly)
+    public function show($id)
     {
+        $leaveEarly = LeaveEarly::find($id);
+
         $student_id = $leaveEarly->student_id;
 
         $student = Student::find($student_id);
+
+        // dd($leaveEarly);
 
         return view('auth.leaveEarly.show', compact('leaveEarly', 'student'));
     }
@@ -82,8 +86,10 @@ class LeaveEarlyController extends Controller
      * @param  \App\Models\LeaveEarly  $leaveEarly
      * @return \Illuminate\Http\Response
      */
-    public function edit(LeaveEarly $leaveEarly)
+    public function edit($id)
     {
+        $leaveEarly = LeaveEarly::find($id);
+
         $student_id = $leaveEarly->student_id;
 
         $student = Student::find($student_id);
@@ -98,15 +104,22 @@ class LeaveEarlyController extends Controller
      * @param  \App\Models\LeaveEarly  $leaveEarly
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, LeaveEarly $leaveEarly)
+    public function update(Request $request, $id)
     {
         // 更新
-        $leaveEarly->update([
-            'student_id' => $request->student_id,
-            'day' => $request->day,
-            'time' => $request->time,
-            'parent' => $request->parent,
-        ]);
+        // $leaveEarly->update([
+        //     'student_id' => $request->student_id,
+        //     'day' => $request->day,
+        //     'time' => $request->time,
+        //     'parent' => $request->parent,
+        // ]);
+
+        $meeting = LeaveEarly::find($id);
+        $meeting->student_id = $request->student_id;
+        $meeting->day = $request->day;
+        $meeting->time = $request->time;
+        $meeting->parent = $request->parent;
+        $meeting->save();
 
         return redirect()->route('leaveearlys.index')
         ->with('complete', '更新しました。');
@@ -118,9 +131,12 @@ class LeaveEarlyController extends Controller
      * @param  \App\Models\LeaveEarly  $leaveEarly
      * @return \Illuminate\Http\Response
      */
-    public function destroy(LeaveEarly $leaveEarly)
+    public function destroy($id)
     {
-        $leaveEarly->delete();
+        $meeting = LeaveEarly::find($id);
+
+        // レコードを削除
+        $meeting->delete();
 
         return redirect()->route('leaveearlys.index')
         ->with('complete', '削除しました。');

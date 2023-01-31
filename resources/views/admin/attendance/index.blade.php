@@ -18,18 +18,20 @@
                     <tr>
                         <th>総生徒数</th>
                         <td>{{ $countStudents }} <span style="font-size: 14px;">人</span></td>
+                        <th>未登園数</th>
+                        <td><span class="red-p">{{ $countNonAttendances }}</span> <span style="font-size: 14px;">人</span></td>
                     </tr>
                     <tr>
                         <th>登園数</th>
                         <td>{{ $countAttendances }} <span style="font-size: 14px;">人</span></td>
-                    </tr>
-                    <tr>
                         <th>欠席数</th>
                         <td>{{ $countAbsences }} <span style="font-size: 14px;">人</span></td>
                     </tr>
                     <tr>
-                        <th>未登園数</th>
-                        <td><span class="red-p">{{ $countNonAttendances }}</span> <span style="font-size: 14px;">人</span></td>
+                        <th>早退数</th>
+                        <td>{{ $countLeaveEarly }} <span style="font-size: 14px;">人</span></td>
+                        <th>遅刻数</th>
+                        <td>{{ $countLateness }} <span style="font-size: 14px;">人</span></td>
                     </tr>
                 </table>
             </div>
@@ -37,7 +39,6 @@
         <div class="flex attendanceAbsenceTable">
             <div class="attendanceTable table">
                 <table>
-                    <p>*本日の登園/降園一覧</p>
                     <tr class="table-bloke">
                         <th>園児</th>
                         <th>登園</th>
@@ -73,8 +74,8 @@
                 </div>
             </div>
             <div class="absenceTable table">
+                {{-- 欠席 --}}
                 <table>
-                    <p>*本日の欠席者</p>
                     <tr class="table-bloke">
                         <th>本日の欠席者</th>
                     </tr>
@@ -96,6 +97,56 @@
                 </table>
                 <div id="pagination">
                     {{ $todaysAbsents->links() }}
+                </div>
+                {{-- 遅刻 --}}
+                <table>
+                    <tr class="table-bloke">
+                        <th>本日の遅刻者</th>
+                    </tr>
+                        @foreach( $todaysLateness as  $todaysLate)
+                        <tr class="table-bloke" style="overflow: auto;">
+                            <td style="width: 50%">
+                                {{-- <a href="{{ rooute('') }}"> --}}
+                                    <ul class="flex" style="align-items: center; justify-content: space-between">
+                                        <li class="index-img"><img class="rounded-circle" src="{{asset('storage/' . $todaysLate->student->student_image)}}"></li>
+                                        {{-- <li>{{  $attendanceData->student_id }}</li> --}}
+                                        <li>{{  $todaysLate->student->student_kana }}</li>
+                                        <li>登園時間 {{  $todaysLate->time }}</li>
+                                        {{-- <li>
+                                            <button type="submit" class="details-btn">詳細</button>
+                                        </li> --}}
+                                    </ul>
+                                {{-- </a> --}}
+                            </td>
+                        </tr>
+                        @endforeach
+                </table>
+                <div id="pagination">
+                    {{ $todaysLateness->links() }}
+                </div>
+                {{-- 早退 --}}
+                <table>
+                    <tr class="table-bloke">
+                        <th>本日の早退者</th>
+                    </tr>
+                        @foreach( $todaysLeaveEarlies as  $todaysLeaveEarly)
+                        <tr class="table-bloke" style="overflow: auto;">
+                            <td style="width: 50%">
+                                <ul class="flex" style="align-items: center; justify-content: space-between">
+                                    <li class="index-img"><img class="rounded-circle" src="{{asset('storage/' . $todaysLeaveEarly->student->student_image)}}"></li>
+                                    {{-- <li>{{  $attendanceData->student_id }}</li> --}}
+                                    <li>{{  $todaysLeaveEarly->student->student_kana }}</li>
+                                    <li>早退時間{{  $todaysLeaveEarly->time }}</li>
+                                    {{-- <li>
+                                        <button type="submit" class="details-btn">詳細</button>
+                                    </li> --}}
+                                </ul>
+                            </td>
+                        </tr>
+                        @endforeach
+                </table>
+                <div id="pagination">
+                    {{ $todaysLeaveEarlies->links() }}
                 </div>
             </div>
         </div>

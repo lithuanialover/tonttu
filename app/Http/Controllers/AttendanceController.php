@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Absence;
 use App\Models\Attendance;
 use App\Models\Student;
+use App\Models\Late;
+use App\Models\LeaveEarly;
+
 use Illuminate\Http\Request;
 use Carbon\Carbon; //Carbonを使うuse文
 use App\Http\Requests\StudentRequest; #Validation for the students table
@@ -23,6 +26,16 @@ class AttendanceController extends Controller
         $todaysAbsents = Absence::whereBetween('absences.absentDay', [$today_start, $today_end])
         ->with('student')
         ->paginate(2);
+
+        //当日の遅刻
+        $todaysLateness = Late::whereBetween('lateness.day', [$today_start, $today_end])
+        ->with('student')
+            ->paginate(2);
+
+        //当日の早退
+        $todaysLeaveEarlies = LeaveEarly::whereBetween('leaveearlies.day', [$today_start, $today_end])
+        ->with('student')
+            ->paginate(2);
 
         // dd($todaysAbsents);
 
@@ -43,9 +56,15 @@ class AttendanceController extends Controller
         $countNonAttendances = $countStudents - $countAttendances - $countAbsences;
         // dd($countNonAttendances); 0
 
+        #遅刻数
+        $countLateness = Late::whereBetween('lateness.day', [$today_start, $today_end])->with('student')->count();
+
+        #早退数
+        $countLeaveEarly = LeaveEarly::whereBetween('leaveearlies.day', [$today_start, $today_end])->with('student')->count();
+
         // return view('admin.attendance.index', compact('attendanceStudents', 'todaysAbsents'));
 
-        return view('admin.attendance.index', compact('attendanceStudents', 'todaysAbsents', 'countStudents', 'countAttendances', 'countAbsences', 'countNonAttendances'));
+        return view('admin.attendance.index', compact('attendanceStudents', 'todaysAbsents', 'todaysLateness' , 'todaysLeaveEarlies', 'countStudents', 'countAttendances', 'countAbsences', 'countNonAttendances', 'countLateness', 'countLeaveEarly'));
     }
 
     /**
