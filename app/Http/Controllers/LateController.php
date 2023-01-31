@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Late;
+use App\Models\Student;
 use Illuminate\Http\Request;
+use App\Http\Requests\LateRequest;
+
 
 class LateController extends Controller
 {
@@ -14,7 +17,15 @@ class LateController extends Controller
      */
     public function index()
     {
-        //
+        $lateHistories = Late::with('student')
+        ->whereHas('student', function ($q) {
+            $q->where('user_id', \Auth::id());
+        })
+            ->paginate(3);
+
+        // dd($absenceHistories);
+
+        return view('auth.late.index', compact('lateHistories'));
     }
 
     /**
@@ -24,7 +35,10 @@ class LateController extends Controller
      */
     public function create()
     {
-        //
+        //ログイン中のユーザーに紐ずくstudent_idを全て取得
+        $students = \Auth::user()->students;
+
+        return view('auth.late.create', compact('students'));
     }
 
     /**
@@ -33,9 +47,17 @@ class LateController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LateRequest $request)
     {
-        //
+        Late::create([
+            'student_id' => $request->student_id,
+            'day' => $request->day,
+            'time' => $request->time,
+            'parent' => $request->parent,
+        ]);
+
+        return redirect()->route('lates.index')
+        ->with('complete', '新規作成しました。');
     }
 
     /**
@@ -46,7 +68,11 @@ class LateController extends Controller
      */
     public function show(Late $late)
     {
-        //
+        $student_id = $late->student_id;
+
+        $student = Student::find($student_id);
+
+        return view('auth.late.show', compact('late', 'student'));
     }
 
     /**
@@ -57,7 +83,11 @@ class LateController extends Controller
      */
     public function edit(Late $late)
     {
-        //
+        $student_id = $late->student_id;
+
+        $student = Student::find($student_id);
+
+        return view('auth.late.edit', compact('late', 'student'));
     }
 
     /**
@@ -69,7 +99,16 @@ class LateController extends Controller
      */
     public function update(Request $request, Late $late)
     {
-        //
+        // 更新
+        $late->update([
+            'student_id' => $request->student_id,
+            'day' => $request->day,
+            'time' => $request->time,
+            'parent' => $request->parent,
+        ]);
+
+        return redirect()->route('lates.index')
+        ->with('complete', '更新しました。');
     }
 
     /**
@@ -80,6 +119,9 @@ class LateController extends Controller
      */
     public function destroy(Late $late)
     {
-        //
+        $late->delete();
+
+        return redirect()->route('lates.index')
+        ->with('complete', '削除しました。');
     }
 }

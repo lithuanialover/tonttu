@@ -22,6 +22,14 @@
         </div>
         <div class="flex dashboard-position-btn" style="margin-top: 30px;">
             <div class="register">
+                <a href="{{ route('leaveearlys.index') }}">早退連絡　　</a>
+            </div>
+            <div class="login">
+                <a href="{{ route('lates.index') }}">遅刻連絡</a>
+            </div>
+        </div>
+        <div class="flex dashboard-position-btn" style="margin-top: 30px;">
+            <div class="register">
                 <a href="{{ route('students.index') }}">お子様の情報</a>
             </div>
             <div class="login">
