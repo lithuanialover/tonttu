@@ -53,7 +53,19 @@
                                         @if (empty($attendanceStudent->student->student_image))
                                         <img class="rounded-circle" src="{{asset('/img/seeder/user.png')}}">
                                         @else
-                                        <img class="rounded-circle" src="{{asset('storage/' . $attendanceStudent->student->student_image)}}" style="margin: 10px 0">
+                                        {{-- <a href="{{ route('showAllInfo', $attendanceStudent->student->id) }}">
+                                            <img class="rounded-circle" src="{{asset('storage/' . $attendanceStudent->student->student_image)}}" style="margin: 10px 0">
+                                        </a> --}}
+                                        <a href="{{ route('showAllInfo', $attendanceStudent->student->id) }}" class="image_box hover_t_1">
+                                            <figure class="img_wrap">
+                                                <img class="rounded-circle" src="{{asset('storage/' . $attendanceStudent->student->student_image)}}" alt="生徒画像" style="margin: 10px 0">
+                                                <figcaption class="txt_wrap">
+                                                <div class="txt_box">
+                                                    <p>Click</p>
+                                                </div>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
                                         @endif
                                     </li>
                                     {{-- <li>{{  $attendanceData->student_id }}</li> --}}

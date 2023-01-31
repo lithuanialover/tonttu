@@ -7,6 +7,7 @@ use App\Http\Controllers\MeetingAttendanceController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\LateController;
 use App\Http\Controllers\LeaveEarlyController;
+use App\Http\Controllers\ShowAllInfoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -114,6 +115,10 @@ Route::middleware('auth:admin')->group(function () {
     Route::post('/event/edit/{id}', [MeetingController::class, 'update'])->name('meeting.update'); //編集画面
 
     Route::delete('/event/destroy/{id}', [MeetingController::class, 'destroy'])->name('meeting.destroy'); //編集画面
+
+
+#生徒に紐づく全情報を取得
+    Route::get('/detail/{id}', [ShowAllInfoController::class, 'detail'])->name('showAllInfo');
 
 });
 

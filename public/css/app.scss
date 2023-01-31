@@ -412,6 +412,55 @@ li{
     }
 }
 
+figure, p {/* リセット用（場合によっては不要） */
+  margin:0;
+}
+.image_box{
+  width: 70px;
+  display: block;
+}
+.hover_t_1{
+  position: relative;
+    img{
+      display: block;
+      width: 100%;
+      transition: .3s;
+    }
+    figcaption{
+      opacity: 0;
+      transition: .3s;
+      position: absolute;
+      left: 0;
+      top:0;
+      width: 100%;
+      height: 100%;
+      color: #fff;
+      .txt_box{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        >p{
+          width: 100%;
+          text-align: center;
+          position: absolute;
+          left: 50%;
+          top:50%;
+          transform: translate(-50%,-50%);
+        }
+      }
+    }
+    &:hover{
+      figure{
+        img{
+          filter: brightness(60%);
+        }
+        figcaption{
+          opacity: 1;
+        }
+      }
+    }
+  }
+
 /*QR読み取り画面*/
 .attendance-bgcolor{
     background-color: #bee8dca7;
