@@ -75,7 +75,7 @@
         <div class="feature-cnt flex teacherFeatureCnt">
             <div class="featureText">
                 <h2 class="featureNo">01</h2>
-                <p class="lp-p">当日の「登園・降園」と「欠席連絡」を同じ画面で確認できます。<br>「履歴」をクリックすると過去の登園・降園履歴を確認できます。</p>
+                <p class="lp-p">当日の「登園・降園」と「欠席・早退・遅刻連絡」を同じ画面で確認できます。<br>「履歴」をクリックすると過去の登園・降園履歴を確認できます。</p>
             </div>
             <div class="featureImg">
                 <img src="{{ asset('img/lp/AdminAttendance.png') }}" alt="登園降園確認">
@@ -84,7 +84,7 @@
         <div class="feature-cnt flex teacherFeatureCnt">
             <div class="featureText">
                 <h2 class="featureNo">02</h2>
-                <p class="lp-p">未登園の園児数を確認できます。</p>
+                <p class="lp-p">未登園の園児数などを一覧で確認できます。</p>
             </div>
             <div class="featureImg">
                 <img src="{{ asset('img/lp/AdminNonAttendance.png') }}" alt="登園降園確認">

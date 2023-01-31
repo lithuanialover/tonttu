@@ -22,8 +22,8 @@ class DatabaseSeeder extends Seeder
         $this->call(MeetingSeeder::class);
         $this->call(MeetingAttendanceTypeSeeder::class);
         $this->call(MeetingAttendanceSeeder::class);
-        $this->call(LateTableSeeder::class);
-        $this->call(LeaveEarlyTableSeeder::class);
+        // $this->call(LateTableSeeder::class);
+        // $this->call(LeaveEarlyTableSeeder::class);
 
         // $this->call(StudentsTableSeeder::class);
     }
