@@ -5,6 +5,8 @@ use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\MeetingAttendanceController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\LateController;
+use App\Http\Controllers\LeaveEarlyController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -43,6 +45,12 @@ Route::middleware('auth')->group(function () {
 
 #園児の欠席報告
     Route::resource('absences', AbsenceController::class);
+
+#園児の遅刻報告
+    Route::resource('lates', LateController::class);
+
+#園児の早退報告
+    Route::resource('leaveearlys', LeaveEarlyController::class);
 
 #出欠報告
     Route::get('/meeting', [MeetingAttendanceController::class, 'index'])->name('meetingAttendance.index'); //イベント一覧取得
