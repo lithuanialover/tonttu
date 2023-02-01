@@ -9,6 +9,8 @@ use App\Models\LeaveEarly;
 use App\Models\Student;
 use App\Models\User;
 
+use Carbon\Carbon; //Carbonを使うuse文
+
 use Illuminate\Http\Request;
 
 class ShowAllInfoController extends Controller
@@ -16,7 +18,9 @@ class ShowAllInfoController extends Controller
     public function detail($id){
 
         $student_id = $id;
-        
+
+        $today_start = Carbon::today()->format('Y-m-d 00:00:00');
+        $today_end = Carbon::today()->format('Y-m-d 23:59:59');
         
         //該当する「生徒情報」を取得
 
@@ -33,24 +37,33 @@ class ShowAllInfoController extends Controller
         
         // dd($parent);
 
-
         //「本日の登園情報」を取得
-
-
         //「本日の降園情報」を取得
+        $attendance = Attendance::with(['student'])->where('student_id', '=', $student_id )->whereDate('created_at', Carbon::today())->first();
 
+        // dd($attendance);
 
         //「本日の遅刻情報」を取得
+        $late = Late::whereBetween('lateness.day', [$today_start, $today_end])
+        ->with('student')->where('student_id', '=', $student_id)
+        ->first();
 
+        // dd($late);
 
         //「本日の早退情報」を取得
+        $leaveEarly = LeaveEarly::whereBetween('leaveearlies.day', [$today_start, $today_end])
+        ->with('student')->where('student_id', '=', $student_id)
+        ->first();
 
+        // dd($leaveEarly);
 
         //「本日の欠席情報」を取得
-        // $absence = Absence::find($student_id);
+        $absent = Absence::whereBetween('absences.absentDay', [$today_start, $today_end])
+        ->with('student')->where('student_id', '=', $student_id)
+        ->first();
 
 
         
-        return view('admin.detail', compact('student', 'parent'));
+        return view('admin.detail', compact('student', 'parent', 'attendance', 'late', 'leaveEarly', 'absent'));
     }
 }

@@ -37,23 +37,40 @@
                 <table class="table">
                     <tr>
                         <th>登園</th>
-                        <td>{{ $student->student_name }}</td>
+                        <td>{{ $attendance->punchIn }}</td>
                     </tr>
                     <tr>
                         <th>降園</th>
-                        <td>{{ $student->student_kana }}</td>
+                        <td>{{ $attendance->punchOut }}</td>
                     </tr>
                     <tr>
                         <th>欠席</th>
-                        <td>{{ $student->student_gender }}</td>
+                        <td>
+                            <ul>
+                                <li>欠席日: {{ $absent->absentDay }}</li>
+                                <li>欠席理由: {{ $absent->absentReason }}</li>
+                            </ul>
+                        </td>
                     </tr>
                     <tr>
                         <th>遅刻</th>
-                        <td>{{ $student->user_id }}</td>
+                        <td>
+                            <ul>
+                                <li>遅刻日: {{ $late->day }}</li>
+                                <li>到着予定時間: {{ $late->time }}</li>
+                                <li>送迎者: {{ $late->parent }}</li>
+                            </ul>
+                        </td>
                     </tr>
                                 <tr>
                         <th>早退</th>
-                        <td>{{ $student->student_gender }}</td>
+                        <td>
+                            <ul>
+                                <li>早退日: {{ $leaveEarly->day }}</li>
+                                <li>降園予定時間: {{ $leaveEarly->time }}</li>
+                                <li>送迎者: {{ $leaveEarly->parent }}</li>
+                            </ul>
+                        </td>
                     </tr>
                 </table>
             </div>
