@@ -61,8 +61,6 @@ class ShowAllInfoController extends Controller
         $absent = Absence::whereBetween('absences.absentDay', [$today_start, $today_end])
         ->with('student')->where('student_id', '=', $student_id)
         ->first();
-
-
         
         return view('admin.detail', compact('student', 'parent', 'attendance', 'late', 'leaveEarly', 'absent'));
     }

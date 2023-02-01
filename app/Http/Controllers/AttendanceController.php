@@ -17,7 +17,7 @@ class AttendanceController extends Controller
     public function index(){
 
         // 当日の登園・降園の一覧
-        $attendanceStudents = Attendance::with('student')->orderBy('student_id', 'desc')->with(['student'])->whereDate('created_at', Carbon::today())->paginate(2);
+        $attendanceStudents = Attendance::with('student')->orderBy('student_id', 'desc')->with(['student'])->whereDate('created_at', Carbon::today())->paginate(4);
 
         // 当日の欠席一覧
         $today_start = Carbon::today()->format('Y-m-d 00:00:00');

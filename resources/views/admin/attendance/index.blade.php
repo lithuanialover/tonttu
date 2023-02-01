@@ -58,7 +58,7 @@
                                         </a> --}}
                                         <a href="{{ route('showAllInfo', $attendanceStudent->student->id) }}" class="image_box hover_t_1">
                                             <figure class="img_wrap">
-                                                <img class="rounded-circle" src="{{asset('storage/' . $attendanceStudent->student->student_image)}}" alt="生徒画像" style="margin: 10px 0">
+                                                <img class="rounded-circle" src="{{asset('storage/' . $attendanceStudent->student->student_image)}}" alt="生徒画像">
                                                 <figcaption class="txt_wrap">
                                                 <div class="txt_box">
                                                     <p>Click</p>
@@ -95,7 +95,22 @@
                         <tr class="table-bloke" style="overflow: auto;">
                             <td style="width: 50%">
                                 <ul class="flex" style="align-items: center; justify-content: space-between">
-                                    <li class="index-img"><img class="rounded-circle" src="{{asset('storage/' . $todaysAbsent->student->student_image)}}"></li>
+                                    <li class="index-img">
+                                        @if (empty($todaysAbsent->student->student_image))
+                                        <img class="rounded-circle" src="{{asset('/img/seeder/user.png')}}">
+                                        @else
+                                        <a href="{{ route('showAllInfo', $todaysAbsent->student->id) }}" class="image_box hover_t_1">
+                                            <figure class="img_wrap">
+                                                <img class="rounded-circle" src="{{asset('storage/' . $todaysAbsent->student->student_image)}}" alt="生徒画像">
+                                                <figcaption class="txt_wrap">
+                                                <div class="txt_box">
+                                                    <p>Click</p>
+                                                </div>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                        @endif
+                                    </li>
                                     {{-- <li>{{  $attendanceData->student_id }}</li> --}}
                                     <li>{{  $todaysAbsent->student->student_kana }}</li>
                                     <li>{{  $todaysAbsent->absentReason }}</li>
@@ -118,10 +133,24 @@
                         @foreach( $todaysLateness as  $todaysLate)
                         <tr class="table-bloke" style="overflow: auto;">
                             <td style="width: 50%">
-                                {{-- <a href="{{ rooute('') }}"> --}}
                                     <ul class="flex" style="align-items: center; justify-content: space-between">
-                                        <li class="index-img"><img class="rounded-circle" src="{{asset('storage/' . $todaysLate->student->student_image)}}"></li>
-                                        {{-- <li>{{  $attendanceData->student_id }}</li> --}}
+                                        <li class="index-img">
+                                            @if (empty($todaysLate->student->student_image))
+                                            <img class="rounded-circle" src="{{asset('/img/seeder/user.png')}}">
+                                            @else
+                                            <a href="{{ route('showAllInfo', $todaysLate->student->id) }}" class="image_box hover_t_1">
+                                                <figure class="img_wrap">
+                                                    <img class="rounded-circle" src="{{asset('storage/' . $todaysLate->student->student_image)}}" alt="生徒画像">
+                                                    <figcaption class="txt_wrap">
+                                                    <div class="txt_box">
+                                                        <p>Click</p>
+                                                    </div>
+                                                    </figcaption>
+                                                </figure>
+                                            </a>
+                                            @endif
+                                        </li>
+
                                         <li>{{  $todaysLate->student->student_kana }}</li>
                                         <li>登園時間 {{  $todaysLate->time }}</li>
                                         {{-- <li>
@@ -145,7 +174,22 @@
                         <tr class="table-bloke" style="overflow: auto;">
                             <td style="width: 50%">
                                 <ul class="flex" style="align-items: center; justify-content: space-between">
-                                    <li class="index-img"><img class="rounded-circle" src="{{asset('storage/' . $todaysLeaveEarly->student->student_image)}}"></li>
+                                    <li class="index-img">
+                                        @if (empty($todaysLeaveEarly->student->student_image))
+                                            <img class="rounded-circle" src="{{asset('/img/seeder/user.png')}}">
+                                        @else
+                                            <a href="{{ route('showAllInfo', $todaysLeaveEarly->student->id) }}" class="image_box hover_t_1">
+                                                <figure class="img_wrap">
+                                                    <img class="rounded-circle" src="{{asset('storage/' . $todaysLeaveEarly->student->student_image)}}" alt="生徒画像">
+                                                    <figcaption class="txt_wrap">
+                                                    <div class="txt_box">
+                                                        <p>Click</p>
+                                                    </div>
+                                                    </figcaption>
+                                                </figure>
+                                            </a>
+                                        @endif
+                                    </li>
                                     {{-- <li>{{  $attendanceData->student_id }}</li> --}}
                                     <li>{{  $todaysLeaveEarly->student->student_kana }}</li>
                                     <li>早退時間{{  $todaysLeaveEarly->time }}</li>

@@ -64,11 +64,13 @@ li {
 .user-header {
   background-color: #FBF0F6;
   width: 100%;
+  position: fixed;
 }
 
 .admin-header {
   background-color: rgba(45, 121, 214, 0.37);
   width: 100%;
+  position: fixed;
 }
 
 .header {
@@ -546,7 +548,7 @@ figure, p { /* リセット用（場合によっては不要） */
     width: 70%;
   }
   .cnt-mg-top {
-    margin-top: 70px;
+    margin-top: 130px;
   }
   .cnt-top {
     margin-top: 70px;
