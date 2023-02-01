@@ -21,6 +21,9 @@ class ShowAllInfoController extends Controller
 
         $today_start = Carbon::today()->format('Y-m-d 00:00:00');
         $today_end = Carbon::today()->format('Y-m-d 23:59:59');
+
+        $today = Carbon::today()->format('Y年m月d日');
+
         
         //該当する「生徒情報」を取得
 
@@ -62,6 +65,6 @@ class ShowAllInfoController extends Controller
         ->with('student')->where('student_id', '=', $student_id)
         ->first();
         
-        return view('admin.detail', compact('student', 'parent', 'attendance', 'late', 'leaveEarly', 'absent'));
+        return view('admin.detail', compact('student', 'parent', 'attendance', 'late', 'leaveEarly', 'absent', 'today'));
     }
 }

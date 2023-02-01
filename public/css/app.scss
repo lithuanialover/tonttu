@@ -415,13 +415,13 @@ li{
 }
 
 .detail-img{
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     margin-right: 20px;
 
     .rounded-circle{
         width: 100%;
-        height: 150px;
+        height: 200px;
         object-fit: cover;
         border-radius: 100%;
     }
@@ -608,6 +608,40 @@ figure, p {/* リセット用（場合によっては不要） */
   right: 0;
   top: -10px;
   outline : none;
+}
+
+#detail-student,
+#detail-Attend{
+    
+    width: 100%;
+
+    tr{
+        font-size: 20px;
+    }
+
+    th{
+        width: 40%;
+        padding: 10px 0;
+    }
+
+    td{
+        width: 60%;
+        padding: 10px 0;
+        padding-left: 10px;
+
+        ul{
+            flex-direction:column;
+            align-items: flex-start;
+
+            li{
+                padding: 5px 0;
+            }
+        }
+    }
+}
+
+#detail-student{
+    margin-top: 50px;
 }
 
 

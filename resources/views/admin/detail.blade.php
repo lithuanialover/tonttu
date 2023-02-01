@@ -3,18 +3,17 @@
 @section('main')
 <div class="cnt-position">
     <div class="cnt-width cnt-mg-top">
-        <h2>詳細</h2>
-        <div class="flex">
-            <div>
-                <div class="detail-img">
+        <div class="flex" style="justify-content: space-between;">
+            <div style="width: 40%;">
+                <div class="detail-img" style="margin-left: 80px;">
                     @if (empty($student->student_image))
                         <img class="rounded-circle" src="{{asset('/img/seeder/user.png')}}">
                     @else
-                        <img class="rounded-circle" src="{{asset('storage/' . $student->student_image)}}" style="margin: 10px 0">
+                        <img class="rounded-circle" src="{{asset('storage/' . $student->student_image)}}">
                     @endif
                 </div>
 
-                <table class="table">
+                <table id="detail-student" class="table">
                     <tr>
                         <th>園児名</th>
                         @if( !isset($student->student_name))
@@ -50,8 +49,9 @@
                     </tr>
                 </table>
             </div>
-            <div>
-                <table class="table">
+            <div style="width: 50%;">
+                <p>{{ $today }}の情報</p>
+                <table id="detail-Attend" class="table">
                     <tr>
                         <th>登園</th>
                         @if( !isset($attendance->punchIn))
@@ -74,7 +74,7 @@
                         <td>情報なし</td>
                         @else
                         <td>
-                            <ul>
+                            <ul class="flex">
                                 <li>欠席日: {{ $absent->absentDay }}</li>
                                 <li>欠席理由: {{ $absent->absentReason }}</li>
                             </ul>
@@ -87,7 +87,7 @@
                         <td>情報なし</td>
                         @else
                         <td>
-                            <ul>
+                            <ul class="flex">
                                 <li>遅刻日: {{ $late->day }}</li>
                                 <li>到着予定時間: {{ $late->time }}</li>
                                 <li>送迎者: {{ $late->parent }}</li>
@@ -101,7 +101,7 @@
                         <td>情報なし</td>
                         @else
                         <td>
-                            <ul>
+                            <ul class="flex">
                                 <li>早退日: {{ $leaveEarly->day }}</li>
                                 <li>降園予定時間: {{ $leaveEarly->time }}</li>
                                 <li>送迎者: {{ $leaveEarly->parent }}</li>
