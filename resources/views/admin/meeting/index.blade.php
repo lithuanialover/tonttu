@@ -46,6 +46,9 @@
                                 @csrf
                                 @method('DELETE')
                                 <div class="flex lists-btn-position">
+                                    <div class="edit">
+                                        <a href="{{ route('pdf',$eventHistory->id) }}" class="btn btn-primary">PDF</a>
+                                    </div>
                                     <div class="details">
                                         <a href="{{ route('meeting.show',$eventHistory->id) }}">詳細</a>
                                     </div>

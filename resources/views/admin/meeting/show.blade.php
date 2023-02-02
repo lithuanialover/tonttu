@@ -151,6 +151,9 @@
             <div class="register show-btn" style="width:200px;">
                 <a href="{{ route('meetingList') }}">もどる</a>
             </div>
+            <div class="login show-btn" style="width:200px;">
+                <a href="{{ route('pdf', $meeting->id) }}">PDF</a>
+            </div>
         </div>
     </div>
 </div>

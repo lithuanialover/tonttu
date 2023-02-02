@@ -116,6 +116,8 @@ Route::middleware('auth:admin')->group(function () {
 
     Route::delete('/event/destroy/{id}', [MeetingController::class, 'destroy'])->name('meeting.destroy'); //編集画面
 
+    Route::get('/eventpdf/{id}', [MeetingController::class, 'pdf'])->name('pdf');
+
 
 #生徒に紐づく全情報を取得
     Route::get('/detail/{id}', [ShowAllInfoController::class, 'detail'])->name('showAllInfo');
