@@ -477,8 +477,8 @@ figure, p { /* リセット用（場合によっては不要） */
 #qrreader #preview {
   position: absolute;
   top: 30%;
-  left: 9.5%;
-  width: 550px;
+  left: 10%;
+  width: 620px;
   border-radius: 100%;
 }
 
