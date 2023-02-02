@@ -3,8 +3,8 @@
 @section('main')
 <div class="cnt-position">
     <div class="cnt-width cnt-mg-top auth-flame">
-        <div class="flex" style="justify-content: space-between;">
-            <div style="width: 75%;">
+        <div class="flex" style="justify-content: center;">
+            <div style="width: 80%;">
                 <h2 class="form-ttl">イベントの詳細</h2>
                 <div class="table">
                     <table style="width: 100%;">
@@ -35,7 +35,12 @@
                     </table>
                 </div>
             </div>
-            <div style="width;20%;">
+        </div>
+        <div class="flex" style="justify-content: center;"> 
+            <div style="margin-bottom: 30px; width: 50%;">
+                <canvas id="myChart"></canvas>
+            </div>
+            <div style="width;50%;">
                 <h2 class="form-ttl">回答状況</h2>
                 <div class="table">
                     <table style="width: 100%;">
@@ -63,9 +68,51 @@
                 </div>
             </div>
         </div>
-        <div class="flex" style="justify-content: center;"> 
-            <div style="margin-bottom: 30px; width: 60%;">
-                <canvas id="myChart"></canvas>
+        <div class="flex" style="justify-content: space-between;">
+            <div style="width:25%;">
+                <h2 class="form-ttl">参加者</h2>
+                <div class="table">
+                    <table style="width: 100%;">
+                        <tr class="table-bloke">
+                            <th>名簿</th>
+                        </tr>
+                        @foreach($participants as $participant)
+                        <tr class="table-bloke">
+                            <td>{{ $participant->user->name }}</td>
+                        </tr>
+                        @endforeach
+                    </table>
+                </div>
+            </div>
+            <div style="width:25%;">
+                <h2 class="form-ttl">欠席者</h2>
+                <div class="table">
+                    <table style="width: 100%;">
+                        <tr class="table-bloke">
+                            <th>名簿</th>
+                        </tr>
+                        @foreach($absentees as $absentee)
+                        <tr class="table-bloke">
+                            <td>{{ $absentee->user->name }}</td>
+                        </tr>
+                        @endforeach
+                    </table>
+                </div>
+            </div>
+            <div style="width:25%;">
+                <h2 class="form-ttl">未回答者</h2>
+                <div class="table">
+                    <table style="width: 100%;">
+                        <tr class="table-bloke">
+                            <th>名簿</th>
+                        </tr>
+                        @foreach($nonResponders as $nonResponder)
+                        <tr class="table-bloke">
+                            <td>{{ $nonResponder->user->name }}</td>
+                        </tr>
+                        @endforeach
+                    </table>
+                </div>
             </div>
         </div>
         {{-- <div class="flex" style="justify-content: space-between;  margin-bottom: 50px;">

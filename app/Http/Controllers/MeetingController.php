@@ -121,8 +121,33 @@ class MeetingController extends Controller
 
         $countNotYet = MeetingAttendance::where('meeting_id', $id)
         ->where('type_id', 99)->count();
+
+        #追記
+        //参加者リスト
+        $participants =MeetingAttendance::where('meeting_id', $id)
+                        ->where('type_id', 1)
+                        ->with('meeting', 'user')
+                        ->get();
         
-        return view('admin.meeting.show', compact('meeting', 'countUser', 'countAttend', 'countAbsent', 'countNotYet'));
+        // dd($participants);
+
+        //欠席者リスト
+        $absentees = MeetingAttendance::where('meeting_id', $id)
+        ->where('type_id', 2)
+        ->with('meeting', 'user')
+        ->get();
+
+        // dd($absentees);
+
+        //未回答者リスト
+        $nonResponders = MeetingAttendance::where('meeting_id', $id)
+        ->where('type_id', 99)
+        ->with('meeting', 'user')
+        ->get();
+
+        // dd($nonResponders);
+        
+        return view('admin.meeting.show', compact('meeting', 'countUser', 'countAttend', 'countAbsent', 'countNotYet', 'participants', 'absentees', 'nonResponders'));
     }
 
     public function edit($id)

@@ -52,10 +52,10 @@ class User extends Authenticatable
         //return $this->hasMany('App\Comment', 'foreign_key', 'local_key');
     }
 
-    // // 1対多の関係でリレーションを設定 User→Student(Userが1)(studentが多)
-    // public function meetingAttendances()
-    // {
-    //     return $this->hasMany(MeetingAttendance::class,'user_id', 'id');
-    //     //return $this->hasMany('App\Comment', 'foreign_key', 'local_key');
-    // }
+    // 1対多の関係でリレーションを設定 User→Student(Userが1)(studentが多)
+    public function meetingAttendances()
+    {
+        return $this->hasMany(MeetingAttendance::class,'user_id', 'id');
+        //return $this->hasMany('App\Comment', 'foreign_key', 'local_key');
+    }
 }
